@@ -41,7 +41,7 @@ export const newSong = (song) => async (dispatch) => {
   if (response.ok) {
     dispatch(addSong(data.song));
 
-    return data.song
+    return data
   }
   else {
     // const data = await response.json()
