@@ -64,11 +64,11 @@ def new_song(id):
 
 
         add_song = Song(
-            name = form['name']
-            album = form['album']
-            artist = form['artist']
-            genre = form['genre']
-            mp3_url = form['mp3_url']
+            name = form['name'],
+            album = form['album'],
+            artist = form['artist'],
+            genre = form['genre'],
+            mp3_url = form['mp3_url'],
             user_id = current_user.id,
 
         )
