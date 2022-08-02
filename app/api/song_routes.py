@@ -53,6 +53,12 @@ def songs():
     songs = Song.query.all()
     return {'songs': [song.to_dict() for song in songs]}
 
+@song_routes.route('/<int:user_id>')
+@login_required
+def user_songs(user_id):
+    songs = Song.query.filter(current_user.id == user_id )
+    return {'songs': [song.to_dict() for song in songs]}
+
 
 @song_routes.route('', methods=['POST'])
 @login_required
@@ -72,12 +78,41 @@ def new_song():
             user_id = current_user.id,
 
         )
-        print(add_song.to_dict())
+
         db.session.add(add_song)
         db.session.commit()
         return{
             "song": add_song.to_dict()
         }
+
+    else:
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@song_routes.route('/<int:song_id>', methods=['DELETE'])
+@login_required
+def delete_song(song_id):
+    song = Song.query.get(song_id)
+    db.session.delete(song)
+    db.session.commit()
+
+    return {'songId': song_id}
+
+@song_routes.route('/<int:song_id>', methods=['PATCH'])
+@login_required
+def update_song(song_id):
+    song = Song.query.get(song_id)
+    form = SongForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        # data = request.json
+
+        song.name = form.data['name'],
+        song.album = form.data['album'],
+        song.artist = form.data['artist'],
+        song.genre = form.data['genre'],
+        db.session.commit()
+
+        return {'song': song.to_dict()}
 
     else:
         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
