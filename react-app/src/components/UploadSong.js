@@ -37,7 +37,14 @@ function UploadSong() {
             genre,
             mp3_url: data.url,
         }
-        await dispatch(newSong(song))
+        const response = await dispatch(newSong(song))
+        if (response.ok) {
+          console.log('Success!')
+        }
+        else{
+          const moreData = await res.json()
+          setMp3Errors(moreData.errors)
+        }
     }
     else {
         const data = await res.json();
@@ -116,7 +123,11 @@ const updateMp3 = (e) => {
             <button type="submit">Upload</button>
 
         </form>
-
+        <div className="errorsList">
+          {mp3errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
     </>
   );
 }

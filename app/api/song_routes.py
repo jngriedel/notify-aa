@@ -54,9 +54,9 @@ def songs():
     return {'songs': [song.to_dict() for song in songs]}
 
 
-@song_routes.route('/', methods=['POST'])
+@song_routes.route('', methods=['POST'])
 @login_required
-def new_song(id):
+def new_song():
     form = SongForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
@@ -72,10 +72,11 @@ def new_song(id):
             user_id = current_user.id,
 
         )
+        print(add_song.to_dict())
         db.session.add(add_song)
         db.session.commit()
         return{
-            "song": song.to_dict()
+            "song": add_song.to_dict()
         }
 
     else:

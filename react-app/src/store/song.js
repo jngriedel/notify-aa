@@ -18,13 +18,18 @@ export const newSong = (song) => async (dispatch) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      body: JSON.stringify(song),
-    }
+
+    },
+    body: JSON.stringify(song),
   });
 
   if (response.ok) {
     const data = await response.json()
     dispatch(addSong(data));
+  }
+  else {
+    const data = await response.json()
+    return data.errors
   }
 };
 

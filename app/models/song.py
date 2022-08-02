@@ -10,7 +10,7 @@ class Song(db.Model):
     album = db.Column(db.String(100), nullable=False)
     artist = db.Column(db.String(100), nullable=False)
     genre = db.Column(db.String(100), nullable=False)
-    mp3_Url = db.Column(db.String(255), nullable=False)
+    mp3_url = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     #relationships
@@ -21,7 +21,8 @@ class Song(db.Model):
         return {
             'id': self.id,
             'name': self.name,
-            'ablum': self.ablum,
+            'album': self.album,
             'artist': self.artist,
-            'genre': self.genre
+            'genre': self.genre,
+            'mp3_url' : self.mp3_url
         }
