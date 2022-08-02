@@ -23,12 +23,14 @@ export const newSong = (song) => async (dispatch) => {
     body: JSON.stringify(song),
   });
 
+  const data = await response.json()
   if (response.ok) {
-    const data = await response.json()
-    dispatch(addSong(data));
+    dispatch(addSong(data.song));
+
+    return data
   }
   else {
-    const data = await response.json()
+    // const data = await response.json()
     return data.errors
   }
 };

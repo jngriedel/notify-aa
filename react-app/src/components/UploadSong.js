@@ -11,7 +11,8 @@ function UploadSong() {
   const [name, setName] = useState('');
   const [album, setAlbum] = useState('');
   const [artist, setArtist] = useState('');
-  const [genre, setGenre] = useState('');
+  const [genre, setGenre] = useState('Classical');
+
 
 
   const handleSubmit = async (e) => {
@@ -38,12 +39,15 @@ function UploadSong() {
             mp3_url: data.url,
         }
         const response = await dispatch(newSong(song))
-        if (response.ok) {
-          console.log('Success!')
+
+        if (response.song) {
+          setAlbum('')
+          setName('')
+          setArtist('')
+          setGenre('Classical')
         }
         else{
-          const moreData = await res.json()
-          setMp3Errors(moreData.errors)
+          setMp3Errors(response)
         }
     }
     else {
@@ -124,7 +128,7 @@ const updateMp3 = (e) => {
 
         </form>
         <div className="errorsList">
-          {mp3errors.map((error, ind) => (
+          {mp3errors && mp3errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>

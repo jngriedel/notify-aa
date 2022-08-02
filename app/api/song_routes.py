@@ -24,12 +24,12 @@ def validation_errors_to_error_messages(validation_errors):
 @login_required
 def upload_mp3():
     if "mp3" not in request.files:
-        return {"errors": "mp3 file required"}, 400
+        return {"errors": ["mp3 file required"]}, 400
 
     mp3 = request.files["mp3"]
 
     if not allowed_file(mp3.filename):
-        return {"errors": "file type not permitted"}, 400
+        return {"errors": ["file type not permitted"]}, 400
 
     mp3.filename = get_unique_filename(mp3.filename)
 
@@ -64,11 +64,11 @@ def new_song():
 
 
         add_song = Song(
-            name = form['name'],
-            album = form['album'],
-            artist = form['artist'],
-            genre = form['genre'],
-            mp3_url = form['mp3_url'],
+            name = form.data['name'],
+            album = form.data['album'],
+            artist = form.data['artist'],
+            genre = form.data['genre'],
+            mp3_url = form.data['mp3_url'],
             user_id = current_user.id,
 
         )
