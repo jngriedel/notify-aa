@@ -16,7 +16,7 @@ return (
     mode='full'
     showDownload={false}
     defaultVolume={0.5}
-
+    
     />
 
     </div>

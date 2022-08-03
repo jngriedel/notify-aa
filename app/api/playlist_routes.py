@@ -38,7 +38,7 @@ def new_playlist():
 
 
     url = None
-    
+
     if "image" in request.files:
         # return {"errors": ["Image file required"]}, 400
 
@@ -76,11 +76,12 @@ def playlists():
     playlists = Playlist.query.all()
     return {'playlists': [playlist.to_dict() for playlist in playlists]}
 
-@playlist_routes.route('/<int:user_id>')
+
+@playlist_routes.route('/<int:playlist_id>')
 @login_required
-def user_playlists(user_id):
-    playlists = Playlist.query.filter(current_user.id == user_id )
-    return {'playlists': [playlist.to_dict() for playlist in playlists]}
+def user_playlists(playlist_id):
+    playlist = Playlist.query.get(playlist_id)
+    return {'playlist': playlist.to_dict()}
 
 
 
@@ -89,9 +90,10 @@ def user_playlists(user_id):
 @login_required
 def delete_playlist(playlist_id):
     playlist = Playlist.query.get(playlist_id)
+
     db.session.delete(playlist)
     db.session.commit()
-
+    
     return {'playlistId': playlist_id}
 
 @playlist_routes.route('/<int:playlist_id>', methods=['PATCH'])

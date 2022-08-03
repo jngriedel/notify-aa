@@ -11,6 +11,7 @@ import UploadSong from './components/UploadSong/UploadSong';
 import Profile from './components/Profile/Profile'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import CreatePlaylist from './components/CreatePlaylist/CreatePlaylist'
+import Playlist from './components/Playlist/Playlist';
 import { authenticate } from './store/session';
 
 function App() {
@@ -56,6 +57,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/createplaylist' exact={true} >
           <CreatePlaylist />
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:playlistId' exact={true} >
+          <Playlist />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

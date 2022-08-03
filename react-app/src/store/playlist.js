@@ -46,7 +46,7 @@ export const newPlaylist = (playlist) => async (dispatch) => {
   }
 };
 export const getPlaylists = (userId) => async (dispatch) => {
-  const response = await fetch(`/api/playlists/${userId}`);
+  const response = await fetch(`/api/users/${userId}/playlists`);
 
   const data = await response.json()
   if (response.ok) {
@@ -60,15 +60,16 @@ export const getPlaylists = (userId) => async (dispatch) => {
   }
 };
 export const deletePlaylist = (playlistId) => async (dispatch) => {
-  const response = await fetch(`/api/songs/${playlistId}`, {
+  const response = await fetch(`/api/playlists/${playlistId}`, {
     method: 'DELETE'
   });
 
   const data = await response.json()
   if (response.ok) {
+
     dispatch(removePlaylist(data.playlistId));
 
-    return data.playlistId
+    return data
   }
   else {
 
@@ -76,7 +77,7 @@ export const deletePlaylist = (playlistId) => async (dispatch) => {
   }
 };
 export const editPlaylist = (playlistId, playlist) => async (dispatch) => {
-  const response = await fetch(`/api/songs/${playlistId}`, {
+  const response = await fetch(`/api/playlists/${playlistId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

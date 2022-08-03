@@ -15,9 +15,7 @@ function Song({song}) {
   const dispatch = useDispatch()
   const {audioLists, setAudioLists} = useMusicContext()
 
-  useEffect(() =>{
-    console.log(audioLists)
-  },[audioLists])
+  
 
   const handleDelete = async() =>{
     dispatch(deleteSong(song.id))
@@ -25,7 +23,7 @@ function Song({song}) {
 
   const handlePlay = async() => {
     const audioListTemp = []
-    
+
     audioListTemp.push({
       name: song.name,
       singer: song.artist,

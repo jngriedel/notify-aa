@@ -1,0 +1,20 @@
+.playlist-preview{
+    width: 150px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playlist-preview-image {
+    width: 120px;
+    height: 120px;
+
+}
+
+.playlist-carousel{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
