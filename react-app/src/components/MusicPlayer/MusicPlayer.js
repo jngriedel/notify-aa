@@ -15,6 +15,7 @@ return (
     toggleMode={false}
     mode='full'
     showDownload={false}
+    defaultVolume={0.5}
 
     />
 

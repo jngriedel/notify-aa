@@ -10,6 +10,7 @@ import User from './components/User';
 import UploadSong from './components/UploadSong/UploadSong';
 import Profile from './components/Profile/Profile'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
+import CreatePlaylist from './components/CreatePlaylist/CreatePlaylist'
 import { authenticate } from './store/session';
 
 function App() {
@@ -52,6 +53,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/profile' exact={true} >
           <Profile />
+        </ProtectedRoute>
+        <ProtectedRoute path='/createplaylist' exact={true} >
+          <CreatePlaylist />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

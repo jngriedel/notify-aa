@@ -30,11 +30,8 @@ const initialState = {};
 export const newPlaylist = (playlist) => async (dispatch) => {
   const response = await fetch('/api/playlists', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
 
-    },
-    body: JSON.stringify(playlist),
+    body: playlist
   });
 
   const data = await response.json()

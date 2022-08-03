@@ -20,4 +20,5 @@ class Playlist(db.Model):
             'id': self.id,
             'name': self.name,
             'description': self.description,
+            'image_url': self.image_url
         }
