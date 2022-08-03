@@ -93,25 +93,53 @@ def delete_playlist(playlist_id):
 
     db.session.delete(playlist)
     db.session.commit()
-    
+
     return {'playlistId': playlist_id}
 
 @playlist_routes.route('/<int:playlist_id>', methods=['PATCH'])
 @login_required
-def update_song(playlist_id):
+def edit_playlist(playlist_id):
+    try:
+        validate_csrf(request.cookies['csrf_token'])
+    except:
+        return {'errors': ['Invalid csrf token']}, 400
+
     playlist = Playlist.query.get(playlist_id)
-    form = PlaylistForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
+
+    if len(request.form.get('name')) > 100:
+        return {"errors": ["Name can not exceed 100 characters"]}, 400
+
+    if len(request.form.get('description')) > 100:
+        return {"errors": ["Description can not exceed 255 characters"]}, 400
 
 
-        playlist.name = form.data['name'],
-        playlist.description = form.data['description'],
-        playlist.image_url = form.data['image_url'],
+    if request.form.get('name'):
+        playlist.name = request.form.get('name')
 
-        db.session.commit()
+    if request.form.get('description'):
+        playlist.description = request.form.get('description')
 
-        return {'playlist': playlist.to_dict()}
+    if "image" in request.files:
+        # return {"errors": ["Image file required"]}, 400
 
-    else:
-        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+        image = request.files["image"]
+
+        if not allowed_file(image.filename):
+            return {"errors": ["Image must be a .jpg, .jpeg, or .png"]}, 400
+
+
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
+            return upload, 400
+
+        url = upload["url"]
+        playlist.image_url = url
+
+    db.session.commit()
+    return {'playlist': playlist.to_dict()}

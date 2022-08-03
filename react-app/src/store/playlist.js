@@ -6,7 +6,7 @@ const REMOVE_PLAYLIST = 'session/REMOVE_PLAYLIST';
 
 
 
-const addPlaylist = (playlist) => ({
+export const addPlaylist = (playlist) => ({
   type: ADD_PLAYLIST,
   payload: playlist
 })
@@ -79,11 +79,8 @@ export const deletePlaylist = (playlistId) => async (dispatch) => {
 export const editPlaylist = (playlistId, playlist) => async (dispatch) => {
   const response = await fetch(`/api/playlists/${playlistId}`, {
     method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
 
-    },
-    body: JSON.stringify(playlist),
+    body: playlist,
 
   });
 

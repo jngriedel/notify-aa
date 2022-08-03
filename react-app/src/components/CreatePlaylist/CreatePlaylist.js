@@ -31,9 +31,6 @@ function CreatePlaylist() {
     else {
       setErrors(response)
     }
-
-
-
 }
 
 const updateImage = (e) => {
