@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import UploadSong from './components/UploadSong/UploadSong';
 import Profile from './components/Profile/Profile'
+import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import { authenticate } from './store/session';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <MusicPlayer />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />

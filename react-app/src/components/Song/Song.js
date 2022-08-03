@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+
 import {deleteSong, editSong} from '../../store/song'
+import { useMusicContext } from '../context/MusicContext';
 import './Song.css'
 function Song({song}) {
   const sessionUser = useSelector(state=> state.session.user)
@@ -12,10 +13,26 @@ function Song({song}) {
   const [genre, setGenre] = useState(song.genre);
   const [edit, setEdit] = useState(false)
   const dispatch = useDispatch()
+  const {audioLists, setAudioLists} = useMusicContext()
 
+  useEffect(() =>{
+    console.log(audioLists)
+  },[audioLists])
 
   const handleDelete = async() =>{
     dispatch(deleteSong(song.id))
+  }
+
+  const handlePlay = async() => {
+    const audioListTemp = []
+    audioListTemp.push({
+      name: song.name,
+      singer: song.artist,
+      musicSrc: song.mp3_url
+    })
+
+    await setAudioLists(audioListTemp)
+
   }
 
   const handleCancelEdit = () =>{
@@ -58,6 +75,7 @@ function Song({song}) {
         <p>{song.genre}</p>
         <button onClick={()=>setEdit(true)} type='button'>Edit</button>
         <button onClick={handleDelete} type='button'>Delete</button>
+        <button onClick={handlePlay} type='button' >PLAY</button>
     </div>
     }
     {edit && <div className='song-container'>
@@ -117,6 +135,7 @@ function Song({song}) {
 
         <button type='submit'>Save</button>
         <button type='button' onClick={handleCancelEdit}>Cancel</button>
+
         </form>
 
 

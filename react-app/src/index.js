@@ -4,14 +4,17 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import configureStore from './store';
+import MusicProvider from './components/context/MusicContext';
 
 const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+     <MusicProvider>
         <App />
-      </Provider>
+      </MusicProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
