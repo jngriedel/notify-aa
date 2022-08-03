@@ -12,6 +12,7 @@ class Song(db.Model):
     genre = db.Column(db.String(100), nullable=False)
     mp3_url = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    image_url = db.Column(db.String(255))
 
     #relationships
 
