@@ -11,11 +11,11 @@ const addSong = (song) => ({
   payload: song
 })
 
-const setSongs = (songs) => ({
+export const setSongs = (songs) => ({
   type: SET_SONGS,
   payload: songs
 })
-const removeSong = (songId) => ({
+export const removeSong = (songId) => ({
   type: REMOVE_SONG,
   payload: songId
 })
@@ -58,7 +58,7 @@ export const getSongs = (userId) => async (dispatch) => {
     return data.songs
   }
   else {
-    
+
     return data
   }
 };

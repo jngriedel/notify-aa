@@ -1,8 +1,8 @@
 
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { removeSongFromPlaylist, addPlaylist } from '../../store/playlist';
+import { removeSong } from '../../store/song';
 
 import { useMusicContext } from '../context/MusicContext';
 
@@ -71,9 +71,9 @@ function PlaylistSong({song, playlistId, playlist}) {
 
     const data = await response.json()
     if (response.ok) {
-        // console.log(data.message)
-        dispatch(removeSongFromPlaylist(song.id, playlistId))
-        dispatch(addPlaylist(playlist))
+
+        dispatch(removeSong(song.id))
+
     }
 
 

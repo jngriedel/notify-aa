@@ -4,14 +4,16 @@ import { useHistory, useParams } from 'react-router-dom';
 import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
 import PlaylistSong from '../PlaylistSong/PlaylistSong'
+import {setSongs} from '../../store/song'
+import { useMusicContext } from '../context/MusicContext';
 
 function Playlist() {
-//   const [playlist, setPlaylist] = useState('')
+
   const { playlistId }  = useParams();
   const playlist = useSelector(state => state.playlist[playlistId])
-//   const songs = useSelector(state => state.playlist[playlistId]?.songs)
+  const songs = useSelector(state => state.song)
 
-  const [songs, setSongs] = useState(playlist?.songs)
+  const {audioLists, setAudioLists} = useMusicContext()
   const [errors, setErrors] = useState([])
   const [edit, setEdit] = useState(false)
   const [name, setName] = useState("")
@@ -20,7 +22,7 @@ function Playlist() {
   const history = useHistory()
   const dispatch = useDispatch()
 
-  let songsMap
+
 
   useEffect(() => {
     (async () => {
@@ -28,6 +30,7 @@ function Playlist() {
       const data = await response.json();
 
       await dispatch(addPlaylist(data.playlist))
+      await dispatch(setSongs(Object.values(data.playlist.songs)))
 
 
     })();
@@ -39,8 +42,8 @@ function Playlist() {
   useEffect(()=>{
     setName(playlist?.name)
     setDescription(playlist?.description)
-    setSongs(playlist?.songs)
-    console.log(playlist, 'PLAYLIST')
+
+
 
 
   },[playlist])
@@ -92,6 +95,19 @@ const updateImage = (e) => {
     const file = e.target.files[0];
     setImage(file);
 }
+const playPlaylist = async() => {
+    const audioListTemp = []
+    Object.values(songs).forEach((song)=>{
+        audioListTemp.push({
+            name: song.name,
+            singer: song.artist,
+            musicSrc: song.mp3_url
+          })
+    })
+
+
+    await setAudioLists(audioListTemp)
+}
 
 
 
@@ -105,6 +121,7 @@ const updateImage = (e) => {
         <strong>Playlist</strong> {playlist.name}
         <strong>Description:</strong> {playlist.description}
         <img className='playlist-preview-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
+        <button type='button' onClick={playPlaylist}>Play</button>
       </div>
       <div>
         <button type='button' onClick={(()=>setEdit(true))}>Edit</button>
