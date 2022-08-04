@@ -12,55 +12,88 @@ function UploadSong() {
   const [album, setAlbum] = useState('');
   const [artist, setArtist] = useState('');
   const [genre, setGenre] = useState('Classical');
+  const [image, setImage] = useState(null);
 
 
 
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setMp3Errors([])
+//     const formData = new FormData();
+//     formData.append("mp3", mp3);
+
+
+
+//     const res = await fetch('/api/songs/mp3', {
+//         method: "POST",
+//         body: formData,
+//     });
+
+//     if (res.ok) {
+//         const data = await res.json();
+
+//         const song = {
+//             name,
+//             album,
+//             artist,
+//             genre,
+//             mp3_url: data.url,
+//         }
+//         const response = await dispatch(newSong(song))
+
+//         if (response.song) {
+//           setAlbum('')
+//           setName('')
+//           setArtist('')
+//           setGenre('Classical')
+//         }
+//         else{
+//           setMp3Errors(response)
+//         }
+//     }
+//     else {
+//         const data = await res.json();
+
+//         setMp3Errors(data.errors)
+
+//     }
+// }
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMp3Errors([])
-    const formData = new FormData();
-    formData.append("mp3", mp3);
+    const form = new FormData();
+    form.append("mp3", mp3);
+    form.append("image", image)
+    form.append("name", name)
+    form.append("album", album)
+    form.append("artist", artist)
+    form.append("genre", genre)
 
 
+    const response = await dispatch(newSong(form))
 
-    const res = await fetch('/api/songs/mp3', {
-        method: "POST",
-        body: formData,
-    });
-
-    if (res.ok) {
-        const data = await res.json();
-
-        const song = {
-            name,
-            album,
-            artist,
-            genre,
-            mp3_url: data.url,
-        }
-        const response = await dispatch(newSong(song))
-
-        if (response.song) {
-          setAlbum('')
-          setName('')
-          setArtist('')
-          setGenre('Classical')
-        }
-        else{
-          setMp3Errors(response)
-        }
+      if (response.song) {
+        setAlbum('')
+        setName('')
+        setArtist('')
+        setGenre('Classical')
+        setImage(null)
+        setMp3(null)
+      }
+      else{
+        setMp3Errors(response)
+      }
     }
-    else {
-        const data = await res.json();
 
-        setMp3Errors(data.errors)
 
-    }
-}
 
 const updateMp3 = (e) => {
     const file = e.target.files[0];
     setMp3(file);
+}
+const updateImage = (e) => {
+  const file = e.target.files[0];
+  setImage(file);
 }
 
 
@@ -74,6 +107,7 @@ const updateMp3 = (e) => {
 
             <label>Song Name</label>
             <input
+                  required
                   className="upload-songname"
                   placeholder="Song Name"
                   type="text"
@@ -83,6 +117,7 @@ const updateMp3 = (e) => {
                 ></input>
             <label>Album</label>
             <input
+                  required
                   className="upload-album"
                   placeholder="Album"
                   type="text"
@@ -92,6 +127,7 @@ const updateMp3 = (e) => {
                 ></input>
             <label>Artist</label>
             <input
+                  required
                   className="upload-artist"
                   placeholder="Artist"
                   type="text"
@@ -117,6 +153,13 @@ const updateMp3 = (e) => {
                 <option value="Rock">Rock</option>
                 <option value="Other">Other</option>
             </select>
+
+            <label>Album Cover (Optional) </label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={updateImage}
+            />
 
 
             <input

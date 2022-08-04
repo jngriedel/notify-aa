@@ -30,11 +30,7 @@ const initialState = {};
 export const newSong = (song) => async (dispatch) => {
   const response = await fetch('/api/songs', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-
-    },
-    body: JSON.stringify(song),
+    body: song
   });
 
   const data = await response.json()
