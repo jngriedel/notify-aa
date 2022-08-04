@@ -13,7 +13,7 @@ function Playlist() {
   const playlist = useSelector(state => state.playlist[playlistId])
   const songs = useSelector(state => state.song)
 
-  const {audioLists, setAudioLists} = useMusicContext()
+  const {setClearAudioList, setAudioLists} = useMusicContext()
   const [errors, setErrors] = useState([])
   const [edit, setEdit] = useState(false)
   const [name, setName] = useState("")
@@ -97,6 +97,7 @@ const updateImage = (e) => {
 }
 const playPlaylist = async() => {
     const audioListTemp = []
+    setClearAudioList(true)
     Object.values(songs).forEach((song)=>{
         audioListTemp.push({
             name: song.name,

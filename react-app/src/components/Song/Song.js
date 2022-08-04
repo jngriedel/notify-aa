@@ -14,7 +14,7 @@ function Song({song}) {
   const [edit, setEdit] = useState(false)
   const [addToPlaylist, setAddToPlaylist] = useState(false)
   const dispatch = useDispatch()
-  const {audioLists, setAudioLists} = useMusicContext()
+  const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
 
 
 
@@ -23,7 +23,8 @@ function Song({song}) {
   }
 
   const handlePlay = async() => {
-    setAudioLists([])
+    setClearAudioList(true)
+
     const audioListTemp = []
 
     audioListTemp.push({

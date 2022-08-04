@@ -6,7 +6,7 @@ import { useMusicContext } from '../context/MusicContext';
 
 
 const MusicPlayer = () =>{
-const {audioLists} = useMusicContext()
+const {audioLists, clearAudioList} = useMusicContext()
 return (
     <div>
     <ReactJkMusicPlayer
@@ -16,7 +16,7 @@ return (
     mode='full'
     showDownload={false}
     defaultVolume={0.5}
-    
+    clearPriorAudioLists={clearAudioList}
     />
 
     </div>

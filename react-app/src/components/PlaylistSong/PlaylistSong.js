@@ -13,13 +13,14 @@ function PlaylistSong({song, playlistId, playlist}) {
   const [edit, setEdit] = useState(false)
   const [addToPlaylist, setAddToPlaylist] = useState(false)
   const dispatch = useDispatch()
-  const {audioLists, setAudioLists} = useMusicContext()
+  const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
 
 
 
 
   const handlePlay = async() => {
     const audioListTemp = []
+    setClearAudioList(true)
 
     audioListTemp.push({
       name: song.name,
