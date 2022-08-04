@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
+import Song from '../Song/Song'
 
 function Playlist() {
 //   const [playlist, setPlaylist] = useState('')
   const { playlistId }  = useParams();
   const playlist = useSelector(state => state.playlist[playlistId])
+  const songs = useSelector(state => state.playlist[playlistId].songs)
 
   const [errors, setErrors] = useState([])
   const [edit, setEdit] = useState(false)
@@ -146,9 +148,9 @@ const updateImage = (e) => {
 
 
         <div>
-        {/* {userSongs && Object.values(userSongs).map((song, i)=>(
+        {songs && Object.values(songs).map((song, i)=>(
     <Song key={i} song={song} />
-   ))} */}
+   ))}
 
 
 
