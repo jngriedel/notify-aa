@@ -3,7 +3,7 @@ import React, {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { removeSong } from '../../store/song';
-
+import no_playlist from "../../images/no_playlist.PNG"
 import { useMusicContext } from '../context/MusicContext';
 
 import '../Song/Song.css'
@@ -25,7 +25,8 @@ function PlaylistSong({song, playlistId, playlist}) {
     audioListTemp.push({
       name: song.name,
       singer: song.artist,
-      musicSrc: song.mp3_url
+      musicSrc: song.mp3_url,
+      cover: song.image_url ? song.image_url : no_playlist
     })
 
     await setAudioLists(audioListTemp)

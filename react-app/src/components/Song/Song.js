@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {deleteSong, editSong} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
+import no_playlist from "../../images/no_playlist.PNG"
 import './Song.css'
 function Song({song}) {
   const sessionUser = useSelector(state=> state.session.user)
@@ -30,7 +31,8 @@ function Song({song}) {
     audioListTemp.push({
       name: song.name,
       singer: song.artist,
-      musicSrc: song.mp3_url
+      musicSrc: song.mp3_url,
+      cover: song.image_url ? song.image_url : no_playlist
     })
 
     await setAudioLists(audioListTemp)

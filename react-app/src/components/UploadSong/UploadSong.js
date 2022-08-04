@@ -16,48 +16,7 @@ function UploadSong() {
 
 
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     setMp3Errors([])
-//     const formData = new FormData();
-//     formData.append("mp3", mp3);
 
-
-
-//     const res = await fetch('/api/songs/mp3', {
-//         method: "POST",
-//         body: formData,
-//     });
-
-//     if (res.ok) {
-//         const data = await res.json();
-
-//         const song = {
-//             name,
-//             album,
-//             artist,
-//             genre,
-//             mp3_url: data.url,
-//         }
-//         const response = await dispatch(newSong(song))
-
-//         if (response.song) {
-//           setAlbum('')
-//           setName('')
-//           setArtist('')
-//           setGenre('Classical')
-//         }
-//         else{
-//           setMp3Errors(response)
-//         }
-//     }
-//     else {
-//         const data = await res.json();
-
-//         setMp3Errors(data.errors)
-
-//     }
-// }
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMp3Errors([])

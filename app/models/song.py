@@ -26,5 +26,6 @@ class Song(db.Model):
             'album': self.album,
             'artist': self.artist,
             'genre': self.genre,
-            'mp3_url' : self.mp3_url
+            'mp3_url' : self.mp3_url,
+            'image_url': self.image_url
         }

@@ -102,7 +102,8 @@ const playPlaylist = async() => {
         audioListTemp.push({
             name: song.name,
             singer: song.artist,
-            musicSrc: song.mp3_url
+            musicSrc: song.mp3_url,
+            cover: song.image_url ? song.image_url : no_playlist
           })
     })
 
