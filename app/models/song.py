@@ -1,5 +1,5 @@
 from .db import db
-
+from .playlistjoin import Playlist_Join
 
 
 class Song(db.Model):
@@ -17,6 +17,7 @@ class Song(db.Model):
     #relationships
 
     user = db.relationship('User', back_populates='songs')
+    playlists = db.relationship('Playlist', secondary='playlistjoins', back_populates='songs')
 
     def to_dict(self):
         return {

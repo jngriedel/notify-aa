@@ -1,4 +1,5 @@
 from .db import db
+from .playlistjoin import Playlist_Join
 
 
 
@@ -14,11 +15,13 @@ class Playlist(db.Model):
 
     #relationships
     user = db.relationship('User', back_populates='playlists')
+    songs = db.relationship('Song', secondary='playlistjoins', back_populates='playlists')
 
     def to_dict(self):
         return {
             'id': self.id,
             'name': self.name,
             'description': self.description,
-            'image_url': self.image_url
+            'image_url': self.image_url,
+            'songs': [song.to_dict() for song in self.songs]
         }

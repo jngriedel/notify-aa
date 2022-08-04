@@ -1,10 +1,11 @@
+
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {deleteSong, editSong} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
 import './Song.css'
-function Song({song}) {
+function PlaylistSong({song}) {
   const sessionUser = useSelector(state=> state.session.user)
   const [name, setName] = useState(song.name);
   const [errors, setErrors] = useState([])
@@ -82,7 +83,7 @@ function Song({song}) {
     });
 
     const data = await response.json()
-    
+
     setAddToPlaylist(false)
 
   }
@@ -179,4 +180,4 @@ function Song({song}) {
    </>
   );
 }
-export default Song
+export default PlaylistSong
