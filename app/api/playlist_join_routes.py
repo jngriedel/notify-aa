@@ -47,7 +47,7 @@ def playlists():
     db.session.commit()
     return {'message': 'Success!'}
 
-@playlist_join_routes.route('/', methods=['DELETE'])
+@playlist_join_routes.route('/remove', methods=['POST'])
 @login_required
 def remove_song():
     data = request.json

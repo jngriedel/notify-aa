@@ -23,6 +23,7 @@ function Song({song}) {
   }
 
   const handlePlay = async() => {
+    setAudioLists([])
     const audioListTemp = []
 
     audioListTemp.push({
@@ -82,7 +83,7 @@ function Song({song}) {
     });
 
     const data = await response.json()
-    
+
     setAddToPlaylist(false)
 
   }

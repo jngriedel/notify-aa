@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
-import Song from '../Song/Song'
+import PlaylistSong from '../PlaylistSong/PlaylistSong'
 
 function Playlist() {
 //   const [playlist, setPlaylist] = useState('')
   const { playlistId }  = useParams();
   const playlist = useSelector(state => state.playlist[playlistId])
-  const songs = useSelector(state => state.playlist[playlistId].songs)
+//   const songs = useSelector(state => state.playlist[playlistId]?.songs)
 
+  const [songs, setSongs] = useState(playlist?.songs)
   const [errors, setErrors] = useState([])
   const [edit, setEdit] = useState(false)
   const [name, setName] = useState("")
@@ -18,6 +19,8 @@ function Playlist() {
   const [image, setImage] = useState(null)
   const history = useHistory()
   const dispatch = useDispatch()
+
+  let songsMap
 
   useEffect(() => {
     (async () => {
@@ -30,9 +33,15 @@ function Playlist() {
     })();
   }, [playlistId]);
 
+
+
+
   useEffect(()=>{
     setName(playlist?.name)
     setDescription(playlist?.description)
+    setSongs(playlist?.songs)
+    console.log(playlist, 'PLAYLIST')
+
 
   },[playlist])
 
@@ -149,7 +158,7 @@ const updateImage = (e) => {
 
         <div>
         {songs && Object.values(songs).map((song, i)=>(
-    <Song key={i} song={song} />
+    <PlaylistSong key={i} song={song} playlistId={playlistId} playlist={playlist} />
    ))}
 
 

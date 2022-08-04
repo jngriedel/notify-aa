@@ -2,9 +2,15 @@
 const ADD_PLAYLIST = 'session/ADD_PLAYLIST';
 const SET_PLAYLISTS = 'session/SET_PLAYLISTS';
 const REMOVE_PLAYLIST = 'session/REMOVE_PLAYLIST';
+const REMOVE_SONG_FROM_PLAYLIST = 'session/REMOVE_SONG_FROM_PLAYLIST';
 
 
 
+
+export const removeSongFromPlaylist = (songId, playlistId) => ({
+  type: REMOVE_SONG_FROM_PLAYLIST,
+  payload: [songId, +playlistId]
+})
 
 export const addPlaylist = (playlist) => ({
   type: ADD_PLAYLIST,
@@ -116,6 +122,11 @@ export default function reducer(state = initialState, action) {
     case REMOVE_PLAYLIST: {
       const newState = {...state}
         delete newState[action.payload]
+      return newState
+    }
+    case REMOVE_SONG_FROM_PLAYLIST: {
+      const newState = {...state}
+        delete newState[action.payload[1]].songs[action.payload[0]]
       return newState
     }
 
