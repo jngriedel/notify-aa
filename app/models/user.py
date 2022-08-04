@@ -33,5 +33,6 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'image_url': self.image_url,
+            'playlists': [playlist.to_dict() for playlist in self.playlists]
 
         }

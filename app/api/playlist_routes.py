@@ -33,7 +33,8 @@ def new_playlist():
     if len(request.form.get('name')) > 100:
         return {"errors": ["Name can not exceed 100 characters"]}, 400
 
-    if len(request.form.get('description')) > 100:
+
+    if len(request.form.get('description')) > 255:
         return {"errors": ["Description can not exceed 255 characters"]}, 400
 
 
@@ -109,7 +110,7 @@ def edit_playlist(playlist_id):
     if len(request.form.get('name')) > 100:
         return {"errors": ["Name can not exceed 100 characters"]}, 400
 
-    if len(request.form.get('description')) > 100:
+    if len(request.form.get('description')) > 255:
         return {"errors": ["Description can not exceed 255 characters"]}, 400
 
 

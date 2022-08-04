@@ -3,3 +3,11 @@
     flex-direction: row;
     margin:  10px 0px;
 }
+
+.playlist-dropdown-option{
+    border: black 1px solid;
+}
+.playlist-dropdown-option:hover{
+    cursor: pointer;
+    background-color: grey;
+}

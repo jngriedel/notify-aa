@@ -12,6 +12,7 @@ function Song({song}) {
   const [artist, setArtist] = useState(song.artist);
   const [genre, setGenre] = useState(song.genre);
   const [edit, setEdit] = useState(false)
+  const [addToPlaylist, setAddToPlaylist] = useState(false)
   const dispatch = useDispatch()
   const {audioLists, setAudioLists} = useMusicContext()
 
@@ -64,6 +65,12 @@ function Song({song}) {
     }
   }
 
+
+
+  const handleAddToPlaylist = async (playlistId) => {
+    return
+  }
+
   return (
     <>
     {!edit &&
@@ -75,6 +82,18 @@ function Song({song}) {
         <button onClick={()=>setEdit(true)} type='button'>Edit</button>
         <button onClick={handleDelete} type='button'>Delete</button>
         <button onClick={handlePlay} type='button' >PLAY</button>
+        { !addToPlaylist && <button onClick={()=>{setAddToPlaylist(true)}} type='button' >Add to Playlist</button>}
+        {addToPlaylist &&
+        <div className='playlist-dropdown'>
+        {sessionUser.playlists.map((playlist,i)=>(
+            <div key={i} onClick={()=>handleAddToPlaylist(playlist.id)} className='playlist-dropdown-option'>
+              {playlist.name}
+            </div>
+        ))}
+        <button onClick={()=>setAddToPlaylist(false)} type='button'>Cancel</button>
+          </div>
+        }
+
     </div>
     }
     {edit && <div className='song-container'>
