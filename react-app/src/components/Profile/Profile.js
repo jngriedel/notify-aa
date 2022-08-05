@@ -25,17 +25,27 @@ function User() {
    <h1>Profile Page</h1>
     <div className='playlist-carousel'>
    {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
-   <NavLink key={i} to={`/playlists/${playlist.id}`}>
+   <NavLink className='playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>
     <div className='playlist-preview'>
       <img className='playlist-preview-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
-      <p>{playlist.name}</p>
+      <p className='playlist-name'>{playlist.name}</p>
       </div>
     </NavLink>
    )) }
    </div>
-
+    <div className='song-header'>
+      <div>
+        #
+      </div>
+      <div>
+        TITLE
+      </div>
+      <div>
+        ALBUM
+      </div>
+    </div>
    {userSongs && Object.values(userSongs).map((song, i)=>(
-    <Song key={i} song={song} />
+    <Song key={i} i={i} song={song} />
    ))}
    </>
   );

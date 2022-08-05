@@ -1,7 +1,14 @@
 .song-container{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: [number] 16px [Title] 6fr [Album] 4fr [space] 3fr ;
+    height: 55px;
     margin:  10px 0px;
+    align-items: center;
+
+}
+
+.song-container:hover{
+    background-color: rgba(43,42,48,255);
 }
 
 .playlist-dropdown-option{
@@ -10,4 +17,19 @@
 .playlist-dropdown-option:hover{
     cursor: pointer;
     background-color: grey;
+}
+
+.song-image{
+    height: 40px;
+    width: 40px;
+}
+
+.song-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.song-name-artist {
+    margin-left: 16px;
 }
