@@ -1,0 +1,49 @@
+.playlist-main-image{
+    height: 232px;
+    width: 232px;
+    box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+    margin-right: 25px;
+
+}
+
+.playlist-head{
+    width: 100%;
+    height: 265px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 85px;
+    padding: 0px;
+}
+.playlist-word{
+    margin-top: 90px;
+    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.playlist-info{
+    display: flex;
+    height: 232px;
+    flex-direction: column;
+
+
+}
+
+.playlist-name{
+    font-size: 72px;
+    font-weight: 600;
+    margin: 0px 0px;
+}
+
+.play-button-button{
+    background: transparent;
+    border: none;
+
+}
+.play-button-image{
+    background: transparent;
+    border: none;
+    height: 60px;
+    width: 60px;
+
+}

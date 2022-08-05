@@ -1,5 +1,6 @@
 .navbar{
 
+    max-width: 240px;
     min-width: 240px;
     min-height: 89.5vh;
     height: 100vh;
@@ -18,7 +19,7 @@
 }
 .navbar-list{
     padding: 0px;
-   
+
 }
 
 .navbar-list > li {

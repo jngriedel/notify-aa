@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
+import play_button_black from "../../images/playbuttonblack.png"
 import PlaylistSong from '../PlaylistSong/PlaylistSong'
-import Song from '../Song/Song';
+import './Playlist.css'
 import {setSongs} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
 
@@ -122,12 +123,13 @@ const playPlaylist = async() => {
 
     { loaded && <div>
    { playlist && !edit &&
-     <div>
-      <div>
-        <strong>Playlist</strong> {playlist.name}
-        <strong>Description:</strong> {playlist.description}
-        <img className='playlist-preview-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
-        <button type='button' onClick={playPlaylist}>Play</button>
+     <div className='playlist-head'>
+        <img className='playlist-main-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
+      <div className='playist-info'>
+        <h4 className='playlist-word'>Playlist</h4> <h1 className='playlist-name'>{playlist.name} </h1>
+        {playlist.description}
+
+
       </div>
       <div>
         <button type='button' onClick={(()=>setEdit(true))}>Edit</button>
@@ -135,6 +137,7 @@ const playPlaylist = async() => {
       </div>
 
     </div> }
+    <button className='play-button-button' type='button' onClick={playPlaylist}><img className='play-button-image'  alt='play' src={play_button_black}/></button>
     {edit && <div className='playlist-container'>
     {errors && errors.map((error, ind) => (
             <div key={ind}>{error}</div>
