@@ -12,7 +12,7 @@ const NavBar = () => {
       <ul className='navbar-list'>
         <li>
           <NavLink className='navbar-links' to='/' exact={true} activeClassName='active'>
-            Home
+          <i class="fa-solid fa-house fa-lg"></i> Home
           </NavLink>
         </li>
         {/* <li>
@@ -28,17 +28,17 @@ const NavBar = () => {
 
         <li>
           <NavLink className='navbar-links' to='/uploadsong' exact={true} activeClassName='active'>
-            Upload Song
+          <i class="fa-solid fa-cloud-arrow-up fa-lg"></i>Upload Song
           </NavLink>
         </li>
         <li>
           <NavLink className='navbar-links' to='/profile' exact={true} activeClassName='active'>
-            Your Library
+          <i class="fa-solid fa-book-blank fa-lg"></i>Your Library
           </NavLink>
         </li>
         <li>
           <NavLink className='navbar-links' to='/createplaylist' exact={true} activeClassName='active'>
-            Create Playlist
+          <i class="fa-solid fa-plus fa-lg"></i> Create Playlist
           </NavLink>
         </li>
         <li>

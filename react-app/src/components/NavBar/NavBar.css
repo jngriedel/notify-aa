@@ -1,8 +1,8 @@
 .navbar{
 
-    min-width: 12.5vw;
+    min-width: 240px;
     min-height: 89.5vh;
-    max-height: 89.5vh;
+    height: 100vh;
 
 
 
@@ -34,10 +34,20 @@
     padding: 0px 15px;
     color: #b3b3b3;
     text-decoration: none;
+    font-weight: 500;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.2s;
+}
+.navbar-links:hover {
+    color:white;
 }
 .navbar-links:visited {
     text-decoration: none;
-    color: white;
+
+}
+.navbar-links > i {
+    margin-right: 16px;
 }
 
 .navbar-logo{
