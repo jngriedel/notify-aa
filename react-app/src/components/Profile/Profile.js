@@ -32,7 +32,7 @@ function User() {
    <NavLink className='playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>
     <div className='playlist-preview'>
       <img className='playlist-preview-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
-      <p className='playlist-name'>{playlist.name}</p>
+      <p className='playlist-preview-name'>{playlist.name}</p>
       </div>
     </NavLink>
    )) }
