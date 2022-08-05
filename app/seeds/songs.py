@@ -47,7 +47,7 @@ def seed_songs():
         name='Animals', artist='Martin Garrix', album='Animals', genre='Electronic', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Martin+Garrix+-+Animals+(Official+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Martin_Garrix_-_Animals.png'
     )
     electronic_5 = Song(
-        name='', artist='', album='Peace is the Mission', genre='Electronic', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Major+Lazer+%26+DJ+Snake+-+Lean+On+(feat.+M%C3%98)+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/MajorLazerPeaceIstheMission.png'
+        name='Lean On', artist='', album='Peace is the Mission', genre='Electronic', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Major+Lazer+%26+DJ+Snake+-+Lean+On+(feat.+M%C3%98)+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/MajorLazerPeaceIstheMission.png'
     )
 
     #jazz
