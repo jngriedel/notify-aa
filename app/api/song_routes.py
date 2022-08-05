@@ -71,6 +71,8 @@ def new_song():
     except:
         return {'errors': ['Invalid csrf token']}, 400
 
+    # all_errors = []
+
     ## Validate Text Fiels
     if len(request.form.get('name')) > 100:
         return {"errors": ["Song name cannot exceed 100 characters"]}, 400
@@ -127,7 +129,8 @@ def new_song():
     mp3_url = upload["url"]
     # flask_login allows us to get the current user from the request
 
-
+    # if len(all_errors) > 0:
+    #     return {'errors'; all_errors}
 
 
 
