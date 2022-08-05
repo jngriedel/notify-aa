@@ -69,87 +69,87 @@ def seed_songs():
 
     #metal
     metal_1 = Song(
-        name='Bad Things', artist='I Prevail', album='True Power', genre='Metal', user_id = 1, mp3_url='', image_url=''
+        name='Bad Things', artist='I Prevail', album='True Power', genre='Metal', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/I+Prevail+-+Bad+Things+(Official+Music+Video)+(1).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/515812-true-power.webp'
     )
     metal_2 = Song(
-        name='Enter Sandman', artist='Metallica', album='Enter Sandma', genre='Metal', user_id = 1, mp3_url='', image_url=''
+        name='Enter Sandman', artist='Metallica', album='Enter Sandma', genre='Metal', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Metallica_+Enter+Sandman+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/enter+sandman.jpg'
     )
     metal_3 = Song(
-        name='', artist='', album='', genre='Metal', user_id = 2, mp3_url='', image_url=''
+        name='Chop Suey', artist='System of a Down', album='Toxicity', genre='Metal', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/System+Of+A+Down+-+Chop+Suey!+(Official+HD+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/toxcicity.jpg'
     )
     metal_4 = Song(
-        name='', artist='', album='', genre='Metal', user_id = 3, mp3_url='', image_url=''
+        name='Immigrant Song', artist='Led Zeppelin', album='Led Zeppelin III', genre='Metal', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Immigrant+Song+(Remaster).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/ledzepplin3.jpg'
     )
     metal_5 = Song(
-        name='', artist='', album='', genre='Metal', user_id = 1, mp3_url='', image_url=''
+        name='Crazy Train', artist='Ozzy Osbourne', album='Blizzard of Ozz', genre='Metal', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Ozzy+Osbourne+-+Crazy+Train+(Official+Animated+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/ozzy.jpg'
     )
 
     #pop
     pop_1 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Get Lucky', artist='Daft Punk', album='Random Access Memories', genre='Pop', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Daft+Punk+-+Get+Lucky+(Official+Audio)+ft.+Pharrell+Williams%2C+Nile+Rodgers.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/get+lucky.jpg'
     )
     pop_2 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Take On Me', artist='a-ha', album='Hunting High and Low', genre='Pop', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/a-ha+-+Take+On+Me.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/take+on+me.jpg'
     )
     pop_3 = Song(
-        name='', artist='', album='', genre='', user_id = 2, mp3_url='', image_url=''
+        name='Blinding Lights', artist='The Weeknd', album='After Hours', genre='Pop', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/The+Weeknd+-+Blinding+Lights+(Official+Audio).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/after+hours.png'
     )
     pop_4 = Song(
-        name='', artist='', album='', genre='', user_id = 3, mp3_url='', image_url=''
+        name='Beat It', artist='Michael Jackson', album='Thriller', genre='Pop', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Michael+Jackson-Beat+it+(Lyrics).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/thriller.png'
     )
     pop_5 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Shake it Off', artist='Taylor Swift', album='1989', genre='Pop', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Taylor+Swift+-+Shake+It+Off+(Audio).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/1989.jpg'
     )
 
     #rap
     rap_1 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='No Problem', artist='Chance the Rapper', album='Coloring Book', genre='Rap', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Chance+The+Rapper+-+No+Problem+(feat.+Lil+Wayne+2+Chainz)+Explicit.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/coloring+book.png'
     )
     rap_2 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Sweatpants', artist='Childish Gambino', album='Because of the Internet', genre='Rap', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/IV.+Sweatpants.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/because+of+the+internet.gif'
     )
     rap_3 = Song(
-        name='', artist='', album='', genre='', user_id = 2, mp3_url='', image_url=''
+        name='It Was A Good Day', artist='Ice Cube', album='The Predator', genre='Rap', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/It+Was+A+Good+Day.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/the+pred.jpg'
     )
     rap_4 = Song(
-        name='', artist='', album='', genre='', user_id = 3, mp3_url='', image_url=''
+        name='Changes', artist='Tupac', album='Changes', genre='Rap', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Changes.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/changes.jpg'
     )
     rap_5 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Lose Yourself', artist='Eminem', album='8 Mile Soundtrack', genre='Rap', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Eminem+-+Lose+Yourself+(Lyrics).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/lose+yourself.jpg'
     )
 
     #rock
     rock_1 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Ain\'t Talkin\' \'bout Love', artist='Van Halen', album='Van Halen', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Van+Halen+-+Aint+Talkin'+Bout+Love.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/vanhalen.jpg'
     )
     rock_2 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Smells Like Teen Spirit', artist='Nirvana', album='Nevermind', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Nirvana+-+Smells+Like+Teen+Spirit.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/nevermind.jpg'
     )
     rock_3 = Song(
-        name='', artist='', album='', genre='', user_id = 2, mp3_url='', image_url=''
+        name='Thunderstruck', artist='AC/DC', album='The Razor\'s Edge', genre='Rock', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/AC_DC+-+Thunderstruck.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/the+razors+edge.jpg'
     )
     rock_4 = Song(
-        name='', artist='', album='', genre='', user_id = 3, mp3_url='', image_url=''
+        name='Welcome to the Jungle', artist='Guns N\' Roses', album='Appetite for Destruction', genre='Rock', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Guns'n+Roses+-+Welcome+to+the+Jungle.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/appetitefordestruction.jpg'
     )
     rock_5 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Don\'t Stop Believin\'', artist='Journey', album='Escape', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Journey+-+Don't+Stop+Believin.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/escape.jpg'
     )
 
     #other
     other_1 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Welcome To The Black Parade', artist='My Chemical Romance', album='The Black Parade', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/My+Chemical+Romance+-+Welcome+To+The+Black+Parade+(audio).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/black+parade.jpg'
     )
     other_2 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Where Is My Mind?', artist='Pixies', album='', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Where+Is+My+Mind_.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/SurferRosa.jpg'
     )
     other_3 = Song(
-        name='', artist='', album='', genre='', user_id = 2, mp3_url='', image_url=''
+        name='This Is How We Do It', artist='Montell Jordan', album='', genre='Other', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Montell+Jordan+-+This+Is+How+We+Do+It.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/this+is+how+we+do+it.png'
     )
     other_4 = Song(
-        name='', artist='', album='', genre='', user_id = 3, mp3_url='', image_url=''
+        name='Snow (Hey Oh)', artist='Red Hot Chili Peppers', album='Stadium Arcadium', genre='Other', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Red+Hot+Chili+Peppers+-+Snow+(Hey+Oh)+-+Remastered.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/stadiumarcadiam.jpg'
     )
     other_5 = Song(
-        name='', artist='', album='', genre='', user_id = 1, mp3_url='', image_url=''
+        name='Feel Good Inc.', artist='Gorillaz', album='Demon Days', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Gorillaz+-+Feel+Good+Inc+HD.mp3', image_url='https://s3.console.aws.amazon.com/s3/object/notify-aa?region=us-west-1&prefix=demon+days.png'
     )
 
 
