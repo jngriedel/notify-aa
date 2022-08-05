@@ -11,17 +11,21 @@ function User() {
   const sessionUser = useSelector(state=> state.session.user)
   const userSongs = useSelector(state=> state.song)
   const userPlaylists = useSelector(state => state.playlist )
+  const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getSongs(sessionUser.id))
     dispatch(getPlaylists(sessionUser.id))
+    .then((res)=>{setLoaded(true)})
   }, [dispatch]);
 
 
 
   return (
     <>
+    {loaded &&
+    <div>
    <h1>Profile Page</h1>
     <div className='playlist-carousel scrollable'>
    {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
@@ -47,6 +51,8 @@ function User() {
    {userSongs && Object.values(userSongs).map((song, i)=>(
     <Song key={i} i={i} song={song} />
    ))}
+   </div>
+}
    </>
   );
 }

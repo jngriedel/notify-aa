@@ -20,6 +20,7 @@ function Playlist() {
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState(null)
+  const [loaded, setLoaded] = useState(false)
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -32,6 +33,7 @@ function Playlist() {
 
       await dispatch(addPlaylist(data.playlist))
       await dispatch(setSongs(Object.values(data.playlist.songs)))
+      setLoaded(true)
 
 
     })();
@@ -118,6 +120,7 @@ const playPlaylist = async() => {
   return (
     <>
 
+    { loaded && <div>
    { playlist && !edit &&
      <div>
       <div>
@@ -184,7 +187,7 @@ const playPlaylist = async() => {
 
 
         </div>
-
+        </div> }
     </>
   );
 }
