@@ -9,7 +9,7 @@ import './MusicPlayer.css'
 const MusicPlayer = () =>{
 const {audioLists, clearAudioList} = useMusicContext()
 return (
-    <div>
+
     <ReactJkMusicPlayer
 
     audioLists={audioLists}
@@ -21,11 +21,11 @@ return (
     clearPriorAudioLists={clearAudioList}
     showThemeSwitch={false}
     glassBg={false}
-    className={'music-player'}
+   
 
     />
 
-    </div>
+
 )
 
 }
