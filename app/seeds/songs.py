@@ -47,7 +47,7 @@ def seed_songs():
         name='Animals', artist='Martin Garrix', album='Animals', genre='Electronic', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Martin+Garrix+-+Animals+(Official+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Martin_Garrix_-_Animals.png'
     )
     electronic_5 = Song(
-        name='Lean On', artist='', album='Peace is the Mission', genre='Electronic', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Major+Lazer+%26+DJ+Snake+-+Lean+On+(feat.+M%C3%98)+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/MajorLazerPeaceIstheMission.png'
+        name='Lean On', artist='Major Lazer', album='Peace is the Mission', genre='Electronic', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Major+Lazer+%26+DJ+Snake+-+Lean+On+(feat.+M%C3%98)+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/MajorLazerPeaceIstheMission.png'
     )
 
     #jazz
@@ -140,10 +140,10 @@ def seed_songs():
         name='Welcome To The Black Parade', artist='My Chemical Romance', album='The Black Parade', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/My+Chemical+Romance+-+Welcome+To+The+Black+Parade+(audio).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/black+parade.jpg'
     )
     other_2 = Song(
-        name='Where Is My Mind?', artist='Pixies', album='', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Where+Is+My+Mind_.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/SurferRosa.jpg'
+        name='Where Is My Mind?', artist='Pixies', album='Surfer Rosa', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Where+Is+My+Mind_.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/SurferRosa.jpg'
     )
     other_3 = Song(
-        name='This Is How We Do It', artist='Montell Jordan', album='', genre='Other', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Montell+Jordan+-+This+Is+How+We+Do+It.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/this+is+how+we+do+it.png'
+        name='This Is How We Do It', artist='Montell Jordan', album='This Is How We Do It', genre='Other', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Montell+Jordan+-+This+Is+How+We+Do+It.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/this+is+how+we+do+it.png'
     )
     other_4 = Song(
         name='Snow (Hey Oh)', artist='Red Hot Chili Peppers', album='Stadium Arcadium', genre='Other', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Red+Hot+Chili+Peppers+-+Snow+(Hey+Oh)+-+Remastered.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/stadiumarcadiam.jpg'
