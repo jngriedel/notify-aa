@@ -120,7 +120,7 @@ def seed_songs():
 
     #rock
     rock_1 = Song(
-        name='Ain\'t Talkin\' \'bout Love', artist='Van Halen', album='Van Halen', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Van+Halen+-+Aint+Talkin'+Bout+Love.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/vanhalen.jpg'
+        name='Ain\'t Talkin\' \'bout Love', artist='Van Halen', album='Van Halen', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Van+Halen+-+Aint+Talkin\'+Bout+Love.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/vanhalen.jpg'
     )
     rock_2 = Song(
         name='Smells Like Teen Spirit', artist='Nirvana', album='Nevermind', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Nirvana+-+Smells+Like+Teen+Spirit.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/nevermind.jpg'
@@ -129,10 +129,10 @@ def seed_songs():
         name='Thunderstruck', artist='AC/DC', album='The Razor\'s Edge', genre='Rock', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/AC_DC+-+Thunderstruck.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/the+razors+edge.jpg'
     )
     rock_4 = Song(
-        name='Welcome to the Jungle', artist='Guns N\' Roses', album='Appetite for Destruction', genre='Rock', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Guns'n+Roses+-+Welcome+to+the+Jungle.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/appetitefordestruction.jpg'
+        name='Welcome to the Jungle', artist='Guns N\' Roses', album='Appetite for Destruction', genre='Rock', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Guns\'n+Roses+-+Welcome+to+the+Jungle.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/appetitefordestruction.jpg'
     )
     rock_5 = Song(
-        name='Don\'t Stop Believin\'', artist='Journey', album='Escape', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Journey+-+Don't+Stop+Believin.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/escape.jpg'
+        name='Don\'t Stop Believin\'', artist='Journey', album='Escape', genre='Rock', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Journey+-+Don\'t+Stop+Believin.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/escape.jpg'
     )
 
     #other
