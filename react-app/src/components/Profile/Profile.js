@@ -23,7 +23,7 @@ function User() {
   return (
     <>
    <h1>Profile Page</h1>
-    <div className='playlist-carousel'>
+    <div className='playlist-carousel scrollable'>
    {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
    <NavLink className='playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>
     <div className='playlist-preview'>

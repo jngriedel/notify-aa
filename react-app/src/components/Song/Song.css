@@ -1,7 +1,7 @@
 .song-container{
     display: grid;
     grid-template-columns: [number] 16px [Title] 6fr [Album] 4fr [space] 3fr ;
-    height: 55px;
+    height: auto;
     margin:  10px 0px;
     align-items: center;
 
@@ -28,8 +28,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 100%;
 }
 
 .song-name-artist {
     margin-left: 16px;
+    height: 100%;
 }

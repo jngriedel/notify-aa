@@ -7,7 +7,7 @@ import no_playlist from "../../images/no_playlist.PNG"
 import { useMusicContext } from '../context/MusicContext';
 
 import '../Song/Song.css'
-function PlaylistSong({song, playlistId, playlist}) {
+function PlaylistSong({song, playlistId, i}) {
   const sessionUser = useSelector(state=> state.session.user)
 
   const [edit, setEdit] = useState(false)
@@ -86,13 +86,21 @@ function PlaylistSong({song, playlistId, playlist}) {
     <>
     {!edit &&
     <div className='song-container'>
-        <p>{song.name}</p>
-        <p>{song.artist}</p>
+        <p>{i + 1}</p>
+        <div className='song-title'>
+        <img className='song-image' src={song.image_url? song.image_url : no_playlist} />
+          <div className='song-name-artist'>
+          <p>{song.name}</p>
+          <p>{song.artist}</p>
+         </div>
+        </div>
         <p>{song.album}</p>
-        <p>{song.genre}</p>
 
+        <div className='song-buttons'>
         <button onClick={handlePlay} type='button' >PLAY</button>
         { !addToPlaylist && <button onClick={()=>{setAddToPlaylist(true)}} type='button' >Add to Playlist</button>}
+        <button type='button' onClick={handleRemoveFromPlaylist} >Remove From Playlist</button>
+        </div>
         {addToPlaylist &&
         <div className='playlist-dropdown'>
         {sessionUser.playlists.map((playlist,i)=>(
@@ -103,7 +111,6 @@ function PlaylistSong({song, playlistId, playlist}) {
         <button onClick={()=>setAddToPlaylist(false)} type='button'>Cancel</button>
           </div>
         }
-        <button type='button' onClick={handleRemoveFromPlaylist} >Remove From Playlist</button>
 
     </div>
     }
