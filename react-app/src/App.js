@@ -12,6 +12,7 @@ import Profile from './components/Profile/Profile'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import CreatePlaylist from './components/CreatePlaylist/CreatePlaylist'
 import Playlist from './components/Playlist/Playlist';
+import ProfileButton from './components/ProfileButton/ProfileButton';
 import { authenticate } from './store/session';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <ProfileButton />
       <MusicPlayer />
       <Switch>
         <Route path='/login' exact={true}>

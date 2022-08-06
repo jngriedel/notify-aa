@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
+
 import './NavBar.css'
 import logo from '../../images/logo.png'
 
@@ -43,10 +43,11 @@ const NavBar = () => {
           <i class="fa-solid fa-plus fa-lg"></i> Create Playlist
           </NavLink>
         </li>
-        <li>
-          <LogoutButton />
-        </li>
+
+
+
       </ul>
+
     </div>
   );
 }
