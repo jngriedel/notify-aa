@@ -16,8 +16,8 @@ const ProfileButton = () => {
     return (
       <>
       <div onClick={()=> setShowModal(true)} className='profile-button'>
-        <img className='profile-button-picture' alt='profile' src={sessionUser.image_url? sessionUser.image_url: no_profile}/>
-        <span>{sessionUser.username}</span>
+        <img className='profile-button-picture' alt='profile' src={sessionUser?.image_url? sessionUser.image_url: no_profile}/>
+        <span>{sessionUser?.username}</span>
         <img className='triangle' alt='decoration' src={showModal? triangle_upsidedown: triangle}/>
 
       </div>
