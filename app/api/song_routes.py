@@ -31,7 +31,7 @@ def songs():
 @song_routes.route('/<int:user_id>')
 @login_required
 def user_songs(user_id):
-    songs = Song.query.filter(current_user.id == user_id )
+    songs = Song.query.filter(current_user.id == Song.user_id )
     return {'songs': [song.to_dict() for song in songs]}
 
 
