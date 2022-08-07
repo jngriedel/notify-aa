@@ -112,12 +112,19 @@ function Song({song, i, playlistId}) {
 
   }
 
+  const doubleClick = event => {
+    if (event.detail === 2){
+      handlePlay()
+    }
+  }
+
   return (
     <>
     {!edit &&
     <div className='song-container'
      onMouseEnter={() => setShowPlay(true)}
-        onMouseLeave={() => setShowPlay(false)}>
+        onMouseLeave={() => setShowPlay(false)}
+        onClick={doubleClick}>
         {showPlay && <img onClick={handlePlay} className='play-on-song' alt='play' src={play_white} />}
         {!showPlay && <p className='number-and-play-num'>{i + 1}</p>}
         <div className='song-title'>
