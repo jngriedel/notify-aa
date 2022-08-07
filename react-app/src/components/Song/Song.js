@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { removeSong } from '../../store/song';
 import {deleteSong, editSong} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
 import no_playlist from "../../images/no_playlist.PNG"
 import play_white from '../../images/play_white.jpg'
 import './Song.css'
-function Song({song, i}) {
+function Song({song, i, playlistId}) {
   const sessionUser = useSelector(state=> state.session.user)
   const [name, setName] = useState(song.name);
   const [errors, setErrors] = useState([])
@@ -22,7 +22,9 @@ function Song({song, i}) {
 
 
   const handleDelete = async() =>{
-    dispatch(deleteSong(song.id))
+    let result = window.confirm("This song will be gone forever. Are you sure?");
+    if (result) dispatch(deleteSong(song.id))
+
   }
 
   const handlePlay = async() => {
@@ -71,6 +73,23 @@ function Song({song, i}) {
     }
   }
 
+  const handleRemoveFromPlaylist = async () => {
+    const response = await fetch(`/api/playlistjoin/remove`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify({
+          playlist_id : playlistId,
+          song_id : song.id
+        }),
+    })
+    const data = await response.json()
+    if (response.ok) {
+        dispatch(removeSong(song.id))
+    }
+  }
 
 
   const handleAddToPlaylist = async (playlistId) => {
@@ -110,10 +129,11 @@ function Song({song, i}) {
         </div>
         <p>{song.album}</p>
       <div className='song-buttons'>
-        <button onClick={()=>setEdit(true)} type='button'>Edit</button>
-        <button onClick={handleDelete} type='button'>Delete</button>
-        <button onClick={handlePlay} type='button' >PLAY</button>
+        <button style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)} type='button'>Edit</button>
+        <button style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete} type='button'>Delete</button>
+
         { !addToPlaylist && <button onClick={()=>{setAddToPlaylist(true)}} type='button' >Add to Playlist</button>}
+        {playlistId && <button type='button' onClick={handleRemoveFromPlaylist} >Remove From Playlist</button> }
       </div>
         {addToPlaylist &&
         <div className='playlist-dropdown'>

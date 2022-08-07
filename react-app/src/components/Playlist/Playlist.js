@@ -5,6 +5,7 @@ import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
 import play_button_black from "../../images/playbuttonblack.png"
 import PlaylistSong from '../PlaylistSong/PlaylistSong'
+import Song from '../Song/Song';
 import './Playlist.css'
 import {setSongs} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
@@ -184,7 +185,7 @@ const playPlaylist = async() => {
 
         <div>
         {songs && Object.values(songs).map((song, i)=>(
-    <PlaylistSong key={i} song={song} playlistId={playlistId} i={i}  />
+    <Song key={i} song={song} playlistId={playlistId} i={i}  />
    ))}
 
 
