@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {getPlaylists} from '../../store/playlist'
 
 
-function SongOptionsModal({showDropDown, setShowDropDown, handleEdit, handleDelete, song, playlistId}) {
+function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete, song, playlistId}) {
   const dispatch = useDispatch()
   const playlists = useSelector(state=>state.playlist)
   const [showPlaylists, setShowPlaylists] = useState(false)
@@ -65,9 +65,9 @@ function SongOptionsModal({showDropDown, setShowDropDown, handleEdit, handleDele
         onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
 
             <ul  className='songoptions-dropdown'>
-                <li>Edit</li>
+                <li onClick={()=>setEdit(true)}>Edit</li>
                 <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete}>Delete</li>
-                {playlistId && <li  onClick={handleRemoveFromPlaylist} >Remove From Playlist</li> }
+                {playlistId && <li  onClick={handleRemoveFromPlaylist} >Remove from this playlist</li> }
                 <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>

@@ -181,10 +181,7 @@ const playPlaylist = async() => {
         </form>
 
         </div>}
-
-
-        <div>
-          <div className='song-header'>
+        <div className='song-header'>
             <div>
               #
             </div>
@@ -195,6 +192,9 @@ const playPlaylist = async() => {
               ALBUM
             </div>
           </div>
+
+        <div>
+
         {songs && Object.values(songs).map((song, i)=>(
     <Song key={i} song={song} playlistId={playlistId} i={i}  />
    ))}
