@@ -15,7 +15,7 @@ function Song({song, i, playlistId}) {
   const [artist, setArtist] = useState(song.artist);
   const [genre, setGenre] = useState(song.genre);
   const [edit, setEdit] = useState(false)
-  const [addToPlaylist, setAddToPlaylist] = useState(false)
+  
   const [showPlay, setShowPlay] = useState(false)
   const [showDropDown, setShowDropDown] = useState(false)
   const dispatch = useDispatch()

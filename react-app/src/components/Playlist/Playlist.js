@@ -184,6 +184,17 @@ const playPlaylist = async() => {
 
 
         <div>
+          <div className='song-header'>
+            <div>
+              #
+            </div>
+            <div>
+              TITLE
+            </div>
+            <div>
+              ALBUM
+            </div>
+          </div>
         {songs && Object.values(songs).map((song, i)=>(
     <Song key={i} song={song} playlistId={playlistId} i={i}  />
    ))}
