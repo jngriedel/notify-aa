@@ -16,10 +16,17 @@ body{
 
     }
 *::-webkit-scrollbar-track{
-    
+
     background: transparent;
 
 }
+
+*::-webkit-scrollbar-gutter{
+
+    background: transparent;
+
+}
+
 
 *::-webkit-scrollbar-thumb{
 background-color:rgba(89,89,89,255);

@@ -5,6 +5,7 @@ import {deleteSong, editSong} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
 import no_playlist from "../../images/no_playlist.PNG"
 import play_white from '../../images/play_white.jpg'
+import SongOptionsModal from '../SongOptionsModal/SongOptionsModal';
 import './Song.css'
 function Song({song, i, playlistId}) {
   const sessionUser = useSelector(state=> state.session.user)
@@ -16,6 +17,7 @@ function Song({song, i, playlistId}) {
   const [edit, setEdit] = useState(false)
   const [addToPlaylist, setAddToPlaylist] = useState(false)
   const [showPlay, setShowPlay] = useState(false)
+  const [showDropDown, setShowDropDown] = useState(false)
   const dispatch = useDispatch()
   const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
 
@@ -125,6 +127,7 @@ function Song({song, i, playlistId}) {
      onMouseEnter={() => setShowPlay(true)}
         onMouseLeave={() => setShowPlay(false)}
         onClick={doubleClick}>
+        <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} />
         {showPlay && <img onClick={handlePlay} className='play-on-song' alt='play' src={play_white} />}
         {!showPlay && <p className='number-and-play-num'>{i + 1}</p>}
         <div className='song-title'>
@@ -137,7 +140,7 @@ function Song({song, i, playlistId}) {
         <p>{song.album}</p>
       <div className='song-buttons'>
         <button style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)} type='button'>Edit</button>
-        <button style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete} type='button'>Delete</button>
+        {showPlay && <i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis"></i>}
 
         { !addToPlaylist && <button onClick={()=>{setAddToPlaylist(true)}} type='button' >Add to Playlist</button>}
         {playlistId && <button type='button' onClick={handleRemoveFromPlaylist} >Remove From Playlist</button> }
@@ -218,6 +221,7 @@ function Song({song, i, playlistId}) {
 
 
         </div>}
+
 
    </>
   );
