@@ -103,9 +103,10 @@ function Song({song, i, playlistId}) {
           </div>
         </div>
         <p>{song.album}</p>
+
       <div className='song-buttons'>
-        {/* <button style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)} type='button'>Edit</button> */}
-        {showPlay && <i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis"></i>}
+
+        {showPlay && <i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis fa-lg"></i>}
 
 
 

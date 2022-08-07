@@ -59,8 +59,12 @@ function EditSongModal({edit, setEdit, song}) {
     <>
      {edit &&
      <Modal
-        onClose={() =>{ setEdit(false); }}>
+        onClose={() =>{ setEdit(false); handleCancelEdit() }}>
     <div className='edit-song-modal'>
+    <div className='edit-header'>
+        <h1 className='edit-details'>Edit details</h1>
+        <button className='cancel-button' type='button' onClick={handleCancelEdit}><i  class="fa-solid fa-x fa-lg"></i></button>
+    </div>
     {errors && errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
@@ -71,7 +75,7 @@ function EditSongModal({edit, setEdit, song}) {
             <label>Name</label>
             <input
 
-
+                  className='edit-input'
                   type="text"
                   name="song"
                   onChange={(e)=>setName(e.target.value)}
@@ -79,7 +83,7 @@ function EditSongModal({edit, setEdit, song}) {
                 ></input>
             <label>Album</label>
             <input
-
+                  className='edit-input'
                   type="text"
                   name="album"
                   onChange={(e)=>setAlbum(e.target.value)}
@@ -87,7 +91,7 @@ function EditSongModal({edit, setEdit, song}) {
                 ></input>
             <label>Artist</label>
             <input
-
+                  className='edit-input'
                   type="text"
                   name="artist"
                   onChange={(e)=>setArtist(e.target.value)}
@@ -95,7 +99,7 @@ function EditSongModal({edit, setEdit, song}) {
                 ></input>
             <label className = "genre-label">Genre</label>
             <select
-
+                className='edit-select'
                 name="genre"
                 id="selectoption"
                 onChange={(e)=>setGenre(e.target.value)}
@@ -115,8 +119,8 @@ function EditSongModal({edit, setEdit, song}) {
 
 
 
-        <button type='submit'>Save</button>
-        <button type='button' onClick={handleCancelEdit}>Cancel</button>
+        <button className='save-button' type='submit'>Save</button>
+
 
         </form>
 

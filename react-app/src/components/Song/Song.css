@@ -1,6 +1,6 @@
 .song-container{
     display: grid;
-    grid-template-columns: [number] 25px [Title] 5fr [Album] 4fr [space] 3fr ;
+    grid-template-columns: [number] 25px [Title] 5fr [Album] 4fr [space] 3fr [dots] ;
     max-height: 56px;
     margin:  10px 0px;
     align-items: center;

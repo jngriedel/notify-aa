@@ -6,11 +6,89 @@
     border-radius: 4px;
     padding: 4px;
     z-index: 3;
+    width: 500px;
+    height: 450px;
 }
 
 .edit-song-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+
+}
+
+.save-button{
+    box-sizing: border-box;
+    background-color:#ffffff;
+    color: black;
+    border-radius: 500px;
+    border: 0px transparent solid;
+    padding: 8px;
+    width: 100px;
+    height: 50px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: medium;
+}
+.save-button:hover{
+
+    height: 53px;
+}
+
+.edit-input{
+    background: hsla(0,0%,100%,.1);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    height: 40px;
+    padding: 0 12px;
+    width: 200px;
+    margin-bottom: 15px;
+
+}
+.edit-input:focus{
+    background-color: rgba(51,51,51,255);
+    border: 1px solid rgba(83,83,83,255);
+}
+
+.edit-header{
+    box-sizing: border-box;
+    height: 85px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.cancel-button{
+  background-color: transparent;
+  border: 0;
+  border-radius: 32px;
+  color: hsla(0,0%,100%,.7);
+  height: 32px;
+  width: 32px;
+}
+.cancel-button:hover{
+  background-color: rgba(61,61,61,255);
+
+}
+
+.edit-select
+{
+    margin-bottom: 15px;
+    background:white;
+    border: 1px solid transparent;
+    color: rgb(0, 0, 0);
+}
+
+
+
+.edit-details{
+    font-size: 1.5rem;
+  font-weight: 700;
 }

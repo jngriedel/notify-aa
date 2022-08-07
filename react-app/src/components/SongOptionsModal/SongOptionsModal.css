@@ -6,7 +6,7 @@
     background-color: #282828;
     border-radius: 4px;
     width: 200px;
-    max-height: 170px;
+    max-height: auto;
     padding: 4px;
     z-index: 2;
 }
@@ -49,7 +49,7 @@
     border-radius: 4px;
     overflow-y: scroll;
     width: 200px;
-    max-height: 130px;
+    max-height: 300px;
     padding: 4px;
     z-index: 2;
 }
