@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {deleteSong, editSong} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
 import no_playlist from "../../images/no_playlist.PNG"
+import play_white from '../../images/play_white.jpg'
 import './Song.css'
 function Song({song, i}) {
   const sessionUser = useSelector(state=> state.session.user)
@@ -14,6 +15,7 @@ function Song({song, i}) {
   const [genre, setGenre] = useState(song.genre);
   const [edit, setEdit] = useState(false)
   const [addToPlaylist, setAddToPlaylist] = useState(false)
+  const [showPlay, setShowPlay] = useState(false)
   const dispatch = useDispatch()
   const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
 
@@ -94,8 +96,11 @@ function Song({song, i}) {
   return (
     <>
     {!edit &&
-    <div className='song-container'>
-        <p>{i + 1}</p>
+    <div className='song-container'
+     onMouseEnter={() => setShowPlay(true)}
+        onMouseLeave={() => setShowPlay(false)}>
+        {showPlay && <img onClick={handlePlay} className='play-on-song' alt='play' src={play_white} />}
+        {!showPlay && <p className='number-and-play-num'>{i + 1}</p>}
         <div className='song-title'>
         <img className='song-image' src={song.image_url? song.image_url : no_playlist} />
           <div className='song-name-artist'>
