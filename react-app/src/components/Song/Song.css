@@ -1,10 +1,14 @@
 .song-container{
     display: grid;
     grid-template-columns: [number] 25px [Title] 5fr [Album] 4fr [space] 3fr ;
-    height: auto;
+    max-height: 56px;
     margin:  10px 0px;
     align-items: center;
     grid-gap: 12px;
+    padding-left: 10px;
+    grid-template-rows: 56px;
+   
+    box-sizing: border-box;
 }
 
 .song-container:hover{
@@ -28,7 +32,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: 100%;
+    height:auto;
 }
 
 .song-name-artist {
@@ -38,4 +42,8 @@
 .play-on-song{
  height: 17px;
  width: 17px;
+}
+
+.song-artist{
+    color: rgba(123,118,117,255);
 }

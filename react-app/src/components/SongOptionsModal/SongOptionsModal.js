@@ -15,7 +15,9 @@ function SongOptionsModal({showModal, setShowModal, handleEdit, handleDelete }) 
         <Modal onClose={() => setShowModal(false)}>
 
             <ul className='songoptions-dropdown'>
-                <NavLink className='profile-dropdown-link' to='/profile'><li>Profile</li></NavLink>
+                <li>Edit</li>
+                <li>Delete</li>
+                <li>Add to Playlist</li>
                 <li onClick={onLogout}>  Logout</li>
             </ul>
 
