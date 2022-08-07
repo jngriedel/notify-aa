@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from '../../components/context/Modal';
 import triangle_right from '../../images/triangle_right.png'
+import { removeSong } from '../../store/song';
 import './SongOptionsModal.css'
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {getPlaylists} from '../../store/playlist'
 
 
-function SongOptionsModal({showDropDown, setShowDropDown, handleEdit, handleDelete, song }) {
+function SongOptionsModal({showDropDown, setShowDropDown, handleEdit, handleDelete, song, playlistId}) {
   const dispatch = useDispatch()
   const playlists = useSelector(state=>state.playlist)
   const [showPlaylists, setShowPlaylists] = useState(false)
@@ -34,7 +35,27 @@ function SongOptionsModal({showDropDown, setShowDropDown, handleEdit, handleDele
     const data = await response.json()
 
     setShowPlaylists(false)
+    setShowDropDown(false)
 
+  }
+
+  const handleRemoveFromPlaylist = async () => {
+    const response = await fetch(`/api/playlistjoin/remove`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+
+        body: JSON.stringify({
+          playlist_id : playlistId,
+          song_id : song.id
+        }),
+    })
+    const data = await response.json()
+    if (response.ok) {
+        dispatch(removeSong(song.id))
+        setShowDropDown(false)
+    }
   }
 
   return (
@@ -46,6 +67,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, handleEdit, handleDele
             <ul  className='songoptions-dropdown'>
                 <li>Edit</li>
                 <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete}>Delete</li>
+                {playlistId && <li  onClick={handleRemoveFromPlaylist} >Remove From Playlist</li> }
                 <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>

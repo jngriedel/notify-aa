@@ -6,7 +6,7 @@
     background-color: #282828;
     border-radius: 4px;
     width: 200px;
-    max-height: 130px;
+    max-height: 170px;
     padding: 4px;
     z-index: 2;
 }
@@ -27,11 +27,11 @@
     padding: 12px;
     border: none;
 }
+
 .songoptions-dropdown > li:hover,
 .playlist-dropdown > li:hover
 {
     background-color: rgba(79,79,79,255);
-
 }
 
 .triangle-songoptions{

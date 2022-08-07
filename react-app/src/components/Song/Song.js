@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeSong } from '../../store/song';
+
 import {deleteSong, editSong} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
 import no_playlist from "../../images/no_playlist.PNG"
@@ -75,25 +75,6 @@ function Song({song, i, playlistId}) {
     }
   }
 
-  const handleRemoveFromPlaylist = async () => {
-    const response = await fetch(`/api/playlistjoin/remove`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-
-        body: JSON.stringify({
-          playlist_id : playlistId,
-          song_id : song.id
-        }),
-    })
-    const data = await response.json()
-    if (response.ok) {
-        dispatch(removeSong(song.id))
-    }
-  }
-
-
 
 
   const doubleClick = event => {
@@ -109,7 +90,7 @@ function Song({song, i, playlistId}) {
      onMouseEnter={() => setShowPlay(true)}
         onMouseLeave={() => setShowPlay(false)}
         onClick={doubleClick}>
-        <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} />
+        <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} playlistId={playlistId}/>
         {showPlay && <img onClick={handlePlay} className='play-on-song' alt='play' src={play_white} />}
         {!showPlay && <p className='number-and-play-num'>{i + 1}</p>}
         <div className='song-title'>
@@ -124,8 +105,8 @@ function Song({song, i, playlistId}) {
         <button style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)} type='button'>Edit</button>
         {showPlay && <i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis"></i>}
 
-        
-        {playlistId && <button type='button' onClick={handleRemoveFromPlaylist} >Remove From Playlist</button> }
+
+        {/* {playlistId && <button type='button' onClick={handleRemoveFromPlaylist} >Remove From Playlist</button> } */}
       </div>
 
 
