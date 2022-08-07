@@ -49,8 +49,9 @@
 
 .song-header {
     display: grid;
-    grid-template-columns: [number] 16px [Title] 6fr [Album] 4fr [space] 3fr ;
-    grid-gap: 16px;
+    grid-template-columns: [number] 25px [Title] 5fr [Album] 4fr [space] 3fr ;
+    grid-gap: 12px;
     font-weight: 400;
+    color: rgba(123,118,117,255);
     border-bottom: 1px grey solid;
 }

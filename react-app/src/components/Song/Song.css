@@ -1,10 +1,10 @@
 .song-container{
     display: grid;
-    grid-template-columns: [number] 16px [Title] 6fr [Album] 4fr [space] 3fr ;
+    grid-template-columns: [number] 25px [Title] 5fr [Album] 4fr [space] 3fr ;
     height: auto;
     margin:  10px 0px;
     align-items: center;
-
+    grid-gap: 12px;
 }
 
 .song-container:hover{
@@ -39,6 +39,3 @@
  height: 17px;
  width: 17px;
 }
-
-
-

@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 
-function SongOptionsModal({showModal, setShowModal, }) {
+function SongOptionsModal({showModal, setShowModal, handleEdit, handleDelete }) {
   const dispatch = useDispatch()
 
   return (
