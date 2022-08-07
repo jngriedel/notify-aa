@@ -94,25 +94,7 @@ function Song({song, i, playlistId}) {
   }
 
 
-  const handleAddToPlaylist = async (playlistId) => {
-    const response = await fetch(`/api/playlistjoin/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
 
-      body: JSON.stringify({
-        playlist_id : playlistId,
-        song_id : song.id
-      }),
-
-    });
-
-    const data = await response.json()
-
-    setAddToPlaylist(false)
-
-  }
 
   const doubleClick = event => {
     if (event.detail === 2){
@@ -142,19 +124,10 @@ function Song({song, i, playlistId}) {
         <button style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)} type='button'>Edit</button>
         {showPlay && <i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis"></i>}
 
-        { !addToPlaylist && <button onClick={()=>{setAddToPlaylist(true)}} type='button' >Add to Playlist</button>}
+        
         {playlistId && <button type='button' onClick={handleRemoveFromPlaylist} >Remove From Playlist</button> }
       </div>
-        {addToPlaylist &&
-        <div className='playlist-dropdown'>
-        {sessionUser.playlists.map((playlist,i)=>(
-            <div key={i} onClick={()=>handleAddToPlaylist(playlist.id)} className='playlist-dropdown-option'>
-              {playlist.name}
-            </div>
-        ))}
-        <button onClick={()=>setAddToPlaylist(false)} type='button'>Cancel</button>
-          </div>
-        }
+
 
     </div>
     }

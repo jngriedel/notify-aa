@@ -1,7 +1,7 @@
 .songoptions-dropdown{
-    position: absolute;
-    top: 35px;
-    right: 10px;
+    position: relative;
+    top: 0px;
+    left: 0px;
     box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
     background-color: #282828;
     border-radius: 4px;
@@ -12,20 +12,44 @@
 }
 
 
-.songoptions-dropdown > li
+.songoptions-dropdown > li,
+.playlist-dropdown > li
 {
     list-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     text-decoration: none;
+    justify-content: space-between;
     background: transparent;
     border-radius: 2px;
     max-height: 40px;
     padding: 12px;
+    border: none;
 }
-.songoptions-dropdown > li:hover
+.songoptions-dropdown > li:hover,
+.playlist-dropdown > li:hover
 {
     background-color: rgba(79,79,79,255);
 
+}
+
+.triangle-songoptions{
+    right: 0px;
+    height: 12px;
+    width: 6px;
+}
+
+.playlist-dropdown{
+    position: absolute;
+    bottom: 0px;
+    left: 200px;
+    /* box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%); */
+    background-color: #282828;
+    border-radius: 4px;
+    overflow-y: scroll;
+    width: 200px;
+    max-height: 130px;
+    padding: 4px;
+    z-index: 2;
 }
