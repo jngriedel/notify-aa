@@ -61,33 +61,37 @@ const updateImage = (e) => {
   return (
     <>
       <form
-        className='uploadSong-form'
+
+        className='edit-song-form'
         onSubmit={handleSubmit}>
 
-            <label>Song Name</label>
+            <label>Song Name { name.length >= 90 && <span className='limit-warning' >{name.length}/100</span> }</label>
             <input
                   required
-                  className="upload-songname"
+                  className="edit-input"
+                  maxLength="100"
                   placeholder="Song Name"
                   type="text"
                   name="song"
                   onChange={(e)=>setName(e.target.value)}
                   value={name}
                 ></input>
-            <label>Album</label>
+            <label>Album { album.length >= 90 && <span className='limit-warning' >{album.length}/100</span> }</label>
             <input
                   required
-                  className="upload-album"
+                  className="edit-input"
+                  maxLength="100"
                   placeholder="Album"
                   type="text"
                   name="album"
                   onChange={(e)=>setAlbum(e.target.value)}
                   value={album}
                 ></input>
-            <label>Artist</label>
+            <label>Artist {artist.length >= 90 && <span className='limit-warning' >{artist.length}/100</span> }</label>
             <input
                   required
-                  className="upload-artist"
+                  className="edit-input"
+                  maxLength="100"
                   placeholder="Artist"
                   type="text"
                   name="artist"
@@ -120,10 +124,11 @@ const updateImage = (e) => {
               onChange={updateImage}
             />
 
-
+            <label>Mp3 File </label>
             <input
               type="file"
               accept=".mp3"
+              required
               onChange={updateMp3}
             />
             <button type="submit">Upload</button>
