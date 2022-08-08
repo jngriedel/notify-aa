@@ -114,7 +114,7 @@ function Song({song, i, playlistId}) {
 
 
     </div>
-    <EditSongModal edit={edit} setEdit={setEdit} song={song} />
+    <EditSongModal edit={edit} setEdit={setEdit} song={song} setShowDropDown={setShowDropDown} />
 
 
    </>

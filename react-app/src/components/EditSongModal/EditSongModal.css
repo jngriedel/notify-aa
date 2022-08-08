@@ -7,7 +7,7 @@
     padding: 4px;
     z-index: 3;
     width: 500px;
-    height: 450px;
+    min-height: 450px;
 }
 
 .edit-song-form {
@@ -47,6 +47,7 @@
     padding: 0 12px;
     width: 200px;
     margin-bottom: 15px;
+    position: relative;
 
 }
 .edit-input:focus{
@@ -91,4 +92,34 @@
 .edit-details{
     font-size: 1.5rem;
   font-weight: 700;
+}
+
+.printed-errors{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #282828;
+    border-radius: 4px;
+
+    z-index: 4;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+}
+.individual-error{
+    margin-bottom: 10px;
+}
+
+
+.limit-warning{
+  background-color: #2e77d0;
+  border-radius: 2px;
+  padding: 0 4px;
+ 
+  text-align: center;
+  width: 7ch;
+
+
 }

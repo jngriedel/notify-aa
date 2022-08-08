@@ -38,6 +38,9 @@
 .song-name-artist {
     margin-left: 16px;
     height: 100%;
+    width: auto;
+   
+
 }
 .play-on-song{
  height: 17px;
