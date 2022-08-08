@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {newPlaylist} from '../../store/playlist'
+import { Modal } from '../../components/context/Modal';
+import './CreatePlaylist.css'
 
-function CreatePlaylist() {
+function CreatePlaylist({setShowCreatePlaylist, showCreatePlaylist}) {
 
   const dispatch = useDispatch()
   const sessionUser = useSelector(state=> state.session.user)
@@ -38,18 +40,32 @@ const updateImage = (e) => {
     setImage(file);
 }
 
+const handleCancelCreate = () =>{
+  setImage(null)
+  setName("")
+  setDescription("")
+  setShowCreatePlaylist(false)
+  setErrors([])
+
+}
 
 
 
   return (
     <>
+    {showCreatePlaylist && <Modal>
+    <div className='upload-song-modal'>
+      <div className='edit-header'>
+        <h1 className='edit-details'>Create Playlist</h1>
+        <button className='cancel-button' type='button' onClick={handleCancelCreate}><i  class="fa-solid fa-x fa-lg"></i></button>
+    </div>
       <form
-        className='createPlaylist-form'
+        className='upload-song-form'
         onSubmit={handleSubmit}>
 
             <label>Playlist Name</label>
             <input
-                  className="upload-playlistname"
+                  className="edit-input"
                   placeholder="Playlist Name"
                   type="text"
                   name="playlist"
@@ -59,7 +75,7 @@ const updateImage = (e) => {
                 ></input>
             <label>Description (Optional) </label>
             <input
-                  className="upload-description"
+                  className="edit-input"
                   placeholder="Description"
                   type="text"
                   name="description"
@@ -73,7 +89,7 @@ const updateImage = (e) => {
               accept="image/*"
               onChange={updateImage}
             />
-            <button type="submit">Create</button>
+            <button className='upload-button' type="submit">Create</button>
 
         </form>
         <div className="errorsList">
@@ -81,6 +97,8 @@ const updateImage = (e) => {
             <div key={ind}>{error}</div>
           ))}
         </div>
+        </div>
+        </Modal>}
     </>
   );
 }

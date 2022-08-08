@@ -4,9 +4,11 @@ import { NavLink } from 'react-router-dom';
 import UploadSong from '../UploadSong/UploadSong';
 import './NavBar.css'
 import logo from '../../images/logo.png'
+import CreatePlaylist from '../CreatePlaylist/CreatePlaylist';
 
 const NavBar = () => {
   const [showUpload, setShowUpload] = useState(false)
+  const [showCreatePlaylist, setShowCreatePlaylist] = useState(false)
   return (
     <div className='navbar'>
       <img alt='logo' className='navbar-logo' src={logo}/>
@@ -18,7 +20,7 @@ const NavBar = () => {
 
           </NavLink>
         </li>
-        
+
         <li>
           <div className='navbar-links' onClick={()=>setShowUpload(true)}>
           <i class="fa-solid fa-cloud-arrow-up fa-lg"></i>Upload Song
@@ -30,15 +32,13 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink className='navbar-links' to='/createplaylist' exact={true} activeClassName='active'>
+          <div className='navbar-links' onClick={()=>setShowCreatePlaylist(true)} >
           <i class="fa-solid fa-plus fa-lg"></i> Create Playlist
-          </NavLink>
+          </div>
         </li>
-
-
-
       </ul>
         <UploadSong setShowUpload={setShowUpload} showUpload={showUpload} />
+        <CreatePlaylist setShowCreatePlaylist={setShowCreatePlaylist} showCreatePlaylist={showCreatePlaylist} />
     </div>
   );
 }
