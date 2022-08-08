@@ -56,11 +56,25 @@ const updateImage = (e) => {
   setImage(file);
 }
 
+const handleCancelUpload = () =>{
+  setAlbum("")
+  setArtist("")
+  setName("")
+  setGenre("")
+  setShowUpload(false)
+  setMp3Errors([])
+
+}
+
 
   return (
     <>
-    {showUpload && <Modal onClose={()=>setShowUpload(false)}>
+    {showUpload && <Modal onClose={()=>{setShowUpload(false); handleCancelUpload()}}>
       <div className='upload-song-modal'>
+      <div className='edit-header'>
+        <h1 className='edit-details'>Upload Song</h1>
+        <button className='cancel-button' type='button' onClick={handleCancelUpload}><i  class="fa-solid fa-x fa-lg"></i></button>
+    </div>
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
