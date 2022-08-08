@@ -6,6 +6,7 @@ import { getPlaylists } from '../../store/playlist';
 import Song from '../Song/Song'
 import no_playlist from '../../images/no_playlist.PNG'
 import no_profile_image from "../../images/no_profile_image.png"
+import EditProfileModal from '../EditProfileModal/EditProfileModal';
 import './Profile.css'
 
 function User() {
@@ -14,7 +15,7 @@ function User() {
   const userPlaylists = useSelector(state => state.playlist )
   const [loaded, setLoaded] = useState(false)
   const [imgOverLay, setImgOverlay] = useState(false)
-  const [showProfImageUpload, setShowProfImageUpload] = useState(false)
+  const [showEditProfile, setShowEditProfile] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function User() {
       <div
       onMouseEnter={() => setImgOverlay(true)}
       onMouseLeave={() => setImgOverlay(false)}
-      onClick={()=>setShowProfImageUpload(true)}
+      onClick={()=>{setShowEditProfile(true); setImgOverlay(false)}}
        className='profile-image-container'>
         <img
         alt='profile'
@@ -71,6 +72,7 @@ function User() {
    ))}
    </div>
 }
+ <EditProfileModal showEditProfile={showEditProfile} setShowEditProfile={setShowEditProfile} />
    </>
   );
 }

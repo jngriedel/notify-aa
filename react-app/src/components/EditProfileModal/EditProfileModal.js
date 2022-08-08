@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {newPlaylist} from '../../store/playlist'
+import { updateUser } from '../../store/session';
 import { Modal } from '../../components/context/Modal';
-import './CreatePlaylist.css'
+import './EditProfileModal.css'
 
 function EditProfileModal({showEditProfile, setShowEditProfile}) {
 
@@ -10,7 +10,7 @@ function EditProfileModal({showEditProfile, setShowEditProfile}) {
   const sessionUser = useSelector(state=> state.session.user)
   const [errors, setErrors] = useState([])
   const [image, setImage] = useState(null);
-//   const [name, setName] = useState('');
+  const [username, setUsername] = useState(sessionUser.username);
 
 
 
@@ -19,17 +19,12 @@ function EditProfileModal({showEditProfile, setShowEditProfile}) {
     setErrors([])
     const form = new FormData();
     form.append("image", image);
-    form.append('name', name);
-    form.append('description', description);
+    form.append("username", username);
 
+    const response = await dispatch(updateUser(form))
 
-    const response = await dispatch(newPlaylist(form))
-
-    if (response.playlist) {
-      setName('')
-      setDescription('')
-      // setSuccess(true)
-      setShowCreatePlaylist(false)
+    if (response.user) {
+      setShowEditProfile(false)
     }
     else {
       setErrors(response)
@@ -43,10 +38,9 @@ const updateImage = (e) => {
 
 const handleCancelCreate = () =>{
   setImage(null)
-  setName("")
-  setDescription("")
-  setShowCreatePlaylist(false)
+  setUsername(sessionUser.username)
   setErrors([])
+  setShowEditProfile(false)
 
 }
 
@@ -55,8 +49,8 @@ const handleCancelCreate = () =>{
   return (
     <>
     {showEditProfile &&
-    <Modal onClose={()=>{setshowEditProfile(false); handleCancelCreate()}}>
-    <div className='upload-song-modal'>
+    <Modal onClose={()=>{setShowEditProfile(false); handleCancelCreate()}}>
+    <div className='edit-profile-modal'>
       <div className='edit-header'>
         <h1 className='edit-details'>Profile Details</h1>
         <button className='cancel-button' type='button' onClick={handleCancelCreate}><i  class="fa-solid fa-x fa-lg"></i></button>
@@ -64,6 +58,20 @@ const handleCancelCreate = () =>{
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
+
+
+<label>Username  { username.length >= 30 && <span className='limit-warning' >{username.length}/40</span> }</label>
+
+<input
+
+      className='edit-input'
+      required
+      type="text"
+      name="username"
+      maxlength="40"
+      onChange={(e)=>setUsername(e.target.value)}
+      value={username}
+    ></input>
 
 
             <input

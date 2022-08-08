@@ -97,10 +97,10 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
-export const updateUser = (data) => async (dispatch) => {
+export const updateUser = (user) => async (dispatch) => {
   const response = await fetch('/api/users/update', {
     method: 'PUT',
-    body: data
+    body: user
   });
 
   const data = await response.json()

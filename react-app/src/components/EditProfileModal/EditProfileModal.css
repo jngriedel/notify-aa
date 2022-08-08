@@ -1,0 +1,11 @@
+.edit-profile-modal{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
+    background-color: #282828;
+    border-radius: 4px;
+    padding: 4px;
+    z-index: 3;
+    width: 525px;
+    min-height: 330px;
+}
