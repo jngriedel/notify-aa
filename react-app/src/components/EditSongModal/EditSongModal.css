@@ -50,10 +50,27 @@
     position: relative;
 
 }
-.edit-input:focus{
+
+.edit-input-textarea{
+    background: hsla(0,0%,100%,.1);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    height: 120px;
+    padding: 0 12px;
+    width: 200px;
+    margin-bottom: 15px;
+    position: relative;
+    resize: none;
+}
+.edit-input:focus,
+.edit-input-textarea:focus{
     background-color: rgba(51,51,51,255);
     border: 1px solid rgba(83,83,83,255);
 }
+
 
 .edit-header{
     box-sizing: border-box;

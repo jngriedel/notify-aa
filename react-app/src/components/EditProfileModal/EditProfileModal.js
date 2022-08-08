@@ -4,15 +4,13 @@ import {newPlaylist} from '../../store/playlist'
 import { Modal } from '../../components/context/Modal';
 import './CreatePlaylist.css'
 
-function CreatePlaylist({setShowCreatePlaylist, showCreatePlaylist}) {
+function EditProfileModal({showEditProfile, setShowEditProfile}) {
 
   const dispatch = useDispatch()
   const sessionUser = useSelector(state=> state.session.user)
   const [errors, setErrors] = useState([])
   const [image, setImage] = useState(null);
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [success, setSuccess] = useState(false)
+//   const [name, setName] = useState('');
 
 
 
@@ -56,47 +54,24 @@ const handleCancelCreate = () =>{
 
   return (
     <>
-    {showCreatePlaylist &&
-    <Modal onClose={()=>{setShowCreatePlaylist(false); handleCancelCreate()}}>
+    {showEditProfile &&
+    <Modal onClose={()=>{setshowEditProfile(false); handleCancelCreate()}}>
     <div className='upload-song-modal'>
       <div className='edit-header'>
-        <h1 className='edit-details'>Create Playlist</h1>
+        <h1 className='edit-details'>Profile Details</h1>
         <button className='cancel-button' type='button' onClick={handleCancelCreate}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
 
-            <label>Playlist Name { name.length >= 90 && <span className='limit-warning' >{name.length}/100</span> }</label>
-            <input
-                  className="edit-input"
-                  placeholder="Playlist Name"
-                  type="text"
-                  maxLength='100'
-                  name="playlist"
-                  required
-                  onChange={(e)=>setName(e.target.value)}
-                  value={name}
-                ></input>
-            <label>Description (Optional) { description.length >= 245 && <span className='limit-warning' >{description.length}/255</span> } </label>
-            <textarea
-                  className="edit-input-textarea"
-                  placeholder="Description"
-                  type="text"
-                  maxLength='255'
-                  
-                  name="description"
-                  onChange={(e)=>setDescription(e.target.value)}
-                  value={description}
-                ></textarea>
 
-            <label>Picture (Optional) </label>
             <input
               type="file"
               accept="image/*"
               onChange={updateImage}
             />
-            <button className='upload-button' type="submit">Create</button>
+            <button className='upload-button' type="submit">Save</button>
 
         </form>
         <div className="errorsList">
@@ -106,9 +81,9 @@ const handleCancelCreate = () =>{
         </div>
         </div>
         </Modal>}
-        <div className='success' style={{visibility: success? 'visible' : 'hidden'}}>success</div>
+
     </>
   );
 }
 
-export default CreatePlaylist
+export default EditProfileModal

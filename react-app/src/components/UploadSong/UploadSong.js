@@ -25,6 +25,7 @@ function UploadSong({setShowUpload, showUpload}) {
     const form = new FormData();
     form.append("mp3", mp3);
     form.append("image", image)
+    
     form.append("name", name)
     form.append("album", album)
     form.append("artist", artist)
