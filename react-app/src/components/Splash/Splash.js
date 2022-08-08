@@ -23,6 +23,11 @@ function Splash(){
             </div>
             <div className='splash-main'>
                 <h1 className='splash-message'>Music for you.</h1>
+                <div className='footer'>
+                    <span className="footerMessage">Created by: Josef Niels Griedel</span>
+                    <a className='footer-link' rel="noreferrer" target="_blank" href='https://www.linkedin.com/in/josef-niels-g-bbb2b38b/'><i className="fa-brands fa-linkedin"></i></a>
+                    <a className='footer-link' rel="noreferrer" target="_blank" href='https://github.com/jngriedel'><i className="fa-brands fa-github"></i></a>
+                </div>
             </div>
         </div>
     )
