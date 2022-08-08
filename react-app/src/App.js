@@ -7,12 +7,13 @@ import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import UploadSong from './components/UploadSong/UploadSong';
+// import UploadSong from './components/UploadSong/UploadSong';
 import Profile from './components/Profile/Profile'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import CreatePlaylist from './components/CreatePlaylist/CreatePlaylist'
 import Playlist from './components/Playlist/Playlist';
 import ProfileButton from './components/ProfileButton/ProfileButton';
+import Splash from './components/Splash/Splash.js'
 import { authenticate } from './store/session';
 
 function App() {
@@ -40,36 +41,33 @@ function App() {
       <Switch>
 
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Splash />
         </Route>
+        <div id='content-wrapper'>
+          <Route path='/login' exact={true}>
+            <LoginForm />
+          </Route>
+          <Route path='/sign-up' exact={true}>
+            <SignUpForm />
+          </Route>
 
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        
-        <ProtectedRoute path='/home' exact={true} >
-          <h1>Home Page</h1>
-        </ProtectedRoute>
+          {/* <ProtectedRoute path='/users/:userId' exact={true} >
+            <User />
+          </ProtectedRoute> */}
 
-
-        <ProtectedRoute path='/profile' exact={true} >
-          <Profile />
-        </ProtectedRoute>
-        <ProtectedRoute path='/createplaylist' exact={true} >
-          <CreatePlaylist />
-        </ProtectedRoute>
-        <ProtectedRoute path='/playlists/:playlistId' exact={true} >
-          <Playlist />
-        </ProtectedRoute>
+          <ProtectedRoute path='/home' exact={true} >
+            <h1>Home Page</h1>
+          </ProtectedRoute>
+          <ProtectedRoute path='/profile' exact={true} >
+            <Profile />
+          </ProtectedRoute>
+          <ProtectedRoute path='/createplaylist' exact={true} >
+            <CreatePlaylist />
+          </ProtectedRoute>
+          <ProtectedRoute path='/playlists/:playlistId' exact={true} >
+            <Playlist />
+          </ProtectedRoute>
+        </div>
       </Switch>
     </BrowserRouter>
   );
