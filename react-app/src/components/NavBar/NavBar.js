@@ -1,16 +1,19 @@
 
 import React, {useState} from 'react';
-import { NavLink, useLocation} from 'react-router-dom';
+import { NavLink, useHistory, useLocation} from 'react-router-dom';
 import UploadSong from '../UploadSong/UploadSong';
 import './NavBar.css'
 import logo from '../../images/logo.png'
 import CreatePlaylist from '../CreatePlaylist/CreatePlaylist';
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const [showUpload, setShowUpload] = useState(false)
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false)
+  const sessionUser = useSelector (state=> state.session.user)
   const path = useLocation()
-  console.log(path)
+
+
   if (path.pathname ==='/') return null
 
   return (
