@@ -14,6 +14,7 @@ function User() {
   const userPlaylists = useSelector(state => state.playlist )
   const [loaded, setLoaded] = useState(false)
   const [imgOverLay, setImgOverlay] = useState(false)
+  const [showProfImageUpload, setShowProfImageUpload] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -32,6 +33,7 @@ function User() {
       <div
       onMouseEnter={() => setImgOverlay(true)}
       onMouseLeave={() => setImgOverlay(false)}
+      onClick={()=>setShowProfImageUpload(true)}
        className='profile-image-container'>
         <img
         alt='profile'
