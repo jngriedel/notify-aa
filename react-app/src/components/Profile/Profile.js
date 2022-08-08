@@ -4,7 +4,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import {getSongs} from '../../store/song'
 import { getPlaylists } from '../../store/playlist';
 import Song from '../Song/Song'
-import no_playlist from "../../images/no_playlist.PNG"
+import no_playlist from '../../images/no_playlist.PNG'
+import no_profile_image from "../../images/no_profile_image.png"
 import './Profile.css'
 
 function User() {
@@ -12,6 +13,7 @@ function User() {
   const userSongs = useSelector(state=> state.song)
   const userPlaylists = useSelector(state => state.playlist )
   const [loaded, setLoaded] = useState(false)
+  const [imgOverLay, setImgOverlay] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -26,7 +28,21 @@ function User() {
     <>
     {loaded &&
     <div>
-   <h1>Profile Page</h1>
+    <div className='playlist-head'>
+      <div
+      onMouseEnter={() => setImgOverlay(true)}
+      onMouseLeave={() => setImgOverlay(false)}
+       className='profile-image-container'>
+        <img
+        alt='profile'
+
+         className='profile-main-image' src={sessionUser.image_url ? sessionUser.image_url : no_profile_image } />
+         { imgOverLay && <div className='edit-image-overlay'  > <i class="fa-solid fa-pencil"></i> Choose Photo   </div>}
+      </div>
+      <div className='playist-info'>
+        <h2 className='playlist-word'>Profile</h2> <h1 className='playlist-name'>{sessionUser.username} </h1>
+      </div>
+      </div>
     <div className='playlist-carousel scrollable'>
    {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
    <NavLink className='playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>

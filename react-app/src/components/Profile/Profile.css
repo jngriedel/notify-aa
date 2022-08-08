@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
+    margin-bottom: 15px;
 }
 
 
@@ -55,4 +56,35 @@
     color: rgba(123,118,117,255);
     border-bottom: 1px grey solid;
     padding-left: 10px;
+}
+
+.profile-main-image{
+    height: 232px;
+    width: 232px;
+    box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+    margin-right: 25px;
+    border-radius: 50%;
+
+}
+
+.profile-image-container{
+position: relative;
+}
+
+.edit-image-overlay{
+
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    height: 232px;
+    width: 232px;
+    margin-right: 25px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }

@@ -12,6 +12,7 @@ function CreatePlaylist({setShowCreatePlaylist, showCreatePlaylist}) {
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [success, setSuccess] = useState(false)
 
 
 
@@ -29,6 +30,8 @@ function CreatePlaylist({setShowCreatePlaylist, showCreatePlaylist}) {
     if (response.playlist) {
       setName('')
       setDescription('')
+      // setSuccess(true)
+      setShowCreatePlaylist(false)
     }
     else {
       setErrors(response)
@@ -53,7 +56,8 @@ const handleCancelCreate = () =>{
 
   return (
     <>
-    {showCreatePlaylist && <Modal>
+    {showCreatePlaylist &&
+    <Modal onClose={()=>{setShowCreatePlaylist(false); handleCancelCreate()}}>
     <div className='upload-song-modal'>
       <div className='edit-header'>
         <h1 className='edit-details'>Create Playlist</h1>
@@ -99,6 +103,7 @@ const handleCancelCreate = () =>{
         </div>
         </div>
         </Modal>}
+        <div className='success' style={{visibility: success? 'visible' : 'hidden'}}>success</div>
     </>
   );
 }

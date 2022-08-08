@@ -3,7 +3,7 @@ body{
     height: 100%;
     margin-left: 240px;
     margin-bottom: 80px;
-    padding: 0px 32px;
+    padding-left:32px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: linear-gradient(#1b0d3f,rgba(17,17,17,255));
     color: white;

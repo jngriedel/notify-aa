@@ -16,7 +16,7 @@
 }
 .playlist-word{
     margin-top: 90px;
-    margin-left: 0;
+    
     margin-bottom: 10px;
     font-size: 12px;
 }
@@ -24,6 +24,7 @@
 .playlist-info{
     display: flex;
     height: 232px;
+    margin-left: 15px;
     flex-direction: column;
 
 

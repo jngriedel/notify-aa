@@ -1,0 +1,14 @@
+.success {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    bottom: 90px;
+    background-color: green;
+    height: 100px;
+    width: 100px;
+    z-index: 1000;
+    
+}
