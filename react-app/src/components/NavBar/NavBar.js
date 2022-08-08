@@ -1,6 +1,6 @@
 
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation} from 'react-router-dom';
 import UploadSong from '../UploadSong/UploadSong';
 import './NavBar.css'
 import logo from '../../images/logo.png'
@@ -9,12 +9,17 @@ import CreatePlaylist from '../CreatePlaylist/CreatePlaylist';
 const NavBar = () => {
   const [showUpload, setShowUpload] = useState(false)
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false)
+  const path = useLocation()
+  console.log(path)
+  if (path.pathname ==='/') return null
+
   return (
+
     <div className='navbar'>
       <img alt='logo' className='navbar-logo' src={logo}/>
       <ul className='navbar-list'>
         <li>
-          <NavLink className='navbar-links' to='/' exact={true} activeClassName='active'>
+          <NavLink className='navbar-links' to='/home' exact={true} activeClassName='active'>
 
               <i class="fa-solid fa-house fa-lg"></i> Home
 

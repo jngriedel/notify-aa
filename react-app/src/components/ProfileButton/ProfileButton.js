@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useParams } from 'react-router-dom';
 import no_profile_image_white from '../../images/no_profile_image_white.png'
 import './ProfileButton.css'
 import triangle from '../../images/triangle.png'
@@ -13,6 +13,9 @@ import { useSelector } from 'react-redux';
 const ProfileButton = () => {
     const [showModal, setShowModal] = useState(false)
     const sessionUser = useSelector(state=> state.session.user)
+    const path = useLocation()
+
+    if (path.pathname ==='/') return null
     return (
       <>
       <div onClick={()=> setShowModal(true)} className='profile-button'>

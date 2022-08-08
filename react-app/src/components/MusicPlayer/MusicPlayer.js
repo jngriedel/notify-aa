@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { useLocation } from 'react-router-dom';
 import ReactJkMusicPlayer from 'react-jinke-music-player'
 import 'react-jinke-music-player/assets/index.css'
 import { useMusicContext } from '../context/MusicContext';
@@ -8,6 +8,9 @@ import './MusicPlayer.css'
 
 const MusicPlayer = () =>{
 const {audioLists, clearAudioList} = useMusicContext()
+const path = useLocation()
+
+  if (path.pathname ==='/') return null
 return (
 
     <ReactJkMusicPlayer

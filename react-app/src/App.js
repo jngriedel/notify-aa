@@ -32,10 +32,17 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <NavBar />
       <ProfileButton />
       <MusicPlayer />
+
       <Switch>
+
+        <Route path='/' exact={true} >
+          <h1>My Home Page</h1>
+        </Route>
+
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -49,9 +56,11 @@ function App() {
           <User />
         </ProtectedRoute>
         
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+        <ProtectedRoute path='/home' exact={true} >
+          <h1>Home Page</h1>
         </ProtectedRoute>
+
+
         <ProtectedRoute path='/profile' exact={true} >
           <Profile />
         </ProtectedRoute>
