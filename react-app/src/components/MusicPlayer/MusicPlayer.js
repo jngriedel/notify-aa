@@ -17,11 +17,11 @@ return (
     toggleMode={false}
     mode='full'
     showDownload={false}
-    defaultVolume={0.5}
+    defaultVolume={0.6}
     clearPriorAudioLists={clearAudioList}
     showThemeSwitch={false}
     glassBg={false}
-   
+
 
     />
 

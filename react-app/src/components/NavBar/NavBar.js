@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
-
+import UploadSong from '../UploadSong/UploadSong';
 import './NavBar.css'
 import logo from '../../images/logo.png'
 
 const NavBar = () => {
+  const [showUpload, setShowUpload] = useState(false)
   return (
     <div className='navbar'>
       <img alt='logo' className='navbar-logo' src={logo}/>
@@ -17,21 +18,11 @@ const NavBar = () => {
 
           </NavLink>
         </li>
-        {/* <li>
-          <NavLink className='navbar-links' to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
+        
         <li>
-          <NavLink className='navbar-links' to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li> */}
-
-        <li>
-          <NavLink className='navbar-links' to='/uploadsong' exact={true} activeClassName='active'>
+          <div className='navbar-links' onClick={()=>setShowUpload(true)}>
           <i class="fa-solid fa-cloud-arrow-up fa-lg"></i>Upload Song
-          </NavLink>
+          </div>
         </li>
         <li>
           <NavLink className='navbar-links' to='/profile' exact={true} activeClassName='active'>
@@ -47,7 +38,7 @@ const NavBar = () => {
 
 
       </ul>
-
+        <UploadSong setShowUpload={setShowUpload} showUpload={showUpload} />
     </div>
   );
 }

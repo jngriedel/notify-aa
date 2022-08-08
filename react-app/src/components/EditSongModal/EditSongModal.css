@@ -110,6 +110,7 @@
 }
 .individual-error{
     margin-bottom: 10px;
+    color: red;
 }
 
 
@@ -117,7 +118,7 @@
   background-color: #2e77d0;
   border-radius: 2px;
   padding: 0 4px;
- 
+
   text-align: center;
   width: 7ch;
 

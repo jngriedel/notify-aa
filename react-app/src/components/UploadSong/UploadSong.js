@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {newSong} from '../../store/song'
+import { Modal } from '../../components/context/Modal';
+import './UploadSong.css'
 
-function UploadSong() {
+function UploadSong({setShowUpload, showUpload}) {
 
   const dispatch = useDispatch()
   const sessionUser = useSelector(state=> state.session.user)
@@ -44,25 +46,23 @@ function UploadSong() {
       }
     }
 
-
-
 const updateMp3 = (e) => {
     const file = e.target.files[0];
     setMp3(file);
 }
+
 const updateImage = (e) => {
   const file = e.target.files[0];
   setImage(file);
 }
 
 
-
-
   return (
     <>
+    {showUpload && <Modal onClose={()=>setShowUpload(false)}>
+      <div className='upload-song-modal'>
       <form
-
-        className='edit-song-form'
+        className='upload-song-form'
         onSubmit={handleSubmit}>
 
             <label>Song Name { name.length >= 90 && <span className='limit-warning' >{name.length}/100</span> }</label>
@@ -131,14 +131,16 @@ const updateImage = (e) => {
               required
               onChange={updateMp3}
             />
-            <button type="submit">Upload</button>
+            <button className='upload-button' type="submit">Upload</button>
 
         </form>
         <div className="errorsList">
           {mp3errors && mp3errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
+            <div className='individual-error' key={ind}>*{error}</div>
           ))}
         </div>
+        </div>
+        </Modal>}
     </>
   );
 }
