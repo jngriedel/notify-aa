@@ -14,7 +14,7 @@ const NavBar = () => {
   const path = useLocation()
 
 
-  if (path.pathname ==='/') return null
+  if (path.pathname ==='/' || path.pathname ==='/login' || path.pathname ==='/sign-up') return null
 
   return (
 
