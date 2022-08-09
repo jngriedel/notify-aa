@@ -6,7 +6,7 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 
-// import UploadSong from './components/UploadSong/UploadSong';
+import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import CreatePlaylist from './components/CreatePlaylist/CreatePlaylist'
@@ -62,7 +62,7 @@ function App() {
           </ProtectedRoute> */}
 
           <ProtectedRoute path='/home' exact={true} >
-            <h1>Home Page</h1>
+            <Home />
           </ProtectedRoute>
           <ProtectedRoute path='/profile' exact={true} >
             <Profile />

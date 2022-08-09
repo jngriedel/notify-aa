@@ -58,6 +58,20 @@ export const getSongs = (userId) => async (dispatch) => {
     return data
   }
 };
+export const getAllSongs = () => async (dispatch) => {
+  const response = await fetch(`/api/songs`);
+
+  const data = await response.json()
+  if (response.ok) {
+    dispatch(setSongs(data.songs));
+
+    return data.songs
+  }
+  else {
+
+    return data
+  }
+};
 export const deleteSong = (songId) => async (dispatch) => {
   const response = await fetch(`/api/songs/${songId}`, {
     method: 'DELETE'

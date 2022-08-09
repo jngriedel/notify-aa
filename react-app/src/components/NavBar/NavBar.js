@@ -17,7 +17,7 @@ const NavBar = () => {
   const path = useLocation()
   useEffect(() => {
 
-    dispatch(getPlaylists(sessionUser.id))
+    // dispatch(getPlaylists(sessionUser.id))
 
   }, [dispatch]);
 

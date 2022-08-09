@@ -35,33 +35,7 @@ def user_songs(user_id):
     return {'songs': [song.to_dict() for song in songs]}
 
 
-# @song_routes.route('', methods=['POST'])
-# @login_required
-# def new_song():
-#     form = SongForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         # data = request.json
 
-
-#         add_song = Song(
-#             name = form.data['name'],
-#             album = form.data['album'],
-#             artist = form.data['artist'],
-#             genre = form.data['genre'],
-#             mp3_url = form.data['mp3_url'],
-#             user_id = current_user.id,
-
-#         )
-
-#         db.session.add(add_song)
-#         db.session.commit()
-#         return{
-#             "song": add_song.to_dict()
-#         }
-
-#     else:
-#         return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @song_routes.route('', methods=['POST'])
 @login_required
