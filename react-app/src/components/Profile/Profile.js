@@ -47,14 +47,16 @@ function User() {
       </div>
       </div>
     <div className='playlist-carousel scrollable'>
-   {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
+    {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
    <NavLink className='playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>
     <div className='playlist-preview'>
       <img className='playlist-preview-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
-      <p className='playlist-preview-name'>{playlist.name}</p>
+      <div className='preview-details'>
+        <p className='playlist-preview-name'>{playlist.name}</p>
+      </div>
       </div>
     </NavLink>
-   )) }
+   ))}
    </div>
     <div className='song-header'>
       <div>

@@ -22,9 +22,9 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 
-@song_routes.route('/')
+@song_routes.route('')
 @login_required
-def songs():
+def all_songs():
     songs = Song.query.all()
     return {'songs': [song.to_dict() for song in songs]}
 
