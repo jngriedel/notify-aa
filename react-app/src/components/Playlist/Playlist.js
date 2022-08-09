@@ -4,7 +4,6 @@ import { useHistory, useParams } from 'react-router-dom';
 import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
 import play_button_black from "../../images/playbuttonblack.png"
-import PlaylistSong from '../PlaylistSong/PlaylistSong'
 import Song from '../Song/Song';
 import './Playlist.css'
 import {setSongs} from '../../store/song'
@@ -20,6 +19,7 @@ function Playlist() {
   const [errors, setErrors] = useState([])
   const [edit, setEdit] = useState(false)
   const [name, setName] = useState("")
+  const [imgOverLay, setImgOverlay] = useState(false)
   const [description, setDescription] = useState("")
   const [image, setImage] = useState(null)
   const [loaded, setLoaded] = useState(false)
@@ -125,7 +125,13 @@ const playPlaylist = async() => {
     { loaded && <div>
    { playlist && !edit &&
      <div className='playlist-head'>
+      <div
+      className='profile-image-container'
+      onMouseEnter={() => setImgOverlay(true)}
+      onMouseLeave={() => setImgOverlay(false)}>
         <img className='playlist-main-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
+        { imgOverLay && <div className='edit-playlist-overlay'  > <i class="fa-solid fa-pencil"></i> Edit   </div>}
+      </div>
       <div className='playist-info'>
         <h4 className='playlist-word'>Playlist</h4> <h1 className='playlist-name'>{playlist.name} </h1>
         {playlist.description}

@@ -12,6 +12,9 @@ body{
 
 *{
     box-sizing: border-box;
+    /* overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; */
 }
 
 #content-wrapper{
