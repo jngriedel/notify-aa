@@ -5,8 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+
 // import UploadSong from './components/UploadSong/UploadSong';
 import Profile from './components/Profile/Profile'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
@@ -43,13 +42,20 @@ function App() {
         <Route path='/' exact={true} >
           <Splash />
         </Route>
-        <div id='content-wrapper'>
-          <Route path='/login' exact={true}>
+        <Route path='/login' exact={true}>
             <LoginForm />
-          </Route>
-          <Route path='/sign-up' exact={true}>
+        </Route>
+        <Route path='/sign-up' exact={true}>
             <SignUpForm />
-          </Route>
+        </Route>
+
+
+
+
+
+
+        <div id='content-wrapper'>
+
 
           {/* <ProtectedRoute path='/users/:userId' exact={true} >
             <User />
