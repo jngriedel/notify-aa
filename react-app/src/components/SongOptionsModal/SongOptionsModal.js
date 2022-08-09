@@ -67,7 +67,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
             <ul  className='songoptions-dropdown'>
                 <li onClick={()=>setEdit(true)}>Edit</li>
                 <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete}>Delete</li>
-                {playlistId && <li  onClick={handleRemoveFromPlaylist} >Remove from this playlist</li> }
+                {playlistId && <li  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
                 <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>

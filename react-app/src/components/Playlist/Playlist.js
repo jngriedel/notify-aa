@@ -5,6 +5,7 @@ import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
 import play_button_black from "../../images/playbuttonblack.png"
 import Song from '../Song/Song';
+import EditPlaylistModal from '../EditPlaylistModal/EditPlaylistModal'
 import './Playlist.css'
 import {setSongs} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
@@ -18,6 +19,7 @@ function Playlist() {
   const {setClearAudioList, setAudioLists} = useMusicContext()
   const [errors, setErrors] = useState([])
   const [edit, setEdit] = useState(false)
+  const [showEditPlaylist, setShowEditPlaylist] = useState(false)
   const [name, setName] = useState("")
   const [imgOverLay, setImgOverlay] = useState(false)
   const [description, setDescription] = useState("")
@@ -130,7 +132,7 @@ const playPlaylist = async() => {
       onMouseEnter={() => setImgOverlay(true)}
       onMouseLeave={() => setImgOverlay(false)}>
         <img className='playlist-main-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
-        { imgOverLay && <div className='edit-playlist-overlay'  > <i class="fa-solid fa-pencil"></i> Edit   </div>}
+        { imgOverLay && <div onClick={()=>setShowEditPlaylist(true)} className='edit-playlist-overlay'  > <i class="fa-solid fa-pencil"></i> Edit   </div>}
       </div>
       <div className='playist-info'>
         <h4 className='playlist-word'>Playlist</h4> <h1 className='playlist-name'>{playlist.name} </h1>
@@ -138,55 +140,11 @@ const playPlaylist = async() => {
 
 
       </div>
-      <div>
-        <button type='button' onClick={(()=>setEdit(true))}>Edit</button>
-        <button type='button' onClick={handleDelete}>Delete</button>
-      </div>
+      
 
     </div> }
     <button className='play-button-button' type='button' onClick={playPlaylist}><img className='play-button-image'  alt='play' src={play_button_black}/></button>
-    {edit && <div className='playlist-container'>
-    {errors && errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-    <form
 
-        onSubmit={handleEdit}>
-
-            <label>Name</label>
-            <input
-
-                  required
-                  type="text"
-                  name="playlist name"
-                  onChange={(e)=>setName(e.target.value)}
-                  value={name}
-                ></input>
-            <label>Description</label>
-            <input
-
-                  type="text"
-                  name="description"
-                  onChange={(e)=>setDescription(e.target.value)}
-                  value={description}
-                ></input>
-            <label>Change Picture (Optional) </label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={updateImage}
-            />
-
-
-
-
-
-        <button type='submit'>Save</button>
-        <button type='button' onClick={handleCancelEdit}>Cancel</button>
-
-        </form>
-
-        </div>}
         <div className='song-header'>
             <div>
               #
@@ -209,6 +167,7 @@ const playPlaylist = async() => {
 
         </div>
         </div> }
+        <EditPlaylistModal playlist={playlist} setShowEditPlaylist={setShowEditPlaylist} showEditPlaylist={showEditPlaylist} />
     </>
   );
 }
