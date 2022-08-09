@@ -61,6 +61,62 @@ function Home() {
    ))}
     </div>
 
+    <h2>Rock</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Rock').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
+    <h2>Electronic</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Electronic').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
+    <h2>Rap</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Rap').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
+    <h2>Jazz</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Jazz').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
+    <h2>Metal</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Metal').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
+    <h2>Country</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Country').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
+    <h2>Classical</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Classical').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
+    <h2>Other</h2>
+    <div className='playlist-carousel scrollable'>
+    {allSongs && Object.values(allSongs).filter((song)=>  song.genre === 'Other').map((song, i)=>(
+    <SongPreview song={song} />
+   ))}
+    </div>
+
 
 
 
