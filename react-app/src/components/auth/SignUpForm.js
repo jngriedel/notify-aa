@@ -60,22 +60,24 @@ const SignUpForm = () => {
       </div>
 
       <div className='signup-input-and-label'>
-        <label className='sign-up-input-label'>What's your email?</label>
+        <label className='sign-up-input-label'>What's your email? { email.length >= 245 && <span className='limit-warning' >{email.length}/255</span> }</label>
         <input
           type='text'
           className='sign-up-input'
           placeholder='Enter your email'
+          maxLength="255"
           name='email'
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
       <div className='signup-input-and-label'>
-        <label className='sign-up-input-label'>What should we call you?</label>
+        <label className='sign-up-input-label'>What should we call you? { username.length >= 30 && <span className='limit-warning' >{username.length}/40</span> }</label>
         <input
           type='text'
           className='sign-up-input'
           placeholder='Enter a username'
+          maxLength="40"
           name='username'
           onChange={updateUsername}
           value={username}
