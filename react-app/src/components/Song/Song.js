@@ -47,37 +47,7 @@ function Song({song, i, playlistId}) {
 
   }
 
-  const handleCancelEdit = () =>{
-    setAlbum(song.album)
-    setArtist(song.artist)
-    setName(song.name)
-    setGenre(song.genre)
-    setEdit(false)
-  }
-
-  const handleEdit = async(e) => {
-    e.preventDefault();
-    setErrors([])
-    const updatedSong = {
-        name,
-        album,
-        artist,
-        genre,
-        mp3_url: song.mp3_url,
-        user_id: sessionUser.id
-    }
-    const response = await dispatch(editSong(song.id, updatedSong))
-
-    if (response.song) {
-
-      setEdit(false)
-    }
-    else{
-      setErrors(response.errors)
-    }
-  }
-
-
+  
 
   const doubleClick = event => {
     if (event.detail === 2){

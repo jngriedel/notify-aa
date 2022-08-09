@@ -47,15 +47,18 @@ function EditPlaylistModal({playlist, showEditPlaylist, setShowEditPlaylist}) {
 }
 
 const handleDelete = async() => {
-  const res = await dispatch(deletePlaylist(playlist.id))
+  let result = window.confirm("This Playlist will be gone forever. Are you sure?");
+  if (result) {
 
+    const res = await dispatch(deletePlaylist(playlist.id))
 
-  if (res.playlistId){
+    if (res.playlistId) {
       history.push('/profile')
-  }
-  else{
+    }
+    else {
       setErrors(res)
 
+    }
   }
 }
 
@@ -114,10 +117,12 @@ const handleCancelEdit = () =>{
 
 
 
-
-                          <button className='upload-button' type='submit'>Save</button>
-
-
+                          <div className='button-holder'>
+                            <button className='upload-button' type='submit'>Save</button>
+                          </div>
+                          <div className='button-holder'>
+                            <button onClick={handleDelete} className='upload-button' type='button'>Delete</button>
+                          </div>
                       </form>
         <div className="errorsList">
           {errors && errors.map((error, ind) => (
