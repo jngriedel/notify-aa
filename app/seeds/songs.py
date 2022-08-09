@@ -62,7 +62,6 @@ def seed_songs():
     )
     jazz_4 = Song(
         name='Unforgettable', artist='Nat King Cole and Natalie Cole', album='Unforgettable', genre='Jazz', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Unforgettable+(Duet+with+Nat+King+Cole).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Natalie_Cole-Unforgettable_With_Love_(album_cover).jpg'
-        name='Unforgettable', artist='Nat King Cole and Natalie Cole', album='Unforgettable', genre='Jazz', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Unforgettable+(Duet+with+Nat+King+Cole).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Natalie_Cole-Unforgettable_With_Love_(album_cover).jpg'
     )
     jazz_5 = Song(
         name='Fly Me To The Moon', artist='Frank Sinatra', album='In Other Words', genre='Jazz', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Fly+Me+To+The+Moon+(2008+Remastered).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Kaye_Ballard_In_Other_Words_Decca_Records_Inc._Catalog_Number_9_29114_Photographed_15_April_2014.jpg'

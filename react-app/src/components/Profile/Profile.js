@@ -46,6 +46,7 @@ function User() {
         <h2 className='playlist-word'>Profile</h2> <h1 className='playlist-name'>{sessionUser.username} </h1>
       </div>
       </div>
+    <h2>Your Playlists</h2>
     <div className='playlist-carousel scrollable'>
     {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
    <NavLink className='playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>
@@ -58,6 +59,7 @@ function User() {
     </NavLink>
    ))}
    </div>
+   <h2>Your Songs</h2>
     <div className='song-header'>
       <div>
         #
