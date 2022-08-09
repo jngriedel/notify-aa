@@ -53,7 +53,7 @@ const SignUpForm = () => {
     <h2 className='signup-message'>Sign Up to Start Listening!</h2>
     <form onSubmit={onSignUp}
     className='sign-up-form'>
-      <div>
+      <div className='errors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}

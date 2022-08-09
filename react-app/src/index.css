@@ -50,3 +50,7 @@ transition: .3s;
 *::-webkit-scrollbar-thumb:hover{
 background-color: rgba(137,137,137,255);
 }
+
+.errors{
+    color: red;
+}

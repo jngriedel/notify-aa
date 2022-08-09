@@ -25,7 +25,7 @@ def user(id):
 @user_routes.route('/<int:user_id>/playlists')
 @login_required
 def user_playlists(user_id):
-    playlists = Playlist.query.filter(current_user.id == user_id )
+    playlists = Playlist.query.filter(current_user.id == Playlist.user_id )
     return {'playlists': [playlist.to_dict() for playlist in playlists]}
 
 @user_routes.route('/update', methods=['PUT'])

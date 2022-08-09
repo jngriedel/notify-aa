@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, NavLink } from 'react-router-dom';
+import { Redirect, NavLink, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import logo_black from '../../images/logo_black.png'
 import './SignUpForm.css'
@@ -11,6 +11,11 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory()
+
+  const handleRedirect = ()=> {
+    history.push('/sign-up')
+  }
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -38,7 +43,7 @@ const LoginForm = () => {
 
     <form onSubmit={onLogin}
     className='sign-up-form'>
-      <div>
+      <div className='errors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
@@ -69,8 +74,8 @@ const LoginForm = () => {
         <button className='sign-up-button' type='submit'>Log In</button>
       </div>
     </form>
-    <div className='login-redirect-container'>
-    Don't have an account? <NavLink className='sign-up-redirect' to='/sign-up'>Sign-Up with NOT-ify</NavLink>
+    <div className='signup-redirect-container'>
+    Don't have an account? <button onClick={handleRedirect} className='redirect-to-signup' type='button'>Sign-Up for NOT-ify</button>
     </div>
     </div>
   );
