@@ -1,0 +1,16 @@
+.image-and-play{
+    position: relative;
+}
+
+
+.play-button-preview{
+    width: 55px;
+    height: 55px;
+    z-index: 10;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+.play-button-preview:hover{
+    cursor: pointer;
+}

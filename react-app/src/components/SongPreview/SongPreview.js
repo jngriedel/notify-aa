@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { useMusicContext } from '../context/MusicContext';
 
 import no_playlist from '../../images/no_playlist.PNG'
+import playbuttonblack from '../../images/playbuttonblack.png'
 
 import './SongPreview.css'
 
@@ -10,10 +11,7 @@ function SongPreview({song}) {
   const sessionUser = useSelector(state=> state.session.user)
   const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
 
-  const dispatch = useDispatch()
-  const userPlaylists = useSelector(state => state.playlist )
-  const allSongs = useSelector(state => state.song)
-
+  const [showPlay, setShowPlay] = useState(false)
 
 
   const handlePlay = async() => {
@@ -42,9 +40,14 @@ function SongPreview({song}) {
   return (
     <>
 
-    <div  onClick={doubleClick} className='song-preview'>
+    <div
+    onMouseEnter={() => setShowPlay(true)}
+    onMouseLeave={() => setShowPlay(false)}
+      onClick={doubleClick} className='song-preview'>
+      <div className='image-and-play'>
       <img className='song-preview-image' src={song.image_url ? song.image_url : no_playlist } />
-
+      {showPlay && <img onClick={handlePlay} className='play-button-preview'  alt='play' src={playbuttonblack} />}
+      </div>
         <div className='preview-details'>
             <p className='song-preview-name'>{song.name}</p>
             <span className='song-preview-artist'>{song.artist}</span>
