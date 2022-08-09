@@ -15,7 +15,7 @@ function Playlist() {
   const { playlistId }  = useParams();
   const playlist = useSelector(state => state.playlist[playlistId])
   const songs = useSelector(state => state.song)
-
+  const sessionUser = useSelector(state => state.session.user)
   const {setClearAudioList, setAudioLists} = useMusicContext()
   const [errors, setErrors] = useState([])
   const [edit, setEdit] = useState(false)
@@ -132,7 +132,7 @@ const playPlaylist = async() => {
       onMouseEnter={() => setImgOverlay(true)}
       onMouseLeave={() => setImgOverlay(false)}>
         <img className='playlist-main-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
-        { imgOverLay && <div onClick={()=>setShowEditPlaylist(true)} className='edit-playlist-overlay'  > <i class="fa-solid fa-pencil"></i> Edit   </div>}
+        { imgOverLay && <div style={{visibility: sessionUser.id === playlistId ? 'visible': 'hidden'}} onClick={()=>setShowEditPlaylist(true)} className='edit-playlist-overlay'  > <i class="fa-solid fa-pencil"></i> Edit   </div>}
       </div>
       <div className='playist-info'>
         <h4 className='playlist-word'>Playlist</h4> <h1 className='playlist-name'>{playlist.name} </h1>
@@ -140,7 +140,7 @@ const playPlaylist = async() => {
 
 
       </div>
-      
+
 
     </div> }
     <button className='play-button-button' type='button' onClick={playPlaylist}><img className='play-button-image'  alt='play' src={play_button_black}/></button>

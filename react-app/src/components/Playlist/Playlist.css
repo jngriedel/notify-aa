@@ -13,6 +13,7 @@
     flex-direction: row;
     margin-top: 85px;
     padding: 0px;
+    
 }
 .playlist-word{
     margin-top: 90px;
@@ -67,7 +68,7 @@
     height: 232px;
     width: 232px;
     margin-right: 25px;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;

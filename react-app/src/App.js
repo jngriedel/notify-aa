@@ -5,7 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-
+import NotFound from './components/NotFound/NotFound';
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile'
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
@@ -14,6 +14,7 @@ import Playlist from './components/Playlist/Playlist';
 import ProfileButton from './components/ProfileButton/ProfileButton';
 import Splash from './components/Splash/Splash.js'
 import { authenticate } from './store/session';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -73,6 +74,9 @@ function App() {
           <ProtectedRoute path='/playlists/:playlistId' exact={true} >
             <Playlist />
           </ProtectedRoute>
+          {/* <ProtectedRoute path="*">
+            <NotFound  />
+          </ProtectedRoute> */}
         </div>
       </Switch>
     </BrowserRouter>

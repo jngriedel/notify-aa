@@ -14,3 +14,11 @@
 .play-button-preview:hover{
     cursor: pointer;
 }
+
+.name-and-elipse{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 170px;
+    align-items: center;
+}

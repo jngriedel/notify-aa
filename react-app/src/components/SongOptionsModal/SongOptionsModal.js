@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Modal } from '../../components/context/Modal';
+import { SongOptionsModalProvider } from '../context/SongOptionsModalProvider.js'
+import { Modal } from '../context/Modal.js';
 import triangle_right from '../../images/triangle_right.png'
 import { removeSong } from '../../store/song';
 import './SongOptionsModal.css'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {getPlaylists} from '../../store/playlist'
 
@@ -58,16 +59,20 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
     }
   }
 
-  return (
-    <>
+
+  // for preview only
+  const path = useLocation()
+  if (path.pathname === '/home') {
+    return (
+      <>
       {showDropDown && (
+        <div className='song-options-modal-wrapper'>
         <Modal
         onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
 
             <ul  className='songoptions-dropdown'>
-                <li onClick={()=>setEdit(true)}>Edit</li>
-                <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete}>Delete</li>
-                {playlistId && <li  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
+                
+                {playlistId && <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}}  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
                 <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>
@@ -87,6 +92,44 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
 
 
          </Modal>
+      </div>
+      )}
+      </>
+    )
+  }
+
+  // normal options
+  return (
+    <>
+      {showDropDown && (
+        <div className='song-options-modal-wrapper'>
+        <Modal
+        onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
+
+            <ul  className='songoptions-dropdown'>
+                <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)}>Edit</li>
+                <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete}>Delete</li>
+                {playlistId && <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}}  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
+                <li
+                onMouseEnter={() => setShowPlaylists(true)}
+                onMouseLeave={() => setShowPlaylists(false)}>
+                    Add to Playlist <img className='triangle-songoptions' alt='triangle' src={triangle_right} /></li>
+            </ul>
+
+            {showPlaylists &&
+                <ul onMouseEnter={() => setShowPlaylists(true)} className='playlist-dropdown'>
+                    {Object.values(playlists).map((playlist, i) => (
+                        <li key={i} onClick={() => handleAddToPlaylist(playlist.id)} className='playlist-dropdown-option'>
+                            {playlist.name}
+                        </li>
+                    ))}
+
+                </ul>
+            }
+
+
+         </Modal>
+      </div>
       )}
     </>
   );

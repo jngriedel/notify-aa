@@ -6,17 +6,20 @@ import App from './App';
 import configureStore from './store';
 import MusicProvider from './components/context/MusicContext';
 import { ModalProvider } from './components/context/Modal';
+import { OptionsModalProvider } from './components/context/SongOptionsModalProvider';
 
 const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+
      <ModalProvider>
      <MusicProvider>
         <App />
       </MusicProvider>
      </ModalProvider>
+     
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

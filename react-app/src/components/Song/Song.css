@@ -11,6 +11,11 @@
     box-sizing: border-box;
 }
 
+.elipse-holder{
+    position: relative;
+    width: auto;
+}
+
 .song-container:hover{
     background-color: rgba(43,42,48,255);
 }
@@ -39,7 +44,7 @@
     margin-left: 16px;
     height: 100%;
     width: auto;
-   
+
 
 }
 .play-on-song{
@@ -49,4 +54,9 @@
 
 .song-artist{
     color: rgba(123,118,117,255);
+}
+
+
+.song-buttons{
+    position: relative;
 }

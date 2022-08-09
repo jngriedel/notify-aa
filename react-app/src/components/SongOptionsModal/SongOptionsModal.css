@@ -1,3 +1,10 @@
+.song-options-modal-wrapper{
+    position: absolute;
+    top: 0;
+    left: 500px;
+}
+
+
 .songoptions-dropdown{
     position: relative;
     top: 0px;
@@ -52,4 +59,13 @@
     max-height: 300px;
     padding: 4px;
     z-index: 2;
+}
+
+
+.hidden{
+    visibility: hidden;
+}
+
+.show{
+    visibility: show;
 }

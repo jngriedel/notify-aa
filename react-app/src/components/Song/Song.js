@@ -11,11 +11,7 @@ import './Song.css'
 
 function Song({song, i, playlistId}) {
   const sessionUser = useSelector(state=> state.session.user)
-  const [name, setName] = useState(song.name);
-  const [errors, setErrors] = useState([])
-  const [album, setAlbum] = useState(song.album);
-  const [artist, setArtist] = useState(song.artist);
-  const [genre, setGenre] = useState(song.genre);
+
   const [edit, setEdit] = useState(false)
 
   const [showPlay, setShowPlay] = useState(false)
@@ -47,7 +43,7 @@ function Song({song, i, playlistId}) {
 
   }
 
-  
+
 
   const doubleClick = event => {
     if (event.detail === 2){
@@ -62,7 +58,7 @@ function Song({song, i, playlistId}) {
      onMouseEnter={() => setShowPlay(true)}
         onMouseLeave={() => setShowPlay(false)}
         onClick={doubleClick}>
-        <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} playlistId={playlistId} setEdit={setEdit} />
+
         {showPlay && <img onClick={handlePlay} className='play-on-song' alt='play' src={play_white} />}
         {!showPlay && <p className='number-and-play-num'>{i + 1}</p>}
         <div className='song-title'>
@@ -76,9 +72,9 @@ function Song({song, i, playlistId}) {
 
       <div className='song-buttons'>
 
-        {showPlay && <i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis fa-lg"></i>}
+        {showPlay && <div className='elipse-holder'><i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis fa-lg"></i></div>}
 
-
+        <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} playlistId={playlistId} setEdit={setEdit} />
 
       </div>
 

@@ -12,7 +12,7 @@
 
   #modal-background {
     position: fixed;
-  
+
     top: 0;
     right: 0;
     left: 0;
@@ -25,4 +25,12 @@
   #modal-content {
     position: absolute;
 
+  }
+
+  #options-modal{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
   }

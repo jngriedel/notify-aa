@@ -37,12 +37,12 @@
 
 .song-preview-artist{
     font-size: 14px;
-}
-
-
-.song-preview-artist{
     color: grey;
+
 }
+
+
+
 
 .preview-details{
     display: flex;
@@ -50,4 +50,9 @@
     align-items: flex-start;
     align-self: flex-start;
 
+
+}
+
+.name-and-elipse{
+    margin: 16px 0px;
 }
