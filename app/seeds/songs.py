@@ -72,7 +72,7 @@ def seed_songs():
         name='Bad Things', artist='I Prevail', album='True Power', genre='Metal', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/I+Prevail+-+Bad+Things+(Official+Music+Video)+(1).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/515812-true-power.webp'
     )
     metal_2 = Song(
-        name='Enter Sandman', artist='Metallica', album='Enter Sandma', genre='Metal', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Metallica_+Enter+Sandman+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/enter+sandman.jpg'
+        name='Enter Sandman', artist='Metallica', album='Enter Sandman', genre='Metal', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Metallica_+Enter+Sandman+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/enter+sandman.jpg'
     )
     metal_3 = Song(
         name='Chop Suey', artist='System of a Down', album='Toxicity', genre='Metal', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/System+Of+A+Down+-+Chop+Suey!+(Official+HD+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/toxcicity.jpg'

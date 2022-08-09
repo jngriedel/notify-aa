@@ -2,8 +2,8 @@
 
     max-width: 240px;
     min-width: 240px;
-    min-height: 89.5vh;
-    height: 100vh;
+    min-height: calc(100vh - 80px);
+    /* height: 100vh; */
     position: fixed;
     box-sizing: border-box;
     top: 0;
@@ -16,6 +16,7 @@
 }
 .navbar-list{
     padding: 0px;
+    border-bottom: grey 1px solid;
 }
 
 .navbar-list > li {
@@ -57,3 +58,7 @@
     margin-bottom: 24px;
 }
 
+
+.nav-footer{
+    justify-self: flex-end;
+}

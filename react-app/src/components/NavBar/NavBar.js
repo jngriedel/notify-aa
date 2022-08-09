@@ -1,18 +1,25 @@
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavLink, useHistory, useLocation} from 'react-router-dom';
 import UploadSong from '../UploadSong/UploadSong';
 import './NavBar.css'
 import logo from '../../images/logo.png'
 import CreatePlaylist from '../CreatePlaylist/CreatePlaylist';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getPlaylists } from '../../store/playlist';
 
 const NavBar = () => {
   const [showUpload, setShowUpload] = useState(false)
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false)
   const sessionUser = useSelector (state=> state.session.user)
-  const path = useLocation()
 
+  const dispatch = useDispatch()
+  const path = useLocation()
+  useEffect(() => {
+
+    dispatch(getPlaylists(sessionUser.id))
+
+  }, [dispatch]);
 
   if (path.pathname ==='/' || path.pathname ==='/login' || path.pathname ==='/sign-up') return null
 
@@ -47,6 +54,16 @@ const NavBar = () => {
       </ul>
         <UploadSong setShowUpload={setShowUpload} showUpload={showUpload} />
         <CreatePlaylist setShowCreatePlaylist={setShowCreatePlaylist} showCreatePlaylist={showCreatePlaylist} />
+        <ul>
+          {}
+        </ul>
+
+
+        <div className='nav-footer'>
+                    <span className="footer-message">By: Josef Niels Griedel</span>
+                    <a className='footer-link' rel="noreferrer" target="_blank" href='https://www.linkedin.com/in/josef-niels-g-bbb2b38b/'><i className="fa-brands fa-linkedin"></i></a>
+                    <a className='footer-link' rel="noreferrer" target="_blank" href='https://github.com/jngriedel'><i className="fa-brands fa-github"></i></a>
+                </div>
     </div>
   );
 }

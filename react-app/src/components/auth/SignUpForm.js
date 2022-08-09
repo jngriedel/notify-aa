@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, Redirect } from 'react-router-dom';
-import { signUp } from '../../store/session';
+import { signUp, login } from '../../store/session';
 import logo_black from '../../images/logo_black.png'
 import './SignUpForm.css'
 
@@ -26,6 +26,10 @@ const SignUpForm = () => {
       setErrors(['*Error: Passwords must match.'])
     }
   };
+
+  const demoUser = () => {
+    dispatch(login('demo@aa.io', 'password'))
+  }
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -112,6 +116,10 @@ const SignUpForm = () => {
     </form>
     <div className='login-redirect-container'>
     Have an account? <NavLink className='sign-up-redirect' to='/login'>Login</NavLink>
+    </div>
+     <h2>Or</h2>
+    <div className='demouser-container'>
+     <button type='button' className='demo-button' onClick={demoUser}>Login as Demo User</button>
     </div>
   </div>
   );
