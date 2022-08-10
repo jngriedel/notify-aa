@@ -132,7 +132,7 @@ const playPlaylist = async() => {
       onMouseEnter={() => setImgOverlay(true)}
       onMouseLeave={() => setImgOverlay(false)}>
         <img className='playlist-main-image' src={playlist.image_url ? playlist.image_url : no_playlist } />
-        { imgOverLay && <div style={{visibility: sessionUser.id === playlistId ? 'visible': 'hidden'}} onClick={()=>setShowEditPlaylist(true)} className='edit-playlist-overlay'  > <i class="fa-solid fa-pencil"></i> Edit   </div>}
+        { imgOverLay && <div style={{visibility: sessionUser.id === playlist.user_id ? 'visible': 'hidden'}} onClick={()=>{setShowEditPlaylist(true); setImgOverlay(false)}} className='edit-playlist-overlay'  > <i class="fa-solid fa-pencil"></i> Edit   </div>}
       </div>
       <div className='playist-info'>
         <h4 className='playlist-word'>Playlist</h4> <h1 className='playlist-name'>{playlist.name} </h1>

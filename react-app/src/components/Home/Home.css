@@ -33,6 +33,11 @@
     align-self: flex-start;
     color: white;
     font-weight: 600;
+
+    max-width: 160px ;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .song-preview-artist{

@@ -34,7 +34,7 @@
     color: #b3b3b3;
     text-decoration: none;
     font-weight: 500;
-    gap: 12px;
+    gap: 1px;
     align-items: center;
     transition: 0.2s;
 }
@@ -70,4 +70,3 @@
     width: 1px;
     height: 1px;
 }
-
