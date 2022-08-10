@@ -56,52 +56,7 @@ function Playlist() {
   },[playlist])
 
 
-  const handleDelete = async() => {
-    const res = await dispatch(deletePlaylist(playlistId))
 
-
-    if (res.playlistId){
-        history.push('/profile')
-    }
-    else{
-        setErrors(res)
-
-    }
-  }
-
-  const handleCancelEdit = () =>{
-    setDescription(playlist.description)
-    setName(playlist.name)
-    setImage(null)
-
-    setEdit(false)
-  }
-
-  const handleEdit = async (e) => {
-    e.preventDefault();
-    setErrors([])
-    const form = new FormData();
-    form.append("image", image);
-    form.append('name', name);
-    form.append('description', description);
-
-
-    const response = await dispatch(editPlaylist(playlistId, form))
-
-    if (response.playlist) {
-      await dispatch(addPlaylist(response.playlist))
-      setEdit(false)
-
-      return
-    }
-    else {
-      setErrors(response)
-    }
-}
-const updateImage = (e) => {
-    const file = e.target.files[0];
-    setImage(file);
-}
 const playPlaylist = async() => {
     const audioListTemp = []
     setClearAudioList(true)
@@ -136,7 +91,7 @@ const playPlaylist = async() => {
       </div>
       <div className='playist-info'>
         <h4 className='playlist-word'>Playlist</h4> <h1 className='playlist-name'>{playlist.name} </h1>
-        {playlist.description}
+        <div className='playlist-description-head'>{playlist.description}</div>
 
 
       </div>

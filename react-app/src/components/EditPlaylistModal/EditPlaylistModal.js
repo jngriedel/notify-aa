@@ -90,19 +90,21 @@ const handleCancelEdit = () =>{
                            className='upload-song-form'
                           onSubmit={handleEdit}>
 
-                          <label>Name</label>
+                          <label>Name { name.length >= 90 && <span className='limit-warning' >{name.length}/100</span> }</label>
                           <input
                               className='edit-input'
                               required
                               type="text"
+                              maxLength='100'
                               name="playlist name"
                               onChange={(e) => setName(e.target.value)}
                               value={name}
                           ></input>
-                          <label>Description</label>
+                          <label>Description { description.length >= 245 && <span className='limit-warning' >{description.length}/255</span> }</label>
                           <input
                               className='edit-input'
                               type="text"
+                              maxLength='255'
                               name="description"
                               onChange={(e) => setDescription(e.target.value)}
                               value={description}
