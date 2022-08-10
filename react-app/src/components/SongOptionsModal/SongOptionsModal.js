@@ -132,9 +132,9 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
                 onClick={()=>{handleAddToQueue(); setShowDropDown(false);}}
                 >
                     Add to Queue </li>
-                <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)}>Edit</li>
-                <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete}>Delete</li>
-                {playlistId && <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}}  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
+                { sessionUser.id === song.user_id &&       <li  onClick={()=>setEdit(true)}>Edit</li>}
+                {  sessionUser.id === song.user_id && <li  onClick={handleDelete}>Delete</li> }
+                {playlistId && <li   onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
                 <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>
