@@ -149,7 +149,7 @@ def seed_songs():
         name='Snow (Hey Oh)', artist='Red Hot Chili Peppers', album='Stadium Arcadium', genre='Other', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Red+Hot+Chili+Peppers+-+Snow+(Hey+Oh)+-+Remastered.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/stadiumarcadiam.jpg'
     )
     other_5 = Song(
-        name='Feel Good Inc.', artist='Gorillaz', album='Demon Days', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Gorillaz+-+Feel+Good+Inc+HD.mp3', image_url='https://s3.console.aws.amazon.com/s3/object/notify-aa?region=us-west-1&prefix=demon+days.png'
+        name='Feel Good Inc.', artist='Gorillaz', album='Demon Days', genre='Other', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Gorillaz+-+Feel+Good+Inc+HD.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/gorrilaz.jpg'
     )
 
 
