@@ -1,0 +1,27 @@
+.notfound-main {
+    margin-top: 250px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.go-home-button{
+    color: grey;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.go-home-button:visited {
+    list-style: none;
+    text-decoration: none;
+}
+
+.go-home-button:hover{
+    color: white;
+}

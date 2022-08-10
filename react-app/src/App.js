@@ -49,8 +49,9 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
+        
         <div id='content-wrapper'>
-          
+
           <ProtectedRoute path='/profile' exact={true} >
             <Profile />
           </ProtectedRoute>
@@ -64,12 +65,14 @@ function App() {
           <ProtectedRoute path='/home' exact={true}  >
             <Home />
           </ProtectedRoute>
+
+        <ProtectedRoute>
+         <NotFound />
+        </ProtectedRoute>
         </div>
 
 
-        <Route to='*' >
-         <NotFound />
-        </Route>
+
       </Switch>
     </BrowserRouter>
   );

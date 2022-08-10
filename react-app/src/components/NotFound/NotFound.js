@@ -9,13 +9,18 @@ import './NotFound.css'
 
 
 function NotFound(){
-// const history = useHistory()
 
-// const path = useLocation()
-// if (path.pathname !== '/home') history.push('/home')
 
     return (
-        <h1>404 Not Found</h1>
+        <div className='notfound-main'>
+            <h1>404 Not Found</h1>
+            <h3>You're not supposed to be here!</h3>
+            <NavLink  className='go-home-button' to='/home' exact={true} activeClassName='active'>
+
+              <i  class="fa-solid fa-house fa-lg"></i>        Go Home
+
+          </NavLink>
+        </div>
     )
 }
 

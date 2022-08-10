@@ -56,3 +56,20 @@
     padding-bottom: 10px;
 
 }
+
+.loading-dots{
+    box-sizing: border-box;
+
+
+    border-radius: 500px;
+    border: 0px transparent solid;
+    padding: 8px;
+    min-width: 100px;
+    min-height: 50px;
+    max-width: 100px;
+    max-height: 50px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: medium;
+    margin: 15px 0px;
+}

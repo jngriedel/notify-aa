@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {newSong} from '../../store/song'
 import { Modal } from '../../components/context/Modal';
+import ellipse_loading from '../../images/ellipse_loading.gif'
 import './UploadSong.css'
 
 function UploadSong({setShowUpload, showUpload}) {
@@ -15,13 +16,16 @@ function UploadSong({setShowUpload, showUpload}) {
   const [artist, setArtist] = useState('');
   const [genre, setGenre] = useState('Classical');
   const [image, setImage] = useState(null);
+  const [isUploading, setIsUploading] = useState(false)
 
 
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsUploading(true)
     setMp3Errors([])
+
     const form = new FormData();
     form.append("mp3", mp3);
     form.append("image", image)
@@ -41,9 +45,11 @@ function UploadSong({setShowUpload, showUpload}) {
         setGenre('Classical')
         setImage(null)
         setMp3(null)
+        setIsUploading(false)
       }
       else{
         setMp3Errors(response)
+        setIsUploading(false)
       }
     }
 
@@ -152,7 +158,8 @@ const handleCancelUpload = () =>{
               onChange={updateMp3}
             />
             <div className='button-holder'>
-              <button className='upload-button' type="submit">Upload</button>
+              {!isUploading && <button  className='upload-button' type="submit">Upload</button> }
+              {isUploading && <img className='loading-dots' alt='loading' src={ellipse_loading} />}
             </div>
         </form>
 

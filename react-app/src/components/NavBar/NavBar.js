@@ -13,13 +13,14 @@ const NavBar = () => {
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false)
   const sessionUser = useSelector (state=> state.session.user)
   const userPlaylists = useSelector(state =>state.playlist)
-
+  const history = useHistory()
 
   const dispatch = useDispatch()
   const path = useLocation()
   useEffect(() => {
 
-    dispatch(getPlaylists(sessionUser.id))
+    if (!sessionUser) history.push('/')
+    dispatch(getPlaylists(sessionUser?.id))
 
   }, [dispatch]);
 
