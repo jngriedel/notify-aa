@@ -65,3 +65,10 @@
     width: 12px;
     height: 6px;
 }
+
+.user-span{
+    max-width: 45px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

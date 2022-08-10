@@ -34,7 +34,7 @@
     color: #b3b3b3;
     text-decoration: none;
     font-weight: 500;
-    justify-content: flex-start;
+    gap: 12px;
     align-items: center;
     transition: 0.2s;
 }
@@ -48,6 +48,9 @@
 }
 .navbar-links > i {
     margin-right: 16px;
+    margin-left: 3px;
+     min-width: 25px;
+    /* min-height: 25px; */
 }
 
 .navbar-logo{
@@ -62,3 +65,9 @@
 .nav-footer{
     justify-self: flex-end;
 }
+
+.empty {
+    width: 1px;
+    height: 1px;
+}
+

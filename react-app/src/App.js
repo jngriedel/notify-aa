@@ -44,14 +44,11 @@ function App() {
           <Splash />
         </Route>
         <Route path='/login' exact={true}>
-            <LoginForm />
+          <LoginForm />
         </Route>
         <Route path='/sign-up' exact={true}>
-            <SignUpForm />
+          <SignUpForm />
         </Route>
-
-
-
 
 
 
@@ -62,9 +59,7 @@ function App() {
             <User />
           </ProtectedRoute> */}
 
-          <ProtectedRoute path='/home' exact={true} >
-            <Home />
-          </ProtectedRoute>
+
           <ProtectedRoute path='/profile' exact={true} >
             <Profile />
           </ProtectedRoute>
@@ -74,10 +69,16 @@ function App() {
           <ProtectedRoute path='/playlists/:playlistId' exact={true} >
             <Playlist />
           </ProtectedRoute>
-          {/* <ProtectedRoute path="*">
-            <NotFound  />
-          </ProtectedRoute> */}
+
+          <ProtectedRoute path='/home' exact={true}  >
+            <Home />
+          </ProtectedRoute>
         </div>
+
+
+        {/* <Route to='*' >
+         <Navigate to='/'/>
+        </Route> */}
       </Switch>
     </BrowserRouter>
   );

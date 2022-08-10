@@ -29,6 +29,7 @@ const NavBar = () => {
       <img alt='logo' className='navbar-logo' src={logo}/>
       <ul className='navbar-list'>
         <li>
+          <div className='empty'></div>
           <NavLink className='navbar-links' to='/home' exact={true} activeClassName='active'>
 
               <i class="fa-solid fa-house fa-lg"></i> Home
@@ -37,16 +38,19 @@ const NavBar = () => {
         </li>
 
         <li>
+        <div className='empty'></div>
           <div className='navbar-links' onClick={()=>setShowUpload(true)}>
-          <i class="fa-solid fa-cloud-arrow-up fa-lg"></i>Upload Song
+          <i class="fa-solid fa-cloud-arrow-up "></i>Upload Song
           </div>
         </li>
         <li>
+        <div className='empty'></div>
           <NavLink className='navbar-links' to='/profile' exact={true} activeClassName='active'>
           <i class="fa-solid fa-user fa-lg"></i> Your Profile
           </NavLink>
         </li>
         <li>
+        <div className='empty'></div>
           <div className='navbar-links' onClick={()=>setShowCreatePlaylist(true)} >
           <i class="fa-solid fa-plus fa-lg"></i> Create Playlist
           </div>

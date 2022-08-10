@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import {getAllSongs} from '../../store/song'
 import { getPlaylists } from '../../store/playlist';
 import SongPreview from '../SongPreview/SongPreview';
@@ -13,7 +13,7 @@ function Home() {
   const sessionUser = useSelector(state=> state.session.user)
 
   const [loaded, setLoaded] = useState(false)
-
+  const history = useHistory()
 
   const dispatch = useDispatch()
   const userPlaylists = useSelector(state => state.playlist )
@@ -26,7 +26,8 @@ function Home() {
     .then((res)=>{setLoaded(true)})
   }, [dispatch]);
 
-
+  const path = useLocation()
+  if (path.pathname !== '/home') history.push('/home')
 
 
 
