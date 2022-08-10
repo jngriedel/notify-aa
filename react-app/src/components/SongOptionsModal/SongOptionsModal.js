@@ -46,6 +46,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
 
 
     const audioListTemp = []
+    setClearAudioList(false)
 
     audioListTemp.push({
       name: song.name,

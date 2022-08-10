@@ -24,7 +24,9 @@ return (
     defaultVolume={0.6}
     clearPriorAudioLists={clearAudioList}
     showThemeSwitch={false}
-    glassBg={false}
+    glassBg={true}
+    
+
 
 
     />
