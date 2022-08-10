@@ -64,3 +64,20 @@ background-color: rgba(137,137,137,255);
 white-space: nowrap;
 text-overflow: ellipsis;
 } */
+
+
+input[type=file]::file-selector-button {
+    background-color: rgba(30,215,96,255);
+    color: #fff;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    width: 150px;   /*will fill up div when created */
+    cursor: pointer;
+    border-style: none;
+    border-radius: 600px;
+    transition: background-color .2s;
+
+    font-weight: bold;
+}
