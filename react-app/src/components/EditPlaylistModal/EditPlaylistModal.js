@@ -86,6 +86,12 @@ const handleCancelEdit = () =>{
         <h1 className='edit-details'>Playlist Details</h1>
         <button className='cancel-button' type='button' onClick={handleCancelEdit}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
+
+            <div className="errorsList">
+                  {errors && errors.map((error, ind) => (
+                    <div key={ind}>{error}</div>
+                  ))}
+                </div>
                       <form
                            className='upload-song-form'
                           onSubmit={handleEdit}>
@@ -126,11 +132,7 @@ const handleCancelEdit = () =>{
                             <button onClick={handleDelete} className='delete-playlist-button' type='button'>Delete</button>
                           </div>
                       </form>
-        <div className="errorsList">
-          {errors && errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+
         </div>
         </Modal>}
 

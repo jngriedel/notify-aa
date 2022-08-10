@@ -63,6 +63,11 @@ const handleCancelCreate = () =>{
         <h1 className='edit-details'>Create Playlist</h1>
         <button className='cancel-button' type='button' onClick={handleCancelCreate}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
+      <div className="errorsList">
+          {errors && errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
@@ -100,11 +105,7 @@ const handleCancelCreate = () =>{
               <button className='upload-button' type="submit">Create</button>
             </div>
         </form>
-        <div className="errorsList">
-          {errors && errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
+
         </div>
         </Modal>}
         <div className='success' style={{visibility: success? 'visible' : 'hidden'}}>success</div>

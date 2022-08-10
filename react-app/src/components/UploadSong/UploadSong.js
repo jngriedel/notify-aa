@@ -76,6 +76,11 @@ const handleCancelUpload = () =>{
         <h1 className='edit-details'>Upload Song</h1>
         <button className='cancel-button' type='button' onClick={handleCancelUpload}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
+        <div className="errorsList">
+          {mp3errors && mp3errors.map((error, ind) => (
+            <div className='individual-error' key={ind}>*{error}</div>
+          ))}
+        </div>
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
@@ -150,11 +155,7 @@ const handleCancelUpload = () =>{
               <button className='upload-button' type="submit">Upload</button>
             </div>
         </form>
-        <div className="errorsList">
-          {mp3errors && mp3errors.map((error, ind) => (
-            <div className='individual-error' key={ind}>*{error}</div>
-          ))}
-        </div>
+
         </div>
         </Modal>}
     </>

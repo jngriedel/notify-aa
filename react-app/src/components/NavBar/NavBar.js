@@ -64,7 +64,7 @@ const NavBar = () => {
         <ul className='navbar-playlist-menu'>
         {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
    <NavLink className='navbar-playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>
-        <li className='navbar-playlist-li'>{playlist.name}</li>
+        <li style={{color: path.pathname === `/playlists/${playlist.id}` ? 'white' : ''}} className='navbar-playlist-li'>{playlist.name}</li>
     </NavLink>
    ))}
         </ul>
