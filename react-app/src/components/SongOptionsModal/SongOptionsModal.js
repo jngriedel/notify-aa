@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { SongOptionsModalProvider } from '../context/SongOptionsModalProvider.js'
 import { Modal } from '../context/Modal.js';
 import triangle_right from '../../images/triangle_right.png'
+import { useMusicContext } from '../context/MusicContext';
+import no_playlist from "../../images/no_playlist.PNG"
 import { removeSong } from '../../store/song';
 import './SongOptionsModal.css'
 import { NavLink, useLocation } from 'react-router-dom';
@@ -14,6 +15,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
   const playlists = useSelector(state=>state.playlist)
   const [showPlaylists, setShowPlaylists] = useState(false)
   const sessionUser = useSelector(state=> state.session.user)
+  const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
   useEffect(()=> {
     dispatch(getPlaylists(sessionUser.id))
   },[])
@@ -37,6 +39,22 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
 
     setShowPlaylists(false)
     setShowDropDown(false)
+
+  }
+
+  const handleAddToQueue = async() => {
+
+
+    const audioListTemp = []
+
+    audioListTemp.push({
+      name: song.name,
+      singer: song.artist,
+      musicSrc: song.mp3_url,
+      cover: song.image_url ? song.image_url : no_playlist
+    })
+
+    await setAudioLists(audioListTemp)
 
   }
 
@@ -71,7 +89,10 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
         onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
 
             <ul  className='songoptions-dropdown'>
-                
+            <li
+                onClick={()=>{handleAddToQueue(); setShowDropDown(false);}}
+                >
+                    Add to Queue </li>
                 {playlistId && <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}}  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
                 <li
                 onMouseEnter={() => setShowPlaylists(true)}
@@ -107,6 +128,10 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
         onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
 
             <ul  className='songoptions-dropdown'>
+                <li
+                onClick={()=>{handleAddToQueue(); setShowDropDown(false);}}
+                >
+                    Add to Queue </li>
                 <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={()=>setEdit(true)}>Edit</li>
                 <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}} onClick={handleDelete}>Delete</li>
                 {playlistId && <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}}  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }

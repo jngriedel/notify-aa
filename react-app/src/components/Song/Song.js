@@ -43,6 +43,8 @@ function Song({song, i, playlistId}) {
 
   }
 
+  
+
 
 
   const doubleClick = event => {

@@ -29,7 +29,7 @@ body{
 
 
 *::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
     height: 15px;
 
     }
@@ -58,7 +58,7 @@ background-color: rgba(137,137,137,255);
 .errors{
     color: red;
 }
-/* 
+/*
 *{
     overflow: hidden;
 white-space: nowrap;
