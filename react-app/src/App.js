@@ -49,17 +49,8 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-
-
-
         <div id='content-wrapper'>
-
-
-          {/* <ProtectedRoute path='/users/:userId' exact={true} >
-            <User />
-          </ProtectedRoute> */}
-
-
+          
           <ProtectedRoute path='/profile' exact={true} >
             <Profile />
           </ProtectedRoute>
@@ -76,9 +67,9 @@ function App() {
         </div>
 
 
-        {/* <Route to='*' >
-         <Navigate to='/'/>
-        </Route> */}
+        <Route to='*' >
+         <NotFound />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
