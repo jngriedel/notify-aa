@@ -44,6 +44,10 @@
     margin-left: 16px;
     height: 100%;
     width: auto;
+    max-width: 250px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
 
 }
@@ -54,6 +58,11 @@
 
 .song-artist{
     color: rgba(123,118,117,255);
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
 }
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {  useSelector } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 import { useMusicContext } from '../context/MusicContext';
+import { setPlayer } from '../../store/player';
 import SongOptionsModal from '../SongOptionsModal/SongOptionsModal';
 import no_playlist from '../../images/no_playlist.PNG'
 import playbuttonblack from '../../images/playbuttonblack.png'
@@ -13,7 +14,7 @@ function SongPreview({song}) {
 
   const [showPlay, setShowPlay] = useState(false)
   const [showDropDown, setShowDropDown] = useState(false)
-
+  const dispatch = useDispatch()
   const handlePlay = async() => {
     setClearAudioList(true)
 
@@ -50,7 +51,8 @@ function SongPreview({song}) {
       {showPlay && <img onClick={handlePlay} className='play-button-preview'  alt='play' src={playbuttonblack} />}
       </div>
         <div className='preview-details'>
-            <div className='name-and-elipse'> <span className='song-spanreview-name'>{song.name}</span>
+            <div className='name-and-elipse'>
+                <span className='song-spanreview-name'>{song.name}</span>
                 <div style={{visibility: showPlay? 'visible' : 'hidden'}}className='preview-elipse'><i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis fa-lg"></i></div>
             </div>
             <span className='song-preview-artist'>{song.artist}</span>

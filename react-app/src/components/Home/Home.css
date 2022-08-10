@@ -43,7 +43,10 @@
 .song-preview-artist{
     font-size: 14px;
     color: grey;
-
+    overflow: hidden;
+    max-width: 170px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 
@@ -58,6 +61,3 @@
 
 }
 
-.name-and-elipse{
-    margin: 16px 0px;
-}

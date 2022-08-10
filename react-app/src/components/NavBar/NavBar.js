@@ -14,6 +14,7 @@ const NavBar = () => {
   const sessionUser = useSelector (state=> state.session.user)
   const userPlaylists = useSelector(state =>state.playlist)
 
+
   const dispatch = useDispatch()
   const path = useLocation()
   useEffect(() => {

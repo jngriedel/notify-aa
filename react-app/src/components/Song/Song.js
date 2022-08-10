@@ -43,7 +43,7 @@ function Song({song, i, playlistId}) {
 
   }
 
-  
+
 
 
 
@@ -66,7 +66,7 @@ function Song({song, i, playlistId}) {
         <div className='song-title'>
         <img className='song-image' src={song.image_url? song.image_url : no_playlist} />
           <div className='song-name-artist'>
-            <p>{song.name}</p>
+            <p >{song.name}</p>
             <p className='song-artist'>{song.artist}</p>
           </div>
         </div>
