@@ -1,7 +1,7 @@
 .upload-button{
     box-sizing: border-box;
-    background-color:#ffffff;
-    color: black;
+    background-color: rgba(30,215,96,255);
+    color: #fff;
     border-radius: 500px;
     border: 0px transparent solid;
     padding: 8px;
@@ -10,11 +10,31 @@
     font-family: inherit;
     font-weight: bold;
     font-size: medium;
-    margin-top: 10px;
+    margin: 15px 0px;
 }
 
 .upload-button:hover{
     height: 53px;
+    cursor: pointer;
+}
+
+.delete-playlist-button{
+    box-sizing: border-box;
+    background-color: grey;
+    color: #fff;
+    border-radius: 500px;
+    border: 0px transparent solid;
+    padding: 8px;
+    width: 100px;
+    height: 34x;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: medium;
+    margin: 15px 0px;
+}
+.delete-playlist-button:hover{
+    height: 36px;
+    cursor: pointer;
 }
 
 .upload-song-modal{
@@ -26,7 +46,7 @@
     padding: 4px;
     z-index: 3;
     width: 500px;
-    min-height: 500px;
+    min-height: 450px;
 }
 
 .upload-song-form{

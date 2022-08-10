@@ -123,7 +123,7 @@ const handleCancelEdit = () =>{
                             <button className='upload-button' type='submit'>Save</button>
                           </div>
                           <div className='button-holder'>
-                            <button onClick={handleDelete} className='upload-button' type='button'>Delete</button>
+                            <button onClick={handleDelete} className='delete-playlist-button' type='button'>Delete</button>
                           </div>
                       </form>
         <div className="errorsList">

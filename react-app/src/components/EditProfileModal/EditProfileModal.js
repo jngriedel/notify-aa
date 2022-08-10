@@ -73,13 +73,15 @@ const handleCancelCreate = () =>{
       value={username}
     ></input>
 
-
+      <label>Change Profile Picture</label>
             <input
               type="file"
               accept="image/*"
               onChange={updateImage}
             />
-            <button className='upload-button' type="submit">Save</button>
+            <div className='button-holder'>
+             <button className='upload-button' type="submit">Save</button>
+            </div>
 
         </form>
         <div className="errorsList">

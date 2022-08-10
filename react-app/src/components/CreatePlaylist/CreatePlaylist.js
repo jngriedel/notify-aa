@@ -84,7 +84,7 @@ const handleCancelCreate = () =>{
                   placeholder="Description"
                   type="text"
                   maxLength='255'
-                  
+
                   name="description"
                   onChange={(e)=>setDescription(e.target.value)}
                   value={description}
@@ -96,8 +96,9 @@ const handleCancelCreate = () =>{
               accept="image/*"
               onChange={updateImage}
             />
-            <button className='upload-button' type="submit">Create</button>
-
+            <div className='button-holder'>
+              <button className='upload-button' type="submit">Create</button>
+            </div>
         </form>
         <div className="errorsList">
           {errors && errors.map((error, ind) => (

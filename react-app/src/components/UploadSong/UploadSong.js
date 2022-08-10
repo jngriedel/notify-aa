@@ -25,7 +25,7 @@ function UploadSong({setShowUpload, showUpload}) {
     const form = new FormData();
     form.append("mp3", mp3);
     form.append("image", image)
-    
+
     form.append("name", name)
     form.append("album", album)
     form.append("artist", artist)
@@ -146,8 +146,9 @@ const handleCancelUpload = () =>{
               required
               onChange={updateMp3}
             />
-            <button className='upload-button' type="submit">Upload</button>
-
+            <div className='button-holder'>
+              <button className='upload-button' type="submit">Upload</button>
+            </div>
         </form>
         <div className="errorsList">
           {mp3errors && mp3errors.map((error, ind) => (

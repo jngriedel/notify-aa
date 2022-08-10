@@ -67,8 +67,8 @@ text-overflow: ellipsis;
 
 
 input[type=file]::file-selector-button {
-    background-color: rgba(30,215,96,255);
-    color: #fff;
+    background-color: white;
+    color: black;
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
     padding-left: 1.5rem;
@@ -80,4 +80,9 @@ input[type=file]::file-selector-button {
     transition: background-color .2s;
 
     font-weight: bold;
+    margin-bottom: 20px;
+}
+
+select {
+    margin-bottom: 10px;
 }
