@@ -23,6 +23,7 @@ const NavBar = () => {
 
   }, [dispatch]);
 
+
   if (path.pathname ==='/' || path.pathname ==='/login' || path.pathname ==='/sign-up') return null
 
   return (
@@ -32,24 +33,24 @@ const NavBar = () => {
       <ul className='navbar-list'>
         <li>
           <div className='empty'></div>
-          <NavLink className='navbar-links' to='/home' exact={true} activeClassName='active'>
+          <NavLink style={{color: path.pathname === '/home' ? 'white' : ''}} className='navbar-links' to='/home' exact={true} activeClassName='active'>
 
-              <i class="fa-solid fa-house fa-lg"></i> Home
+              <i  class="fa-solid fa-house fa-lg"></i> Home
 
           </NavLink>
         </li>
 
         <li>
         <div className='empty'></div>
-          <div className='navbar-links' onClick={()=>setShowUpload(true)}>
-          <i class="fa-solid fa-cloud-arrow-up "></i>Upload Song
-          </div>
-        </li>
-        <li>
-        <div className='empty'></div>
-          <NavLink className='navbar-links' to='/profile' exact={true} activeClassName='active'>
+          <NavLink style={{color: path.pathname === '/profile' ? 'white' : ''}} className='navbar-links' to='/profile' exact={true} activeClassName='active'>
           <i class="fa-solid fa-user fa-lg"></i> Your Profile
           </NavLink>
+        </li>
+        <li>
+        <div className='empty'></div>
+          <div  className='navbar-links' onClick={()=>setShowUpload(true)}>
+          <i class="fa-solid fa-cloud-arrow-up "></i>Upload Song
+          </div>
         </li>
         <li>
         <div className='empty'></div>
