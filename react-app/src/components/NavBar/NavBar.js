@@ -67,12 +67,13 @@ const NavBar = () => {
    ))}
         </ul>
 
-
+      <div className='nav-footer-wrapper'>
         <div className='nav-footer'>
                     <span className="footer-message">By: Josef Niels Griedel</span>
                     <a className='footer-link' rel="noreferrer" target="_blank" href='https://www.linkedin.com/in/josef-niels-g-bbb2b38b/'><i className="fa-brands fa-linkedin"></i></a>
                     <a className='footer-link' rel="noreferrer" target="_blank" href='https://github.com/jngriedel'><i className="fa-brands fa-github"></i></a>
-                </div>
+          </div>
+        </div>
     </div>
   );
 }
