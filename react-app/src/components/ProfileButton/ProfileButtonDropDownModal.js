@@ -18,8 +18,8 @@ function ProfileButtonDropDownModal({showModal, setShowModal, }) {
         <Modal onClose={() => setShowModal(false)}>
 
             <ul className='profile-dropdown'>
-                <NavLink className='profile-dropdown-link' to='/profile'><li>Profile</li></NavLink>
-                <li onClick={onLogout}>  Logout</li>
+                <NavLink onClick={()=>{setShowModal(false)}} className='profile-dropdown-link' to='/profile'><li>Profile</li></NavLink>
+                <li onClick={()=>{onLogout(); setShowModal(false)}}>  Logout</li>
             </ul>
 
 
