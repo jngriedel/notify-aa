@@ -12,12 +12,13 @@ const NavBar = () => {
   const [showUpload, setShowUpload] = useState(false)
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false)
   const sessionUser = useSelector (state=> state.session.user)
+  const userPlaylists = useSelector(state =>state.playlist)
 
   const dispatch = useDispatch()
   const path = useLocation()
   useEffect(() => {
 
-    // dispatch(getPlaylists(sessionUser.id))
+    dispatch(getPlaylists(sessionUser.id))
 
   }, [dispatch]);
 
@@ -58,8 +59,12 @@ const NavBar = () => {
       </ul>
         <UploadSong setShowUpload={setShowUpload} showUpload={showUpload} />
         <CreatePlaylist setShowCreatePlaylist={setShowCreatePlaylist} showCreatePlaylist={showCreatePlaylist} />
-        <ul>
-          {}
+        <ul className='navbar-playlist-menu'>
+        {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
+   <NavLink className='navbar-playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>
+        <li className='navbar-playlist-li'>{playlist.name}</li>
+    </NavLink>
+   ))}
         </ul>
 
 
