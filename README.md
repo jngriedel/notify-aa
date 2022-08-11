@@ -92,6 +92,10 @@ When clicking on the profile picture, a user can edit their username and profile
 
 ![image](https://user-images.githubusercontent.com/19957902/184253305-e03013d9-f6ec-4ffa-bd68-a6c4d5863a7c.png)
 
+## **Music Player** ##
+The music player is intuitive, with play next and previous buttons. The queue of songs can be seen by clicking the far right queue button
+
+![image](https://user-images.githubusercontent.com/19957902/184255464-3efbf897-8a06-4bb9-86a3-b7f04dce7429.png)
 
 
 ## **Code Snippet** ##
