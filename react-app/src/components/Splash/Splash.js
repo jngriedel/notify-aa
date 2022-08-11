@@ -1,6 +1,6 @@
 import React, {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import logo from '../../images/logo.png'
 import './Splash.css'
 
@@ -11,6 +11,10 @@ import './Splash.css'
 
 function Splash(){
 
+
+const history = useHistory()
+const sessionUser = useSelector(state=> state.session.user)
+if (sessionUser) history.push('/home')
 
     return (
         <div className='splash-wrapper'>

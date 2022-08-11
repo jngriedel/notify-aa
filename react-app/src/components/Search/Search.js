@@ -18,7 +18,7 @@ function Search() {
   const history = useHistory()
 
   const dispatch = useDispatch()
-  const userPlaylists = useSelector(state => state.playlist )
+//   const userPlaylists = useSelector(state => state.playlist )
   const allSongs = useSelector(state => state.song)
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function Search() {
         <input
         className='searchbar'
         value={search}
-        placeholder="Artists, songs, or albums"
+        placeholder="Artists or songs"
         onChange={(e)=>setSearch(e.target.value)}
         ></input>
          <div className='clear-holder'>
