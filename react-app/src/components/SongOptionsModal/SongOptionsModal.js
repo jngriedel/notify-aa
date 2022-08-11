@@ -108,22 +108,24 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
                 onClick={()=>{handleAddToQueue(); setShowDropDown(false);}}
                 >
                     Add to Queue </li>
-                {playlistId && <li style={{visibility: sessionUser.id === song.user_id? 'visible': 'hidden'}}  onClick={handleRemoveFromPlaylist} >Remove from playlist</li> }
-                <li
+              {playlistId && <li
+              style={{ visibility: sessionUser.id === song.user_id ? 'visible' : 'hidden' }}
+              onClick={handleRemoveFromPlaylist} >Remove from playlist</li>}
+              <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>
-                    Add to Playlist <img className='triangle-songoptions' alt='triangle' src={triangle_right} /></li>
+                Add to Playlist <img className='triangle-songoptions' alt='triangle' src={triangle_right} /></li>
             </ul>
 
             {showPlaylists &&
-                <ul onMouseEnter={() => setShowPlaylists(true)} className='playlist-dropdown'>
-                    {Object.values(playlists).map((playlist, i) => (
-                        <li key={i} onClick={() => handleAddToPlaylist(playlist.id)} className='playlist-dropdown-option'>
-                            {playlist.name}
-                        </li>
-                    ))}
+              <ul onMouseEnter={() => setShowPlaylists(true)} className='playlist-dropdown'>
+                {Object.values(playlists).map((playlist, i) => (
+                  <li key={i} onClick={() => handleAddToPlaylist(playlist.id)} className='playlist-dropdown-option'>
+                    {playlist.name}
+                  </li>
+                ))}
 
-                </ul>
+              </ul>
             }
 
 

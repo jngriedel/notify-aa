@@ -15,7 +15,9 @@
     border-radius: 23px;
     z-index: 10000;
 }
-
+.profile-button:hover{
+    cursor: pointer;
+}
 .profile-button-picture{
     border-radius: 50%;
     height: 28px;
@@ -51,6 +53,7 @@
 .profile-dropdown > li:hover,
 .profile-dropdown-link> li:hover{
     background-color: rgba(79,79,79,255);
+    cursor: pointer;
 
 }
 
