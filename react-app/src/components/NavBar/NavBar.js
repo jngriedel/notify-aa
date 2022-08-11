@@ -41,10 +41,16 @@ const NavBar = () => {
           </NavLink>
         </li>
 
-        <li>
+        {/* <li>
         <div className='empty'></div>
           <NavLink style={{color: path.pathname === '/profile' ? 'white' : ''}} className='navbar-links' to='/profile' exact={true} activeClassName='active'>
           <i class="fa-solid fa-user fa-lg"></i> Your Profile
+          </NavLink>
+        </li> */}
+        <li>
+        <div className='empty'></div>
+          <NavLink style={{color: path.pathname === '/search' ? 'white' : ''}} className='navbar-links' to='/search' exact={true} activeClassName='active'>
+          <i class="fa-solid fa-magnifying-glass fa-lg"></i> Search
           </NavLink>
         </li>
         <li>

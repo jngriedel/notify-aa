@@ -23,10 +23,10 @@ function Search() {
 
   useEffect(() => {
     dispatch(getAllSongs())
-
-
     .then((res)=>{setLoaded(true)})
   }, [dispatch]);
+
+
 
   const path = useLocation()
   if (path.pathname !== '/search') history.push('/home')
@@ -41,14 +41,38 @@ function Search() {
     <div className='search-main'>
 
 
-    <h2>Find New Songs</h2>
+    <h2>Find New Music</h2>
+    <div className='searchbar-main'>
+        <div className='mag-holder'>
+         <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+        </div>
+        <input
+        className='searchbar'
+        value={search}
+        placeholder="Artists, songs, or albums"
+        onChange={(e)=>setSearch(e.target.value)}
+        ></input>
+         <div className='clear-holder'>
+         { search.length > 0 && <i onClick={()=>setSearch("")} class="fa-solid fa-x fa-lg"></i> }
+        </div>
+    </div>
 
-    <input
-    className='searchbar'
-    value={search}
-    placeholder="Artists, songs, or albums"
-    onChange={(e)=>setSearch(e.target.value)}
-    ></input>
+    { search.length > 0 && <div className='results'>
+            {Object.values(allSongs)
+            .filter((song) => {
+                return song.name.match(new RegExp(search, "i")) || song.artist.match(new RegExp(search, "i")) ;
+              })
+            .map((song, i)=>(
+                <SongPreview song={song} />
+               ))  }
+            {Object.values(allSongs)
+            .filter((song) => {
+                return song.name.match(new RegExp(search, "i")) || song.artist.match(new RegExp(search, "i")) ;
+              }).length === 0 && <div className='empty-search'><h2>No results found for "{search}"</h2> <h4>Please make sure your words are spelled correctly or use less or different keywords.</h4></div>}
+
+
+
+    </div>}
 
 
 

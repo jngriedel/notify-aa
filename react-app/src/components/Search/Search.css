@@ -12,5 +12,45 @@
 }
 
 .search-main{
-    /* min-height: calc(100vh- 80px); */
+  height: calc(100vh - 80px);
+
+}
+
+
+.searchbar-main{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.mag-holder{
+    position: absolute;
+    color: black;
+    left: 9px;
+}
+
+.clear-holder{
+    color: black;
+    position: absolute;
+    left: 335px;
+}
+.clear-holder:hover{
+    cursor: pointer;
+}
+
+
+.results{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.empty-search{
+    display: flex;
+    flex-direction: column;
+    
 }

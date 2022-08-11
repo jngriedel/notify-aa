@@ -96,7 +96,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
 
   // for preview only
   const path = useLocation()
-  if (path.pathname === '/home') {
+  if (path.pathname === '/home' || path.pathname ==='/search') {
     return (
       <>
       {showDropDown && (
