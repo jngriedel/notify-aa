@@ -21,7 +21,7 @@
     justify-content: space-between;
     max-width: 170px;
     align-items: center;
-
+    position: relative;
     margin: 16px 0px;
 }
 
@@ -35,4 +35,5 @@
 
 .preview-elipse{
     justify-self: flex-end;
+    position: relative;
 }

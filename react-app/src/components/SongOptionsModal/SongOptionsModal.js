@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Modal } from '../context/Modal.js';
 import triangle_right from '../../images/triangle_right.png'
 import { useMusicContext } from '../context/MusicContext';
@@ -16,9 +16,24 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
   const [showPlaylists, setShowPlaylists] = useState(false)
   const sessionUser = useSelector(state=> state.session.user)
   const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
+  const ref = useRef()
   useEffect(()=> {
     dispatch(getPlaylists(sessionUser.id))
   },[])
+
+  useEffect(() => {
+    const outsideClick = e => {
+      // Close if clicked on other element
+      if (showDropDown && ref.current && !ref.current.contains(e.target)) {
+           setShowDropDown(false)
+      }
+    }
+      document.addEventListener("mousedown", outsideClick)
+    return () => {
+     // Cleanup return function
+        document.removeEventListener("mousedown", outsideClick)
+    }
+  }, [showDropDown])
 
 
   const handleAddToPlaylist = async (playlistId) => {
@@ -85,9 +100,8 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
     return (
       <>
       {showDropDown && (
-        <div className='song-options-modal-wrapper'>
-  <Modal
-        onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
+        <div className='song-options-modal-wrapper-home' ref={ref}>
+
 
             <ul  className='songoptions-dropdown'>
             <li
@@ -113,7 +127,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
             }
 
 
-        </Modal>
+
       </div>
       )}
       </>
@@ -124,9 +138,8 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
   return (
     <>
       {showDropDown && (
-        <div className='song-options-modal-wrapper'>
-        <Modal
-        onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
+        <div className='song-options-modal-wrapper' ref={ref}>
+
 
             <ul  className='songoptions-dropdown'>
                 <li
@@ -154,7 +167,6 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
             }
 
 
-         </Modal>
       </div>
       )}
     </>

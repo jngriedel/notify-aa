@@ -86,3 +86,9 @@ input[type=file]::file-selector-button {
 select {
     margin-bottom: 10px;
 }
+
+.loading-image{
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}

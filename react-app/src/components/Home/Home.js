@@ -6,6 +6,7 @@ import { getPlaylists } from '../../store/playlist';
 import SongPreview from '../SongPreview/SongPreview';
 import Song from '../Song/Song'
 import no_playlist from '../../images/no_playlist.PNG'
+import loading_page from '../../images/loading_page.gif'
 
 import './Home.css'
 
@@ -34,6 +35,7 @@ function Home() {
 
   return (
     <>
+    {/* {!loaded && <img className='loading-image' alt='loading' src={loading_page} />} */}
     {loaded &&
     <div>
         <h1>Welcome back {sessionUser.username}!</h1>
