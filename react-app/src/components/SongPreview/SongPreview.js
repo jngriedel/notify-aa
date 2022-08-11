@@ -53,13 +53,14 @@ function SongPreview({song}) {
         <div className='preview-details'>
             <div className='name-and-elipse'>
                 <span className='song-spanreview-name'>{song.name}</span>
-                <div style={{visibility: showPlay? 'visible' : 'hidden'}}className='preview-elipse'><i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis fa-lg"></i></div>
+                <div style={{visibility: showPlay? 'visible' : 'hidden'}}className='preview-elipse'><i onClick={()=>{setShowDropDown(true); }} class="fa-solid fa-ellipsis fa-lg"></i></div>
+                <SongOptionsModal song={song} showDropDown={showDropDown} setShowDropDown={setShowDropDown} />
             </div>
             <span className='song-preview-artist'>{song.artist}</span>
         </div>
       </div>
 
-        <SongOptionsModal song={song} showDropDown={showDropDown} setShowDropDown={setShowDropDown} />
+
 
    </>
   );

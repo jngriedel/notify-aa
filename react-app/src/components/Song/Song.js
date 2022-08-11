@@ -13,7 +13,6 @@ function Song({song, i, playlistId}) {
   const sessionUser = useSelector(state=> state.session.user)
 
   const [edit, setEdit] = useState(false)
-
   const [showPlay, setShowPlay] = useState(false)
   const [showDropDown, setShowDropDown] = useState(false)
   const dispatch = useDispatch()
