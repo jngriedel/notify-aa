@@ -98,7 +98,9 @@ When clicking on the profile picture, a user can edit their username and profile
 To show the users playlists in the ellipse dropdown menu a onMouseEnter and onMouseLeave property was used. The playists will appear when hovering the Add to playlist option, and they will remain open so long as the mouse doesn't leave their dropdown, or the original Add to playlist element. 
 
 ```
-{playlistId && <li style={{ visibility: sessionUser.id === song.user_id ? 'visible' : 'hidden' }} onClick={handleRemoveFromPlaylist} >Remove from playlist</li>}
+{playlistId && <li
+              style={{ visibility: sessionUser.id === song.user_id ? 'visible' : 'hidden' }}
+              onClick={handleRemoveFromPlaylist} >Remove from playlist</li>}
               <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>
