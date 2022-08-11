@@ -66,3 +66,6 @@ position: relative;
     align-items: center;
     z-index: 1000;
 }
+.edit-image-overlay:hover{
+    cursor: pointer;
+}

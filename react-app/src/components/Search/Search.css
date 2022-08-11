@@ -12,7 +12,7 @@
 }
 
 .search-main{
-  height: calc(100vh - 80px);
+  min-height: 100%;
 
 }
 
@@ -46,11 +46,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    min-height: auto;
 }
 
 
 .empty-search{
     display: flex;
     flex-direction: column;
-    
+
 }

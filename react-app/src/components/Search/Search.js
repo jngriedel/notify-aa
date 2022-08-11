@@ -73,6 +73,13 @@ function Search() {
 
 
     </div>}
+    { search.length === 0 && <div className='results'>
+            {Object.values(allSongs)
+            .map((song, i)=>(
+                <SongPreview song={song} />
+               ))  }
+
+    </div>}
 
 
 

@@ -88,7 +88,9 @@
     z-index: 1000;
 }
 
-
+.edit-playlist-overlay:hover{
+    cursor: pointer;
+}
 .empty-playlist{
     width: 100%;
     display: flex;

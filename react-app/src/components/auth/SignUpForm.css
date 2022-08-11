@@ -65,6 +65,7 @@
 .sign-up-button:hover{
     height: 54px;
     width: 152px;
+    cursor: pointer;
 }
 
 .button-holder{
@@ -100,12 +101,13 @@
 }
 .redirect-to-signup:hover{
   border: black 1px solid;
+  cursor: pointer;
 
 }
 
 .demouser-container{
     box-sizing: border-box;
-  
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,9 +128,11 @@
     font-size: 15px;
     border-radius: 500px;
     margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 .demo-button:hover{
     height: 54px;
     width: 302px;
+    cursor: pointer;
 }
