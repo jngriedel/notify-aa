@@ -13,6 +13,7 @@ import CreatePlaylist from './components/CreatePlaylist/CreatePlaylist'
 import Playlist from './components/Playlist/Playlist';
 import ProfileButton from './components/ProfileButton/ProfileButton';
 import Splash from './components/Splash/Splash.js'
+import Search from './components/Search/Search';
 import { authenticate } from './store/session';
 
 
@@ -51,6 +52,7 @@ function App() {
         </Route>
 
         <div id='content-wrapper'>
+          <Switch>
 
           <ProtectedRoute path='/profile' exact={true} >
             <Profile />
@@ -65,11 +67,15 @@ function App() {
           <ProtectedRoute path='/home' exact={true}  >
             <Home />
           </ProtectedRoute>
+          <ProtectedRoute path='/search' exact={true}  >
+            <Search />
+          </ProtectedRoute>
 
+          <ProtectedRoute>
+          <NotFound />
+          </ProtectedRoute>
+        </Switch>
         </div>
-        {/* <ProtectedRoute>
-         <NotFound />
-        </ProtectedRoute> */}
 
 
 

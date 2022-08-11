@@ -82,7 +82,10 @@ def playlists():
 @login_required
 def user_playlists(playlist_id):
     playlist = Playlist.query.get(playlist_id)
-    return {'playlist': playlist.to_dict()}
+    if playlist:
+        return {'playlist': playlist.to_dict()}
+    else :
+        return {'message': 'No Playlist'}
 
 
 

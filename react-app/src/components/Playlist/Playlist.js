@@ -25,19 +25,28 @@ function Playlist() {
   const [description, setDescription] = useState("")
   const [image, setImage] = useState(null)
   const [loaded, setLoaded] = useState(false)
+  const [search, setSearch] = useState("")
   const history = useHistory()
   const dispatch = useDispatch()
 
 
 
   useEffect(() => {
+
+    if (!playlistId || isNaN(+playlistId) ) {
+      history.push("/home");
+    }
+
+
     (async () => {
       const response = await fetch(`/api/playlists/${playlistId}`);
       const data = await response.json();
-
+      if (!data.playlist) history.push('/home');
+      else{
       await dispatch(addPlaylist(data.playlist))
       await dispatch(setSongs(Object.values(data.playlist.songs)))
       setLoaded(true)
+      }
 
 
     })();
@@ -46,12 +55,11 @@ function Playlist() {
 
 
 
+
+
   useEffect(()=>{
     setName(playlist?.name)
     setDescription(playlist?.description)
-
-
-
 
   },[playlist])
 
@@ -115,8 +123,9 @@ const playPlaylist = async() => {
         <div>
 
         {songs && Object.values(songs).map((song, i)=>(
-    <Song key={i} song={song} playlistId={playlistId} i={i}  />
-   ))}
+          <Song key={i} song={song} playlistId={playlistId} i={i}  />
+      ))}
+
 
 
 
