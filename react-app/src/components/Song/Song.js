@@ -73,7 +73,7 @@ function Song({song, i, playlistId}) {
 
       <div className='song-buttons'>
 
-        {showPlay && <div className='elipse-holder'><i onClick={()=>setShowDropDown(true)} class="fa-solid fa-ellipsis fa-lg"></i></div>}
+        <div style={{visibility: showPlay? 'visible':'hidden'}} className='elipse-holder'><i onClick={()=>{setShowDropDown(true);}} class="fa-solid fa-ellipsis fa-lg"></i></div>
 
         <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} playlistId={playlistId} setEdit={setEdit} />
 
