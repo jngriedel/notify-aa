@@ -24,7 +24,7 @@ const NavBar = () => {
 
   }, [dispatch]);
 
-
+  // if (path.pathname !=='/home' && path.pathname !=='/profile' && !path.pathname.startsWith('/playlists') )history.push('/home')
   if (path.pathname ==='/' || path.pathname ==='/login' || path.pathname ==='/sign-up') return null
 
   return (

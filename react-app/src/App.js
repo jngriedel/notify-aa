@@ -49,7 +49,7 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        
+
         <div id='content-wrapper'>
 
           <ProtectedRoute path='/profile' exact={true} >
@@ -66,10 +66,10 @@ function App() {
             <Home />
           </ProtectedRoute>
 
-        <ProtectedRoute>
-         <NotFound />
-        </ProtectedRoute>
         </div>
+        {/* <ProtectedRoute>
+         <NotFound />
+        </ProtectedRoute> */}
 
 
 

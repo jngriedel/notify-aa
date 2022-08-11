@@ -86,7 +86,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
       <>
       {showDropDown && (
         <div className='song-options-modal-wrapper'>
-        <Modal
+  <Modal
         onClose={() =>{ setShowDropDown(false); setShowPlaylists(false) }}>
 
             <ul  className='songoptions-dropdown'>
@@ -113,7 +113,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
             }
 
 
-         </Modal>
+        </Modal>
       </div>
       )}
       </>
