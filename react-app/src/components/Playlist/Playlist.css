@@ -87,3 +87,23 @@
     align-items: center;
     z-index: 1000;
 }
+
+
+.empty-playlist{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playlist-goto-search{
+    text-decoration: none;
+    color: white;
+}
+.playlist-goto-search:visited{
+    text-decoration: none;
+}
+
+.playlist-goto-search:hover{
+    text-decoration: underline;
+}

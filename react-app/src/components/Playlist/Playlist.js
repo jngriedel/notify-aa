@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import {deletePlaylist, editPlaylist, addPlaylist} from '../../store/playlist'
 import no_playlist from "../../images/no_playlist.PNG"
 import play_button_black from "../../images/playbuttonblack.png"
@@ -125,6 +125,10 @@ const playPlaylist = async() => {
         {songs && Object.values(songs).map((song, i)=>(
           <Song key={i} song={song} playlistId={playlistId} i={i}  />
       ))}
+          {Object.values(songs).length === 0 &&
+            <div className='empty-playlist' >
+              <h1>Looks empty in here!</h1>
+              <h3>Add some songs using: <NavLink className='playlist-goto-search'  to="/search">Search</NavLink></h3></div>}
 
 
 
