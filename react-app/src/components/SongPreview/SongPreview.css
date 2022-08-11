@@ -37,3 +37,6 @@
     justify-self: flex-end;
     position: relative;
 }
+.preview-elipse:hover{
+    cursor: pointer;
+}

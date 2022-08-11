@@ -15,6 +15,9 @@
     position: relative;
     width: auto;
 }
+.elipse-holder:hover{
+    cursor: pointer;
+}
 
 .song-container:hover{
     background-color: rgba(43,42,48,255);
@@ -54,6 +57,9 @@
 .play-on-song{
  height: 17px;
  width: 17px;
+}
+.play-on-song:hover{
+    cursor: pointer;
 }
 
 .song-artist{

@@ -25,6 +25,10 @@ const LoginForm = () => {
     }
   };
 
+  const demoUser = () => {
+    dispatch(login('demo@aa.io', 'password'))
+  }
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -76,6 +80,10 @@ const LoginForm = () => {
     </form>
     <div className='signup-redirect-container'>
     Don't have an account? <button onClick={handleRedirect} className='redirect-to-signup' type='button'>Sign-Up for NOT-ify</button>
+    </div>
+    <h2>Or</h2>
+    <div className='demouser-container'>
+     <button type='button' className='demo-button' onClick={demoUser}>Login as Demo User</button>
     </div>
     </div>
   );
