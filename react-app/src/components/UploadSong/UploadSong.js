@@ -4,9 +4,10 @@ import {newSong} from '../../store/song'
 import { Modal } from '../../components/context/Modal';
 import ellipse_loading from '../../images/ellipse_loading.gif'
 import './UploadSong.css'
+import { useHistory } from 'react-router-dom';
 
 function UploadSong({setShowUpload, showUpload}) {
-
+  const history = useHistory()
   const dispatch = useDispatch()
   const sessionUser = useSelector(state=> state.session.user)
   const [mp3errors, setMp3Errors] = useState([])
@@ -73,6 +74,7 @@ function UploadSong({setShowUpload, showUpload}) {
         setMp3(null)
         setIsUploading(false)
         setShowUpload(false)
+        history.push('/profile')
       }
       else{
 
@@ -163,8 +165,9 @@ const handleCancelUpload = () =>{
                 id="selectoption"
                 onChange={(e)=>setGenre(e.target.value)}
                 value={genre}
+
             >
-                <option value="Classical">Classical</option>
+                <option  selected value="Classical">Classical</option>
                 <option value="Country">Country</option>
                 <option value="Electronic">Electronic</option>
                 <option value="Jazz">Jazz</option>
