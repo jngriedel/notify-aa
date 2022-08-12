@@ -10,6 +10,12 @@ function UploadSong({setShowUpload, showUpload}) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state=> state.session.user)
   const [mp3errors, setMp3Errors] = useState([])
+
+
+  const [imageError, setImageError] = useState([])
+  const [csurfError, setCsurfError] = useState([])
+  const [songError, setSongError] = useState([])
+
   const [mp3, setMp3] = useState(null);
   const [name, setName] = useState('');
   const [album, setAlbum] = useState('');
@@ -17,14 +23,34 @@ function UploadSong({setShowUpload, showUpload}) {
   const [genre, setGenre] = useState('Classical');
   const [image, setImage] = useState(null);
   const [isUploading, setIsUploading] = useState(false)
-  
 
+  useEffect(()=>{
+    const imageErrorTemp= []
+    const csurfErrorTemp =[]
+    const songErrorTemp = []
+
+    mp3errors.map((suberror)=>{
+      const error = suberror.split(':');
+      if (error[0] === 'image') imageErrorTemp.push('*' + error[1])
+      if (error[0] === 'other') csurfErrorTemp.push('*' + error[1])
+      if (error[0] === 'mp3') songErrorTemp.push('*' + error[1])
+
+      setImageError(imageErrorTemp)
+      setCsurfError(csurfErrorTemp)
+      setSongError(songErrorTemp)
+
+    })
+
+  },[mp3errors])
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsUploading(true)
     setMp3Errors([])
+    setImageError([])
+    setCsurfError([])
+    setSongError([])
 
     const form = new FormData();
     form.append("mp3", mp3);
@@ -84,15 +110,19 @@ const handleCancelUpload = () =>{
         <h1 className='edit-details'>Upload Song</h1>
         <button className='cancel-button' type='button' onClick={handleCancelUpload}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
-        <div className="errorsList">
+        {/* <div className="errorsList">
           {mp3errors && mp3errors.map((error, ind) => (
             <div className='individual-error' key={ind}>*{error}</div>
           ))}
-        </div>
+        </div> */}
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
-
+            <div className='errors'>
+              {csurfError.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
             <label>Song Name { name.length >= 90 && <span className='limit-warning' >{name.length}/100</span> }</label>
             <input
                   required
@@ -145,12 +175,25 @@ const handleCancelUpload = () =>{
                 <option value="Other">Other</option>
             </select>
 
+
+            <div className='errors'>
+              {imageError.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+
             <label>Album Cover (Optional) </label>
             <input
               type="file"
               accept="image/*"
               onChange={updateImage}
             />
+
+            <div className='errors'>
+              {songError.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
 
             <label>Mp3 File </label>
             <input

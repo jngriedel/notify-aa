@@ -43,7 +43,7 @@ def new_song():
     try:
         validate_csrf(request.cookies['csrf_token'])
     except:
-        return {'errors': ['Invalid csrf token']}, 400
+        return {'errors': ['other:Invalid csrf token. Please refresh and try again.']}, 400
 
     # all_errors = []
 
@@ -66,7 +66,7 @@ def new_song():
         image = request.files["image"]
 
         if not allowed_image_file(image.filename):
-            return {"errors": ["Image must be a .jpg, .jpeg, or .png"]}, 400
+            return {"errors": ["image:Image must be a .jpg, .jpeg, or .png"]}, 400
 
 
         image.filename = get_unique_filename(image.filename)
@@ -83,12 +83,12 @@ def new_song():
 
     ## Validate and upload mp3
     if "mp3" not in request.files:
-        return {"errors": ["mp3 file required"]}, 400
+        return {"errors": ["mp3:An mp3 file is required"]}, 400
 
     mp3 = request.files["mp3"]
 
     if not allowed_file(mp3.filename):
-        return {"errors": ["file type not permitted"]}, 400
+        return {"errors": ["mp3: File must be an mp3"]}, 400
 
     mp3.filename = get_unique_filename(mp3.filename)
 
