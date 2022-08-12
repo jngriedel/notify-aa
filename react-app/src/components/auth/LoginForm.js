@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, NavLink, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -17,6 +17,7 @@ const LoginForm = () => {
     history.push('/sign-up')
   }
 
+
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -31,10 +32,13 @@ const LoginForm = () => {
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
+    setErrors([])
+
   };
 
   const updatePassword = (e) => {
     setPassword(e.target.value);
+    setErrors([])
   };
 
   if (user) {

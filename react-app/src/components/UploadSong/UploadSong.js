@@ -17,7 +17,7 @@ function UploadSong({setShowUpload, showUpload}) {
   const [genre, setGenre] = useState('Classical');
   const [image, setImage] = useState(null);
   const [isUploading, setIsUploading] = useState(false)
-
+  const [successMessage, setSuccessMessage] = useState(false)
 
 
 
@@ -46,9 +46,10 @@ function UploadSong({setShowUpload, showUpload}) {
         setImage(null)
         setMp3(null)
         setIsUploading(false)
+        setShowUpload(false)
       }
       else{
-        
+
         setMp3Errors(response)
         setIsUploading(false)
       }
@@ -78,8 +79,8 @@ const handleCancelUpload = () =>{
   return (
     <>
     {showUpload && <Modal onClose={()=>{setShowUpload(false); handleCancelUpload()}}>
-      <div className='upload-song-modal'>
-      <div className='edit-header'>
+    <div className='upload-song-modal'>
+       <div className='edit-header'>
         <h1 className='edit-details'>Upload Song</h1>
         <button className='cancel-button' type='button' onClick={handleCancelUpload}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
@@ -166,6 +167,7 @@ const handleCancelUpload = () =>{
 
         </div>
         </Modal>}
+
     </>
   );
 }
