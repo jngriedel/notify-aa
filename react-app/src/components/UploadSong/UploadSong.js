@@ -207,7 +207,7 @@ const handleCancelUpload = () =>{
             />
             <div className='button-holder'>
               {!isUploading && <button  className='upload-button' type="submit">Upload</button> }
-              {isUploading && <img className='loading-dots' alt='loading' src={ellipse_loading} />}
+              {isUploading && <div className='loader'></div>}
             </div>
         </form>
 

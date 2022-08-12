@@ -73,3 +73,18 @@
     font-size: medium;
     margin: 15px 0px;
 }
+
+
+.loader {
+    border: rgba(30,215,96,255);
+    border-top: 2px solid rgba(28,179,81,255);
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
