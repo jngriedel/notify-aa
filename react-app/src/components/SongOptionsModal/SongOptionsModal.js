@@ -111,10 +111,10 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
               {playlistId && <li
               style={{ visibility: sessionUser.id === song.user_id ? 'visible' : 'hidden' }}
               onClick={handleRemoveFromPlaylist} >Remove from playlist</li>}
-              <li
+              { Object.values(playlists).length > 0 && <li
                 onMouseEnter={() => setShowPlaylists(true)}
                 onMouseLeave={() => setShowPlaylists(false)}>
-                Add to Playlist <img className='triangle-songoptions' alt='triangle' src={triangle_right} /></li>
+                Add to Playlist <img className='triangle-songoptions' alt='triangle' src={triangle_right} /></li>}
             </ul>
 
             {showPlaylists &&
