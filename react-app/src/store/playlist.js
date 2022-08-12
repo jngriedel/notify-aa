@@ -98,7 +98,7 @@ export const editPlaylist = (playlistId, playlist) => async (dispatch) => {
   }
   else {
 
-    return data
+    return data.errors
   }
 };
 

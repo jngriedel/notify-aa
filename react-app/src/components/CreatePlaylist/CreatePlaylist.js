@@ -9,16 +9,36 @@ function CreatePlaylist({setShowCreatePlaylist, showCreatePlaylist}) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state=> state.session.user)
   const [errors, setErrors] = useState([])
+  const [imageError, setImageError] = useState([])
+  const [csurfError, setCsurfError] = useState([])
+
   const [image, setImage] = useState(null);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [success, setSuccess] = useState(false)
 
+  useEffect(()=>{
+    const imageErrorTemp= []
+    const csurfErrorTemp =[]
+
+    errors.map((suberror)=>{
+      const error = suberror.split(':');
+      if (error[0] === 'image') imageErrorTemp.push('*' + error[1])
+      if (error[0] === 'other') csurfErrorTemp.push('*' + error[1])
+
+      setImageError(imageErrorTemp)
+      setCsurfError(csurfErrorTemp)
+
+    })
+
+  },[errors])
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([])
+    setImageError([])
+    setCsurfError([])
     const form = new FormData();
     form.append("image", image);
     form.append('name', name);
@@ -63,15 +83,20 @@ const handleCancelCreate = () =>{
         <h1 className='edit-details'>Create Playlist</h1>
         <button className='cancel-button' type='button' onClick={handleCancelCreate}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
-      <div className="errorsList">
+      {/* <div className="errorsList">
           {errors && errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
-        </div>
+        </div> */}
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
 
+            <div className='errors'>
+              {csurfError.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
             <label>Playlist Name { name.length >= 90 && <span className='limit-warning' >{name.length}/100</span> }</label>
             <input
                   className="edit-input"
@@ -94,7 +119,11 @@ const handleCancelCreate = () =>{
                   onChange={(e)=>setDescription(e.target.value)}
                   value={description}
                 ></textarea>
-
+            <div className='errors'>
+              {imageError.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
             <label>Picture (Optional) </label>
             <input
               type="file"

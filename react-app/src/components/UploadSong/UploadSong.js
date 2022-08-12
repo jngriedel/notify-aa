@@ -17,7 +17,7 @@ function UploadSong({setShowUpload, showUpload}) {
   const [genre, setGenre] = useState('Classical');
   const [image, setImage] = useState(null);
   const [isUploading, setIsUploading] = useState(false)
-  const [successMessage, setSuccessMessage] = useState(false)
+  
 
 
 

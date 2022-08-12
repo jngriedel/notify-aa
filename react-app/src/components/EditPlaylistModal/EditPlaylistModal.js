@@ -12,6 +12,9 @@ function EditPlaylistModal({playlist, showEditPlaylist, setShowEditPlaylist}) {
   const history = useHistory()
   const sessionUser = useSelector(state=> state.session.user)
   const [errors, setErrors] = useState([])
+  const [imageError, setImageError] = useState([])
+  const [csurfError, setCsurfError] = useState([])
+
   const [image, setImage] = useState(null);
   const [name, setName] = useState(playlist?.name);
   const [description, setDescription] = useState(playlist?.description);
@@ -23,10 +26,28 @@ function EditPlaylistModal({playlist, showEditPlaylist, setShowEditPlaylist}) {
     }
   },[playlist])
 
+  useEffect(()=>{
+    const imageErrorTemp= []
+    const csurfErrorTemp =[]
+
+    errors.map((suberror)=>{
+      const error = suberror.split(':');
+      if (error[0] === 'image') imageErrorTemp.push('*' + error[1])
+      if (error[0] === 'other') csurfErrorTemp.push('*' + error[1])
+
+      setImageError(imageErrorTemp)
+      setCsurfError(csurfErrorTemp)
+
+    })
+
+  },[errors])
+
 
   const handleEdit = async (e) => {
     e.preventDefault();
     setErrors([])
+    setImageError([])
+    setCsurfError([])
     const form = new FormData();
     form.append("image", image);
     form.append('name', name);
@@ -87,15 +108,16 @@ const handleCancelEdit = () =>{
         <button className='cancel-button' type='button' onClick={handleCancelEdit}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
 
-            <div className="errorsList">
-                  {errors && errors.map((error, ind) => (
-                    <div key={ind}>{error}</div>
-                  ))}
-                </div>
+
                       <form
                            className='upload-song-form'
                           onSubmit={handleEdit}>
 
+                          <div className='errors'>
+                            {csurfError.map((error, ind) => (
+                              <div key={ind}>{error}</div>
+                            ))}
+                          </div>
                           <label>Name { name.length >= 90 && <span className='limit-warning' >{name.length}/100</span> }</label>
                           <input
                               className='edit-input'
@@ -115,6 +137,12 @@ const handleCancelEdit = () =>{
                               onChange={(e) => setDescription(e.target.value)}
                               value={description}
                           ></input>
+
+                          <div className='errors'>
+                            {imageError.map((error, ind) => (
+                              <div key={ind}>{error}</div>
+                            ))}
+                          </div>
                           <label>Change Picture (Optional) </label>
                           <input
                               type="file"

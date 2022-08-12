@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'*{error}')
+            errorMessages.append(f'{field}:{error}')
     return errorMessages
 
 
@@ -27,7 +27,7 @@ def new_playlist():
     try:
         validate_csrf(request.cookies['csrf_token'])
     except:
-        return {'errors': ['Invalid csrf token']}, 400
+        return {'errors': ['other:Invalid csrf token. Please refresh and try again.']}, 400
 
 
     if len(request.form.get('name')) > 100:
@@ -46,7 +46,7 @@ def new_playlist():
         image = request.files["image"]
 
         if not allowed_file(image.filename):
-            return {"errors": ["Image must be a .jpg, .jpeg, or .png"]}, 400
+            return {"errors": ["image: Image must be a .jpg, .jpeg, or .png"]}, 400
 
 
         image.filename = get_unique_filename(image.filename)
@@ -106,7 +106,7 @@ def edit_playlist(playlist_id):
     try:
         validate_csrf(request.cookies['csrf_token'])
     except:
-        return {'errors': ['Invalid csrf token']}, 400
+        return {'errors': ['other:Invalid csrf token. Please refresh and try again.']}, 400
 
     playlist = Playlist.query.get(playlist_id)
 
@@ -129,7 +129,7 @@ def edit_playlist(playlist_id):
         image = request.files["image"]
 
         if not allowed_file(image.filename):
-            return {"errors": ["Image must be a .jpg, .jpeg, or .png"]}, 400
+            return {"errors": ["image:Image must be a .jpg, .jpeg, or .png"]}, 400
 
 
         image.filename = get_unique_filename(image.filename)
