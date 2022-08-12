@@ -7,6 +7,9 @@ import './SignUpForm.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
+  const [emailError, setEmailError] = useState([])
+  const [passwordError, setPasswordError] = useState([])
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
@@ -18,8 +21,25 @@ const LoginForm = () => {
   }
 
 
+  useEffect(()=>{
+    const emailErrorTemp= []
+    const passwordErrorTemp= []
+
+    errors.map((suberror)=>{
+      const error = suberror.split(':');
+      if (error[0] === 'email') emailErrorTemp.push('*' + error[1])
+      if (error[0] === 'password') passwordErrorTemp.push('*' + error[1])
+      setEmailError(emailErrorTemp)
+      setPasswordError(passwordErrorTemp)
+
+    })
+
+  },[errors])
+
   const onLogin = async (e) => {
     e.preventDefault();
+    setEmailError([])
+    setPasswordError([])
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
@@ -51,12 +71,17 @@ const LoginForm = () => {
 
     <form onSubmit={onLogin}
     className='sign-up-form'>
-      <div className='errors'>
+      {/* <div className='errors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
-      </div>
+      </div> */}
       <div className='signup-input-and-label'>
+      <div className='errors'>
+        {emailError.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
         <label htmlFor='email'>Email</label>
         <input
           name='email'
@@ -68,6 +93,11 @@ const LoginForm = () => {
         />
       </div>
       <div className='signup-input-and-label'>
+      <div className='errors'>
+        {passwordError.map((error, ind) => (
+          <div key={ind}>{error}</div>
+        ))}
+      </div>
         <label htmlFor='password'>Password</label>
         <input
           name='password'
