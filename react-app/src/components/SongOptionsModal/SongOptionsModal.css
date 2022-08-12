@@ -46,6 +46,7 @@
 .playlist-dropdown > li:hover
 {
     background-color: rgba(79,79,79,255);
+    cursor: pointer;
 }
 
 .triangle-songoptions{
