@@ -11,12 +11,31 @@ function EditProfileModal({showEditProfile, setShowEditProfile}) {
   const [errors, setErrors] = useState([])
   const [image, setImage] = useState(null);
   const [username, setUsername] = useState(sessionUser.username);
+  const [imageError, setImageError] = useState([])
+  const [csurfError, setCsurfError] = useState([])
 
 
+  useEffect(()=>{
+    const imageErrorTemp= []
+    const csurfErrorTemp =[]
+
+    errors.map((suberror)=>{
+      const error = suberror.split(':');
+      if (error[0] === 'image') imageErrorTemp.push('*' + error[1])
+      if (error[0] === 'other') csurfErrorTemp.push('*' + error[1])
+
+      setImageError(imageErrorTemp)
+      setCsurfError(csurfErrorTemp)
+
+    })
+
+  },[errors])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([])
+    setImageError([])
+    setCsurfError([])
     const form = new FormData();
     form.append("image", image);
     form.append("username", username);
@@ -55,15 +74,20 @@ const handleCancelCreate = () =>{
         <h1 className='edit-details'>Profile Details</h1>
         <button className='cancel-button' type='button' onClick={handleCancelCreate}><i  class="fa-solid fa-x fa-lg"></i></button>
     </div>
-    <div className="errorsList">
+    {/* <div className="errorsList">
           {errors && errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
-        </div>
+        </div> */}
       <form
         className='upload-song-form'
         onSubmit={handleSubmit}>
 
+  <div className='errors'>
+              {csurfError.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
 
 <label>Username  { username.length >= 30 && <span className='limit-warning' >{username.length}/40</span> }</label>
 
@@ -77,6 +101,12 @@ const handleCancelCreate = () =>{
       onChange={(e)=>setUsername(e.target.value)}
       value={username}
     ></input>
+
+            <div className='errors'>
+              {imageError.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
 
       <label>Change Profile Picture</label>
             <input

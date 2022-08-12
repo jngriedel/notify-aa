@@ -6,7 +6,7 @@ from app.forms import PlaylistForm
 
 
 #aws imports
-from app.aws import (upload_file_to_s3, allowed_file, get_unique_filename)
+from app.aws import (upload_file_to_s3, allowed_file, allowed_image_file, get_unique_filename)
 
 playlist_routes = Blueprint('playlists', __name__)
 
@@ -45,7 +45,7 @@ def new_playlist():
 
         image = request.files["image"]
 
-        if not allowed_file(image.filename):
+        if not allowed_image_file(image.filename):
             return {"errors": ["image: Image must be a .jpg, .jpeg, or .png"]}, 400
 
 
@@ -128,7 +128,7 @@ def edit_playlist(playlist_id):
 
         image = request.files["image"]
 
-        if not allowed_file(image.filename):
+        if not allowed_image_file(image.filename):
             return {"errors": ["image:Image must be a .jpg, .jpeg, or .png"]}, 400
 
 

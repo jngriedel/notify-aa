@@ -4,7 +4,7 @@ from app.models import User, Playlist, db
 from flask_wtf.csrf import validate_csrf
 
 #aws imports
-from app.aws import (upload_file_to_s3, allowed_file, get_unique_filename)
+from app.aws import (upload_file_to_s3, allowed_file, allowed_image_file, get_unique_filename)
 
 user_routes = Blueprint('users', __name__)
 
@@ -34,7 +34,7 @@ def user_update():
     try:
         validate_csrf(request.cookies['csrf_token'])
     except:
-        return {'errors': ['Invalid csrf token']}, 400
+        return {'errors': ['other:Invalid csrf token. Please refresh and try again.']}, 400
 
 
     user = User.query.get(current_user.id)
@@ -46,8 +46,8 @@ def user_update():
 
     image = request.files["image"]
 
-    if not allowed_file(image.filename):
-        return {"errors": ["file type not permitted"]}, 400
+    if not allowed_image_file(image.filename):
+        return {"errors": ["image:Image must be a .jpg, .jpeg, or .png"]}, 400
 
     image.filename = get_unique_filename(image.filename)
 

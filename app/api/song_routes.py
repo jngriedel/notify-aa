@@ -6,7 +6,7 @@ from app.forms import SongForm
 from app.models import User
 
 #aws imports
-from app.aws import (upload_file_to_s3, allowed_file, get_unique_filename)
+from app.aws import (upload_file_to_s3, allowed_file, allowed_image_file, get_unique_filename)
 
 song_routes = Blueprint('songs', __name__)
 
@@ -65,7 +65,7 @@ def new_song():
 
         image = request.files["image"]
 
-        if not allowed_file(image.filename):
+        if not allowed_image_file(image.filename):
             return {"errors": ["Image must be a .jpg, .jpeg, or .png"]}, 400
 
 
