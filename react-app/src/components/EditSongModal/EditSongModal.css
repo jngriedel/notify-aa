@@ -32,7 +32,7 @@
     font-size: medium;
 }
 .save-button:hover{
-
+    cursor: pointer;
     height: 53px;
 }
 
