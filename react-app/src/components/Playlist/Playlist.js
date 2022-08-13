@@ -111,7 +111,7 @@ const playPlaylist = async() => {
 
     <div className='playlist-play-and-ellipse'>
       <button className='play-button-button' type='button' onClick={playPlaylist}><img className='play-button-image'  alt='play' src={play_button_black}/></button>
-      <div className='playlist-elipse-holder'><i onClick={()=>{setShowAddToQueue(true);}} class="fa-solid fa-ellipsis fa-xl"></i></div>
+      <div style={{visibility: Object.values(songs).length > 0 ? 'visible' : 'hidden' }} className='playlist-elipse-holder'><i onClick={()=>{setShowAddToQueue(true);}} class="fa-solid fa-ellipsis fa-xl"></i></div>
       <PlaylistOptionsDropDown songs={songs} showAddToQueue={showAddToQueue} setShowAddToQueue={setShowAddToQueue} />
     </div>
 
