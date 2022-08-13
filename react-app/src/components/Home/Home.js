@@ -40,7 +40,7 @@ function Home() {
     <div>
         <h1>Welcome back {sessionUser.username}!</h1>
 
-    <h2>Jump Back In</h2>
+    {Object.values(userPlaylists).length > 0 && <h2>Jump Back In</h2>}
     <div className='playlist-carousel scrollable'>
     {userPlaylists && Object.values(userPlaylists).map((playlist, i)=>(
    <NavLink className='playlist-navlink' key={i} to={`/playlists/${playlist.id}`}>

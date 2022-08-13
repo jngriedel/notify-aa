@@ -9,6 +9,7 @@ import EditPlaylistModal from '../EditPlaylistModal/EditPlaylistModal'
 import './Playlist.css'
 import {setSongs} from '../../store/song'
 import { useMusicContext } from '../context/MusicContext';
+import PlaylistOptionsDropDown from '../PlaylistOptionsDropdown/PlaylistOptionsDropdown';
 
 function Playlist() {
 
@@ -26,6 +27,7 @@ function Playlist() {
   const [image, setImage] = useState(null)
   const [loaded, setLoaded] = useState(false)
   const [search, setSearch] = useState("")
+  const [showAddToQueue, setShowAddToQueue] = useState(false)
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -106,7 +108,12 @@ const playPlaylist = async() => {
 
 
     </div> }
-    <button className='play-button-button' type='button' onClick={playPlaylist}><img className='play-button-image'  alt='play' src={play_button_black}/></button>
+
+    <div className='playlist-play-and-ellipse'>
+      <button className='play-button-button' type='button' onClick={playPlaylist}><img className='play-button-image'  alt='play' src={play_button_black}/></button>
+      <div className='playlist-elipse-holder'><i onClick={()=>{setShowAddToQueue(true);}} class="fa-solid fa-ellipsis fa-xl"></i></div>
+      <PlaylistOptionsDropDown songs={songs} showAddToQueue={showAddToQueue} setShowAddToQueue={setShowAddToQueue} />
+    </div>
 
         <div className='song-header'>
             <div>
