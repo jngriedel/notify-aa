@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Modal } from '../context/Modal.js';
 import triangle_right from '../../images/triangle_right.png'
+import triangle_left from '../../images/triangle_left.png'
 import { useMusicContext } from '../context/MusicContext';
 import no_playlist from "../../images/no_playlist.PNG"
 import { removeSong } from '../../store/song';
@@ -10,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {getPlaylists} from '../../store/playlist'
 
 
-function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete, song, playlistId}) {
+function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete, song, playlistId, i}) {
   const dispatch = useDispatch()
   const playlists = useSelector(state=>state.playlist)
   const [showPlaylists, setShowPlaylists] = useState(false)
@@ -118,7 +119,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
             </ul>
 
             {showPlaylists &&
-              <ul onMouseEnter={() => setShowPlaylists(true)} className='playlist-dropdown'>
+              <ul onMouseEnter={() => setShowPlaylists(true)} className={ i === 0? 'playlist-dropdown' : 'playlist-dropdown-preview'}>
                 {Object.values(playlists).map((playlist, i) => (
                   <li key={i} onClick={() => handleAddToPlaylist(playlist.id)} className='playlist-dropdown-option'>
                     {playlist.name}
@@ -127,7 +128,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
 
               </ul>
             }
-            
+
 
 
       </div>
@@ -136,7 +137,7 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
     )
   }
 
-  // normal options
+  // normal options on profile
   return (
     <>
       {showDropDown && (

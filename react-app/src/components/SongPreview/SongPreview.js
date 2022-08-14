@@ -8,7 +8,7 @@ import playbuttonblack from '../../images/playbuttonblack.png'
 
 import './SongPreview.css'
 
-function SongPreview({song}) {
+function SongPreview({song, i}) {
   const sessionUser = useSelector(state=> state.session.user)
   const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
 
@@ -54,7 +54,7 @@ function SongPreview({song}) {
             <div className='name-and-elipse'>
                 <span className='song-spanreview-name'>{song.name}</span>
                 <div style={{visibility: showPlay? 'visible' : 'hidden'}}className='preview-elipse'><i onClick={()=>{setShowDropDown(true); }} class="fa-solid fa-ellipsis fa-lg"></i></div>
-                <SongOptionsModal song={song} showDropDown={showDropDown} setShowDropDown={setShowDropDown} />
+                <SongOptionsModal song={song} showDropDown={showDropDown} setShowDropDown={setShowDropDown} i={i} />
             </div>
             <span className='song-preview-artist'>{song.artist}</span>
         </div>

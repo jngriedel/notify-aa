@@ -5,7 +5,7 @@
 }
 .song-options-modal-wrapper-home{
     position: absolute;
-    left: 190px;
+    left: 0px;
     bottom: 0px;
     z-index: 11;
 
@@ -27,7 +27,8 @@
 
 
 .songoptions-dropdown > li,
-.playlist-dropdown > li
+.playlist-dropdown > li,
+.playlist-dropdown-preview > li
 {
     list-style: none;
     display: flex;
@@ -43,7 +44,8 @@
 }
 
 .songoptions-dropdown > li:hover,
-.playlist-dropdown > li:hover
+.playlist-dropdown > li:hover,
+.playlist-dropdown-preview > li:hover
 {
     background-color: rgba(79,79,79,255);
     cursor: pointer;
@@ -59,6 +61,23 @@
     position: absolute;
     bottom: 0px;
     left: 195px;
+    /* box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%); */
+    background-color: #282828;
+    border-radius: 4px;
+    overflow-y: scroll;
+    width: 200px;
+    max-height: 300px;
+    padding: 4px;
+    z-index: 2;
+    overflow-x: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.playlist-dropdown-preview{
+    position: absolute;
+    bottom: 0px;
+    left: -195px;
     /* box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%); */
     background-color: #282828;
     border-radius: 4px;
