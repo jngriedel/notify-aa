@@ -7,6 +7,7 @@ import Song from '../Song/Song'
 import no_playlist from '../../images/no_playlist.PNG'
 import no_profile_image from "../../images/no_profile_image.png"
 import EditProfileModal from '../EditProfileModal/EditProfileModal';
+import profile_picture_uncropped2 from '../../images/profile_picture_uncropped2.jpg'
 import './Profile.css'
 
 function User() {
@@ -39,7 +40,7 @@ function User() {
         <img
         alt='profile'
 
-         className='profile-main-image' src={sessionUser.image_url ? sessionUser.image_url : no_profile_image } />
+         className='profile-main-image' src={sessionUser.image_url ? sessionUser.image_url : profile_picture_uncropped2 } />
          { imgOverLay && <div className='edit-image-overlay'  > <i class="fa-solid fa-pencil"></i> Choose Photo   </div>}
       </div>
       <div className='playist-info'>
@@ -58,7 +59,7 @@ function User() {
       </div>
     </NavLink>
    ))}
-   
+
    </div>
    <h2>Your Songs</h2>
     <div className='song-header'>
