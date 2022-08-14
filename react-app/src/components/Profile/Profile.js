@@ -29,6 +29,10 @@ function User() {
 
   return (
     <>
+    {!loaded && <div className='loading-screen'>
+      <h2>Loading your Profile!</h2>
+      <div className='loader'></div>
+      </div>}
     {loaded &&
     <div>
     <div className='playlist-head'>

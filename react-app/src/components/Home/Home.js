@@ -35,7 +35,10 @@ function Home() {
 
   return (
     <>
-    {/* {!loaded && <img className='loading-image' alt='loading' src={loading_page} />} */}
+    {!loaded && <div className='loading-screen'>
+      <h2>Loading your music experience!</h2>
+      <div className='loader'></div>
+      </div>}
     {loaded &&
     <div>
         <h1>Welcome back {sessionUser.username}!</h1>

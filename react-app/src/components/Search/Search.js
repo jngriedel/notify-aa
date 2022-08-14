@@ -36,6 +36,10 @@ function Search() {
 
   return (
     <>
+    {!loaded && <div className='loading-screen'>
+      <h2>Loading your music experience!</h2>
+      <div className='loader'></div>
+      </div>}
 
     {loaded &&
     <div className='search-main'>
