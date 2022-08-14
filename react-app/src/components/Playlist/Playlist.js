@@ -88,6 +88,10 @@ const playPlaylist = async() => {
 
   return (
     <>
+    {!loaded && <div className='loading-screen'>
+      <h2>Loading your Playlist!</h2>
+      <div className='loader'></div>
+      </div>}
 
     { loaded && <div>
    { playlist && !edit &&
