@@ -58,6 +58,7 @@ function User() {
       </div>
     </NavLink>
    ))}
+   
    </div>
    <h2>Your Songs</h2>
     <div className='song-header'>

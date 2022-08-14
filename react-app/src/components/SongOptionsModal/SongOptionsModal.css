@@ -1,7 +1,8 @@
 .song-options-modal-wrapper{
     position: absolute;
-    top: -200px;
+    /* top: -200px; */
     left: -200px;
+   
 }
 .song-options-modal-wrapper-home{
     position: absolute;
