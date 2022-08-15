@@ -50,6 +50,7 @@ function CreatePlaylist({setShowCreatePlaylist, showCreatePlaylist}) {
     if (response.playlist) {
       setName('')
       setDescription('')
+      setImage(null)
       // setSuccess(true)
       setShowCreatePlaylist(false)
     }

@@ -69,6 +69,7 @@ function Playlist() {
 
 const playPlaylist = async() => {
     const audioListTemp = []
+    
     await setClearAudioList(true)
     Object.values(songs).forEach((song)=>{
         audioListTemp.push({

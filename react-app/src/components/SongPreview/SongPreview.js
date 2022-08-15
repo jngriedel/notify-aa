@@ -20,7 +20,7 @@ function SongPreview({song, i}) {
 
     const audioListTemp = []
     // audioLists.forEach(element => {
-    //   if (song.name === element.name) console.log('hello')
+    //   if (song.name === element.name) {alert("Already in Queue!"); return}
 
     // });
     audioListTemp.push({

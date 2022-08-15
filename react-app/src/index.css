@@ -35,7 +35,7 @@ body{
     }
 *::-webkit-scrollbar-track{
 
-    background: transparent;
+    background-color: transparent;
     box-shadow: rgba(0, 0, 0, 0)
 
 }
