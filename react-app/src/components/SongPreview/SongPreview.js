@@ -16,10 +16,13 @@ function SongPreview({song, i}) {
   const [showDropDown, setShowDropDown] = useState(false)
   const dispatch = useDispatch()
   const handlePlay = async() => {
-    setClearAudioList(true)
+    await setClearAudioList(true)
 
     const audioListTemp = []
+    // audioLists.forEach(element => {
+    //   if (song.name === element.name) console.log('hello')
 
+    // });
     audioListTemp.push({
       name: song.name,
       singer: song.artist,

@@ -30,7 +30,9 @@ const NavBar = () => {
   return (
 
     <div className='navbar'>
+     
       <img alt='logo' className='navbar-logo' src={logo}/>
+
       <ul className='navbar-list'>
         <li>
           <div className='empty'></div>
@@ -50,7 +52,7 @@ const NavBar = () => {
         <li>
         <div className='empty'></div>
           <NavLink style={{color: path.pathname === '/search' ? 'white' : ''}} className='navbar-links' to='/search' exact={true} activeClassName='active'>
-          <i class="fa-solid fa-magnifying-glass fa-lg"></i> Search
+              <i class="fa-solid fa-magnifying-glass fa-lg"></i> Search
           </NavLink>
         </li>
         <li>

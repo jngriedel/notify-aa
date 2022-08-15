@@ -85,7 +85,7 @@
     border-radius: 4px;
     overflow-y: scroll;
     width: 200px;
-    max-height: 300px;
+    max-height: 200px;
     padding: 4px;
     z-index: 2;
     overflow-x: hidden;
