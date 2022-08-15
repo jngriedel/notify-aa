@@ -8,17 +8,17 @@ def seed_songs():
     country_1 = Song(
         name='Live Like You Were Dying', artist='Tim McGraw', album='Live Like You Were Dying', genre='Country', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Tim+McGraw+-+Live+Like+You+Were+Dying+(Official+Music+Video).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/livelike+you+were+dying.jpg')
     country_2 = Song(
-        name='Jolene', artist='Dolly Parton', album='Jolene', genre='Country', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Dolly+Parton+-+Jolene+(Audio).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Jolene_(Dolly_Parton_album_-_cover_art).jpg')
+        name='Jolene', artist='Dolly Parton', album='Jolene', genre='Country', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Dolly+Parton+-+Jolene+(Audio).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Jolene.jpg')
     country_3 = Song(
         name='I Walk the Line', artist='Johnny Cash', album='I Walk the Line', genre='Country', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/I+Walk+the+Line.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/JohnnyCashIWalkTheLine.jpg')
     country_4 = Song(
-        name='Friends in Low Places', artist='Garth Brooks', album='No Fences', genre='Country', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Garth+Brooks-+Friends+In+Low+Places.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Garth_Brooks-No_Fences_(album_cover).jpg')
+        name='Friends in Low Places', artist='Garth Brooks', album='No Fences', genre='Country', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Garth+Brooks-+Friends+In+Low+Places.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/garth+brooks.jpg')
     country_5 = Song(
         name='Take Me Home, Country Roads', artist='John Denver', album='Poems, Prayers, & Promises', genre='Country', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/John+Denver+-+Take+Me+Home%2C+Country+Roads+(Audio).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Poems%2C_Prayers_and_Promises.jpg')
 
     #classical
     classical_1 = Song(
-        name='Eine Kleine Nachtmusik', artist='Mozart', album='Eine Kleine Nachtmusik', genre='Classical', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Eine+Kleine+Nachtmusik+-+Mozart.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Eine_Kleine_Nachtmusik_(album)_cover.jpg'
+        name='Eine Kleine Nachtmusik', artist='Mozart', album='Eine Kleine Nachtmusik', genre='Classical', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Eine+Kleine+Nachtmusik+-+Mozart.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/eine+kleine.jpg'
     )
     classical_2 = Song(
         name='Für Elise', artist='Beethoven', album='Für Elise', genre='Classical', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Beethoven+-+F%C3%BCr+Elise+(Piano+Version).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/furelise.jpg'
@@ -38,7 +38,7 @@ def seed_songs():
         name='Clash', artist='Caravan Palace', album='Panic', genre='Electronic', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Caravan+Palace+-+Clash.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Caravan-Palace-Panic.png'
     )
     electronic_2 = Song(
-        name='Bangarang', artist='Skrillex', album='Bangarang', genre='Electronic', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Skrillex+-+Bangarang+(Ft.+Sirah)+%5BOfficial+Audio%5D.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Skrillex_-_Bangarang_(EP).png'
+        name='Bangarang', artist='Skrillex', album='Bangarang', genre='Electronic', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Skrillex+-+Bangarang+(Ft.+Sirah)+%5BOfficial+Audio%5D.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/bangarang.jpg'
     )
     electronic_3 = Song(
         name='Sandstorm', artist='Darude', album='Before the Storm', genre='Electronic', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Darude+-+Sandstorm.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Darude_Before_the_Storm.jpg'
@@ -61,7 +61,7 @@ def seed_songs():
         name='Sing Sing Sing', artist='Benny Goodman', album='Sing Sing Sing', genre='Jazz', user_id = 2, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/_SING%2C+SING%2C+SING_+BY+BENNY+GOODMAN.mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/sing+sing+sing.jpg'
     )
     jazz_4 = Song(
-        name='Unforgettable', artist='Nat King Cole and Natalie Cole', album='Unforgettable', genre='Jazz', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Unforgettable+(Duet+with+Nat+King+Cole).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Natalie_Cole-Unforgettable_With_Love_(album_cover).jpg'
+        name='Unforgettable', artist='Nat King Cole and Natalie Cole', album='Unforgettable', genre='Jazz', user_id = 3, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Unforgettable+(Duet+with+Nat+King+Cole).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/unforgetabble.jpg'
     )
     jazz_5 = Song(
         name='Fly Me To The Moon', artist='Frank Sinatra', album='In Other Words', genre='Jazz', user_id = 1, mp3_url='https://notify-aa.s3.us-west-1.amazonaws.com/Fly+Me+To+The+Moon+(2008+Remastered).mp3', image_url='https://notify-aa.s3.us-west-1.amazonaws.com/Kaye_Ballard_In_Other_Words_Decca_Records_Inc._Catalog_Number_9_29114_Photographed_15_April_2014.jpg'
