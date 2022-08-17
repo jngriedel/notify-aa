@@ -30,10 +30,10 @@ function Song({song, i, playlistId}) {
     setClearAudioList(true)
 
     const audioListTemp = []
-    // audioLists.forEach(element => {
-    //   if (song.name === element.name) {alert("Already in Queue!"); return}
+    audioLists.forEach(element => {
+      if (song.name === element.name) {alert("Already in Queue!"); return}
 
-    // });
+    });
 
     audioListTemp.push({
       name: song.name,
