@@ -6,10 +6,6 @@ const GET_LIKES = 'session/GET_LIKES'
 
 
 
-
-
-
-
 export const addLike = (song) => ({
   type: ADD_LIKE,
   payload: song
