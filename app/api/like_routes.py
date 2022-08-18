@@ -43,3 +43,12 @@ def remove_like():
     db.session.delete(to_remove)
     db.session.commit()
     return {'message': 'Success!'}
+
+@like_routes.route('')
+@login_required
+def get_likes():
+    user_likes = Like.query.filter(Like.user_id == current_user.id).all()
+    liked_songs = []
+    for like in user_likes:
+        liked_songs.append(Song.query.get(like.song_id))
+    return {'liked_songs': [song.to_dict() for song in liked_songs]}
