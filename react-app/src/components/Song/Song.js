@@ -46,7 +46,9 @@ function Song({song, i, playlistId}) {
 
   }
 
-
+  const handleLike = async()=> {
+    return
+  }
 
 
 
@@ -76,7 +78,7 @@ function Song({song, i, playlistId}) {
         <p>{song.album}</p>
 
       <div className='song-buttons'>
-
+        <button className='song-unliked' type='button' onClick={handleLike}><i class="fa-regular fa-heart fa-lg"></i></button>
         <div style={{visibility: showPlay? 'visible':'hidden'}} className='elipse-holder'><i onClick={()=>{setShowDropDown(true);}} class="fa-solid fa-ellipsis fa-lg"></i></div>
 
         <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} playlistId={playlistId} setEdit={setEdit} />
