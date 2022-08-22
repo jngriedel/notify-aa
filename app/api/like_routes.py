@@ -32,7 +32,8 @@ def like_song():
     new_like = Like( user_id = current_user.id, song_id = song_id)
     db.session.add(new_like)
     db.session.commit()
-    return {'message': 'Success!'}
+    liked_song = Song.query.get(song_id)
+    return {'song': liked_song.to_dict()}
 
 @like_routes.route('/remove', methods=['POST'])
 @login_required

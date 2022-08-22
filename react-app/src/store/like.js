@@ -10,9 +10,9 @@ export const addLike = (song) => ({
   type: ADD_LIKE,
   payload: song
 })
-export const removeLike = (song) => ({
+export const removeLike = (songId) => ({
   type: REMOVE_LIKE,
-  payload: song
+  payload: songId
 })
 export const getLikes = (songs) => ({
     type: GET_LIKES,
@@ -42,7 +42,7 @@ export default function reducer(state = initialState, action) {
     }
     case REMOVE_LIKE: {
         const newState = {...state}
-        delete newState[action.payload.id]
+        delete newState[action.payload]
         return newState
     }
     case GET_LIKES: {
