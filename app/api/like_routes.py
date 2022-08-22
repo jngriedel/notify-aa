@@ -23,12 +23,12 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 
-@like_routes.route('/', methods=['POST'])
+@like_routes.route('', methods=['POST'])
 @login_required
 def like_song():
     data = request.json
 
-    song_id = data['song_id']
+    song_id = data
     new_like = Like( user_id = current_user.id, song_id = song_id)
     db.session.add(new_like)
     db.session.commit()

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {deleteSong, editSong} from '../../store/song'
+import { newLike } from '../../store/like';
 import { useMusicContext } from '../context/MusicContext';
 import no_playlist from "../../images/no_playlist.PNG"
 import play_white from '../../images/play_white.jpg'
@@ -47,7 +48,7 @@ function Song({song, i, playlistId}) {
   }
 
   const handleLike = async()=> {
-    return
+    await dispatch(newLike(song.id))
   }
 
 

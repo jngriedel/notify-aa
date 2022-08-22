@@ -26,8 +26,27 @@ const initialState = {};
 
 
 
+export const newLike = (songId) => async (dispatch) => {
+    const response = await fetch('/api/likes', {
+      method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
 
+            },
+            body: JSON.stringify(songId),
+    });
 
+    const data = await response.json()
+    if (response.ok) {
+      dispatch(addLike(data.song));
+
+      return data
+    }
+    else {
+
+      return data.errors
+    }
+  };
 
 
 
