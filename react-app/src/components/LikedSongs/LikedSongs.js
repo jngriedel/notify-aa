@@ -15,7 +15,7 @@ import PlaylistOptionsDropDown from '../PlaylistOptionsDropdown/PlaylistOptionsD
 function LikedSongs() {
 
 
-  const playlist = useSelector(state => state.playlist[playlistId])
+
   const likes = useSelector(state => state.like)
   const sessionUser = useSelector(state => state.session.user)
   const {setClearAudioList, setAudioLists} = useMusicContext()
@@ -56,7 +56,7 @@ const playPlaylist = async() => {
     const audioListTemp = []
 
     await setClearAudioList(true)
-    Object.values(songs).forEach((song)=>{
+    Object.values(likes).forEach((song)=>{
         audioListTemp.push({
             name: song.name,
             singer: song.artist,
@@ -118,7 +118,7 @@ const playPlaylist = async() => {
 
         <div>
 
-        {likes && Object.values(kujes).map((song, i)=>(
+        {likes && Object.values(likes).map((song, i)=>(
           <Song key={i} song={song}  i={i}  />
       ))}
           {Object.values(likes).length === 0 &&

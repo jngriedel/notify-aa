@@ -14,6 +14,7 @@ import Playlist from './components/Playlist/Playlist';
 import ProfileButton from './components/ProfileButton/ProfileButton';
 import Splash from './components/Splash/Splash.js'
 import Search from './components/Search/Search';
+import LikedSongs from './components/LikedSongs/LikedSongs';
 import { authenticate } from './store/session';
 
 
@@ -59,6 +60,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path='/createplaylist' exact={true} >
             <CreatePlaylist />
+          </ProtectedRoute>
+          <ProtectedRoute path='/liked' exact={true} >
+            <LikedSongs />
           </ProtectedRoute>
           <ProtectedRoute path='/playlists/:playlistId' exact={true} >
             <Playlist />
