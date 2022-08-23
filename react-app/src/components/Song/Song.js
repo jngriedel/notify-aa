@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {deleteSong, editSong} from '../../store/song'
+import { newLike } from '../../store/like';
 import { useMusicContext } from '../context/MusicContext';
 import no_playlist from "../../images/no_playlist.PNG"
 import play_white from '../../images/play_white.jpg'
@@ -11,7 +12,7 @@ import './Song.css'
 
 function Song({song, i, playlistId}) {
   const sessionUser = useSelector(state=> state.session.user)
-
+  const likes = useSelector(state =>  state.like)
   const [edit, setEdit] = useState(false)
   const [showPlay, setShowPlay] = useState(false)
   const [showDropDown, setShowDropDown] = useState(false)
@@ -46,7 +47,9 @@ function Song({song, i, playlistId}) {
 
   }
 
-
+  const handleLike = async()=> {
+    await dispatch(newLike(song.id))
+  }
 
 
 
@@ -76,7 +79,8 @@ function Song({song, i, playlistId}) {
         <p>{song.album}</p>
 
       <div className='song-buttons'>
-
+        { likes[song.id] ? <button className='song-liked' type='button' onClick={handleLike}><i class="fa-solid fa-heart fa-lg"></i></button>
+        : <button className='song-unliked' type='button' onClick={handleLike}><i class="fa-regular fa-heart fa-lg"></i></button> }
         <div style={{visibility: showPlay? 'visible':'hidden'}} className='elipse-holder'><i onClick={()=>{setShowDropDown(true);}} class="fa-solid fa-ellipsis fa-lg"></i></div>
 
         <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} playlistId={playlistId} setEdit={setEdit} />

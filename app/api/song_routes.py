@@ -127,19 +127,6 @@ def new_song():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @song_routes.route('/<int:song_id>', methods=['DELETE'])
 @login_required
 def delete_song(song_id):

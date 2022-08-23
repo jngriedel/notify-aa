@@ -26,8 +26,47 @@ const initialState = {};
 
 
 
+export const newLike = (songId) => async (dispatch) => {
+    const response = await fetch('/api/likes', {
+      method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify(songId),
+    });
+
+    const data = await response.json()
+    if (response.ok) {
+
+      if (data.liked) dispatch(addLike(data.liked));
+      if (data.unliked) dispatch(removeLike(data.unliked))
 
 
+      return data
+    }
+    else {
+
+      return data.errors
+    }
+  };
+
+  export const getUserLikes = () => async (dispatch) => {
+    const response = await fetch('/api/likes' )
+
+    const data = await response.json()
+    if (response.ok) {
+      dispatch(getLikes(data.liked_songs))
+
+
+
+      return data
+    }
+    else {
+
+      return data.errors
+    }
+  };
 
 
 

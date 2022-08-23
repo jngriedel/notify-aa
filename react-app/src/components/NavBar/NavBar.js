@@ -7,6 +7,7 @@ import logo from '../../images/logo.png'
 import CreatePlaylist from '../CreatePlaylist/CreatePlaylist';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlaylists } from '../../store/playlist';
+import { getUserLikes } from '../../store/like';
 
 const NavBar = () => {
   const [showUpload, setShowUpload] = useState(false)
@@ -21,6 +22,8 @@ const NavBar = () => {
 
     if (!sessionUser) history.push('/')
     dispatch(getPlaylists(sessionUser?.id))
+    dispatch(getUserLikes())
+
 
   }, [dispatch]);
 
@@ -30,7 +33,7 @@ const NavBar = () => {
   return (
 
     <div className='navbar'>
-     
+
       <img alt='logo' className='navbar-logo' src={logo}/>
 
       <ul className='navbar-list'>
@@ -55,6 +58,12 @@ const NavBar = () => {
               <i class="fa-solid fa-magnifying-glass fa-lg"></i> Search
           </NavLink>
         </li>
+        <li id='profile-navlink'>
+        <div className='empty'></div>
+          <NavLink style={{color: path.pathname === '/profile' ? 'white' : ''}} className='navbar-links' to='/profile' exact={true} activeClassName='active'>
+          <i class="fa-solid fa-user fa-lg"></i> Profile
+          </NavLink>
+        </li>
         <li>
         <div className='empty'></div>
           <div  className='navbar-links' onClick={()=>setShowUpload(true)}>
@@ -66,6 +75,12 @@ const NavBar = () => {
           <div className='navbar-links' onClick={()=>setShowCreatePlaylist(true)} >
           <i class="fa-solid fa-plus fa-lg"></i> Create Playlist
           </div>
+        </li>
+        <li id='liked-navlink'>
+        <div className='empty'></div>
+          <NavLink style={{color: path.pathname === '/likes' ? 'white' : ''}} className='navbar-links' to='/likes' exact={true} activeClassName='active'>
+          <i class="fa-solid fa-heart fa-lg"></i> Liked Songs
+          </NavLink>
         </li>
       </ul>
         <UploadSong setShowUpload={setShowUpload} showUpload={showUpload} />

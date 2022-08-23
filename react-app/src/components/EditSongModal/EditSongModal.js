@@ -20,9 +20,9 @@ function EditSongModal({edit, setEdit, song, setShowDropDown}) {
   const [genre, setGenre] = useState(song.genre);
   const sessionUser = useSelector(state=> state.session.user)
 
-  useEffect(()=> {
-    dispatch(getPlaylists(sessionUser.id))
-  },[])
+  // useEffect(()=> {
+  //   dispatch(getPlaylists(sessionUser.id))
+  // },[])
 
   const handleCancelEdit = () =>{
     setAlbum(song.album)
