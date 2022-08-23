@@ -18,9 +18,9 @@ function SongOptionsModal({showDropDown, setShowDropDown, setEdit, handleDelete,
   const sessionUser = useSelector(state=> state.session.user)
   const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
   const ref = useRef()
-  useEffect(()=> {
-    dispatch(getPlaylists(sessionUser.id))
-  },[])
+  // useEffect(()=> {
+  //   dispatch(getPlaylists(sessionUser.id))
+  // },[])
 
   useEffect(() => {
     const outsideClick = e => {
