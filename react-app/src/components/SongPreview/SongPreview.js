@@ -5,13 +5,14 @@ import { setPlayer } from '../../store/player';
 import SongOptionsModal from '../SongOptionsModal/SongOptionsModal';
 import no_playlist from '../../images/no_playlist.PNG'
 import playbuttonblack from '../../images/playbuttonblack.png'
+import { newLike } from '../../store/like';
 
 import './SongPreview.css'
 
 function SongPreview({song, i}) {
   const sessionUser = useSelector(state=> state.session.user)
   const {audioLists, setAudioLists, setClearAudioList} = useMusicContext()
-
+  const likes = useSelector(state =>  state.like)
   const [showPlay, setShowPlay] = useState(false)
   const [showDropDown, setShowDropDown] = useState(false)
   const dispatch = useDispatch()
@@ -32,6 +33,10 @@ function SongPreview({song, i}) {
 
     await setAudioLists(audioListTemp)
 
+  }
+
+  const handleLike = async()=> {
+    await dispatch(newLike(song.id))
   }
 
   const doubleClick = event => {
@@ -59,7 +64,11 @@ function SongPreview({song, i}) {
                 <div style={{visibility: showPlay? 'visible' : 'hidden'}}className='preview-elipse'><i onClick={()=>{setShowDropDown(true); }} class="fa-solid fa-ellipsis fa-lg"></i></div>
                 <SongOptionsModal song={song} showDropDown={showDropDown} setShowDropDown={setShowDropDown} i={i} />
             </div>
-            <span className='song-preview-artist'>{song.artist}</span>
+            <div className='preview-like-and-artist'>
+              <span className='song-preview-artist'>{song.artist}</span>
+              { likes[song.id] ? <button className='song-liked' type='button' onClick={handleLike}><i class="fa-solid fa-heart fa-lg"></i></button>
+                : <button className='song-unliked' type='button' onClick={handleLike}><i class="fa-regular fa-heart fa-lg"></i></button> }
+            </div>
         </div>
       </div>
 
