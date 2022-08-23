@@ -10,6 +10,7 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
+   
 }
 .play-button-preview:hover{
     cursor: pointer;
