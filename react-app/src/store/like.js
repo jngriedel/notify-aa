@@ -10,9 +10,9 @@ export const addLike = (song) => ({
   type: ADD_LIKE,
   payload: song
 })
-export const removeLike = (songId) => ({
+export const removeLike = (song) => ({
   type: REMOVE_LIKE,
-  payload: songId
+  payload: song
 })
 export const getLikes = (songs) => ({
     type: GET_LIKES,
@@ -38,7 +38,27 @@ export const newLike = (songId) => async (dispatch) => {
 
     const data = await response.json()
     if (response.ok) {
-      dispatch(addLike(data.song));
+
+      if (data.liked) dispatch(addLike(data.liked));
+      if (data.unliked) dispatch(removeLike(data.unliked))
+
+
+      return data
+    }
+    else {
+
+      return data.errors
+    }
+  };
+
+  export const getUserLikes = () => async (dispatch) => {
+    const response = await fetch('/api/likes' )
+
+    const data = await response.json()
+    if (response.ok) {
+      dispatch(getLikes(data.liked_songs))
+
+
 
       return data
     }
@@ -61,7 +81,7 @@ export default function reducer(state = initialState, action) {
     }
     case REMOVE_LIKE: {
         const newState = {...state}
-        delete newState[action.payload]
+        delete newState[action.payload.id]
         return newState
     }
     case GET_LIKES: {

@@ -7,6 +7,7 @@ import logo from '../../images/logo.png'
 import CreatePlaylist from '../CreatePlaylist/CreatePlaylist';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlaylists } from '../../store/playlist';
+import { getUserLikes } from '../../store/like';
 
 const NavBar = () => {
   const [showUpload, setShowUpload] = useState(false)
@@ -21,6 +22,8 @@ const NavBar = () => {
 
     if (!sessionUser) history.push('/')
     dispatch(getPlaylists(sessionUser?.id))
+    dispatch(getUserLikes())
+
 
   }, [dispatch]);
 
@@ -30,7 +33,7 @@ const NavBar = () => {
   return (
 
     <div className='navbar'>
-     
+
       <img alt='logo' className='navbar-logo' src={logo}/>
 
       <ul className='navbar-list'>

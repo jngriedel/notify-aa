@@ -12,7 +12,7 @@ import './Song.css'
 
 function Song({song, i, playlistId}) {
   const sessionUser = useSelector(state=> state.session.user)
-
+  const likes = useSelector(state =>  state.like)
   const [edit, setEdit] = useState(false)
   const [showPlay, setShowPlay] = useState(false)
   const [showDropDown, setShowDropDown] = useState(false)
@@ -79,7 +79,8 @@ function Song({song, i, playlistId}) {
         <p>{song.album}</p>
 
       <div className='song-buttons'>
-        <button className='song-unliked' type='button' onClick={handleLike}><i class="fa-regular fa-heart fa-lg"></i></button>
+        { likes[song.id] ? <button className='song-liked' type='button' onClick={handleLike}><i class="fa-solid fa-heart fa-lg"></i></button>
+        : <button className='song-unliked' type='button' onClick={handleLike}><i class="fa-regular fa-heart fa-lg"></i></button> }
         <div style={{visibility: showPlay? 'visible':'hidden'}} className='elipse-holder'><i onClick={()=>{setShowDropDown(true);}} class="fa-solid fa-ellipsis fa-lg"></i></div>
 
         <SongOptionsModal song={song}   showDropDown={showDropDown} setShowDropDown={setShowDropDown} handleDelete={handleDelete} playlistId={playlistId} setEdit={setEdit} />

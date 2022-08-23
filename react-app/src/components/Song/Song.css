@@ -87,3 +87,13 @@
     cursor: pointer;
     color: white;
 }
+
+.song-liked{
+    background-color: transparent;
+    border: none;
+    color: rgba(30,215,96,255);
+}
+.song-liked:hover{
+    cursor: pointer;
+
+}

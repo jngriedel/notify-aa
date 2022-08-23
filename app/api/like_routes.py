@@ -29,21 +29,20 @@ def like_song():
     data = request.json
 
     song_id = data
+    possible_like = Like.query.filter(Like.user_id == current_user.id, Like.song_id == song_id).scalar()
+    if possible_like:
+        db.session.delete(possible_like)
+        db.session.commit()
+        unliked_song = Song.query.get(song_id)
+        return {'unliked': unliked_song.to_dict()}
+
+
     new_like = Like( user_id = current_user.id, song_id = song_id)
     db.session.add(new_like)
     db.session.commit()
     liked_song = Song.query.get(song_id)
-    return {'song': liked_song.to_dict()}
+    return {'liked': liked_song.to_dict()}
 
-@like_routes.route('/remove', methods=['POST'])
-@login_required
-def remove_like():
-    data = request.json
-    song_id = data['song_id']
-    to_remove = Like.query.filter(Like.user_id == current_user.id, Like.song_id == song_id).scalar()
-    db.session.delete(to_remove)
-    db.session.commit()
-    return {'message': 'Success!'}
 
 @like_routes.route('')
 @login_required
