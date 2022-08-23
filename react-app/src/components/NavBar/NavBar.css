@@ -15,7 +15,7 @@
     padding-top: 24px;
     /* padding-left: 20px;
     padding-right: 20px; */
-    
+
 }
 
 .navbar-list{
@@ -79,7 +79,7 @@
    justify-content: center;
    align-items: center;
 
-   height:75px;
+   height:auto;
    width: 240px;
    background-color: black;
    justify-self: flex-end;
