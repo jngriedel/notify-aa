@@ -58,6 +58,12 @@ const NavBar = () => {
               <i class="fa-solid fa-magnifying-glass fa-lg"></i> Search
           </NavLink>
         </li>
+        <li id='profile-navlink'>
+        <div className='empty'></div>
+          <NavLink style={{color: path.pathname === '/profile' ? 'white' : ''}} className='navbar-links' to='/profile' exact={true} activeClassName='active'>
+          <i class="fa-solid fa-user fa-lg"></i> Profile
+          </NavLink>
+        </li>
         <li>
         <div className='empty'></div>
           <div  className='navbar-links' onClick={()=>setShowUpload(true)}>
@@ -69,6 +75,12 @@ const NavBar = () => {
           <div className='navbar-links' onClick={()=>setShowCreatePlaylist(true)} >
           <i class="fa-solid fa-plus fa-lg"></i> Create Playlist
           </div>
+        </li>
+        <li id='liked-navlink'>
+        <div className='empty'></div>
+          <NavLink style={{color: path.pathname === '/likes' ? 'white' : ''}} className='navbar-links' to='/likes' exact={true} activeClassName='active'>
+          <i class="fa-solid fa-heart fa-lg"></i> Liked Songs
+          </NavLink>
         </li>
       </ul>
         <UploadSong setShowUpload={setShowUpload} showUpload={showUpload} />

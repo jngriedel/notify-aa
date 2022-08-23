@@ -61,7 +61,7 @@ function App() {
           <ProtectedRoute path='/createplaylist' exact={true} >
             <CreatePlaylist />
           </ProtectedRoute>
-          <ProtectedRoute path='/liked' exact={true} >
+          <ProtectedRoute path='/likes' exact={true} >
             <LikedSongs />
           </ProtectedRoute>
           <ProtectedRoute path='/playlists/:playlistId' exact={true} >
