@@ -33,9 +33,9 @@ const NavBar = () => {
   return (
 
     <div className='navbar'>
-
-      <img alt='logo' className='navbar-logo' src={logo}/>
-
+      <NavLink className='logo-link' to='/home'>
+        <img alt='logo' className='navbar-logo' src={logo}/>
+      </NavLink>
       <ul className='navbar-list'>
         <li>
           <div className='empty'></div>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState  } from 'react';
 import {  useDispatch, useSelector } from 'react-redux';
 import { useMusicContext } from '../context/MusicContext';
-import { setPlayer } from '../../store/player';
+
 import SongOptionsModal from '../SongOptionsModal/SongOptionsModal';
 import no_playlist from '../../images/no_playlist.PNG'
 import playbuttonblack from '../../images/playbuttonblack.png'
@@ -16,6 +16,7 @@ function SongPreview({song, i}) {
   const [showPlay, setShowPlay] = useState(false)
   const [showDropDown, setShowDropDown] = useState(false)
   const dispatch = useDispatch()
+  
   const handlePlay = async() => {
     await setClearAudioList(true)
 

@@ -140,3 +140,9 @@
 #liked-navlink{
     border-bottom: rgba(40,40,40,255) 1px solid;
 }
+
+.logo-link{
+    width: fit-content;
+    height: 40px;
+}
+
