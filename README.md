@@ -37,7 +37,7 @@ Users can enter their own information or choose to login as a demo user.
 
 
 ## **Home** ##
-On the home page, users will see thier playlists, and songs sorted by genre. Using the playbutton, they can play a song, or open the dropdown menu to add the song to a playlist or the play queue. 
+On the home page, users will see their playlists, and songs sorted by genre. Using the playbutton, they can play a song, or open the dropdown menu to add the song to a playlist or the play queue. 
 
 ![image](https://user-images.githubusercontent.com/19957902/184250726-91798990-fcbd-44dd-ad2b-e9d9cb2e8d9d.png)
 
